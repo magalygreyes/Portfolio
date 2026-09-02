@@ -83,4 +83,7 @@ THRESHOLDS = {
 }
 
 # Colors (traffic light only, per design rule)
-COLORS = {"Green": "#2E7D32", "Yellow": "#F9A825", "Red": "#C62828", "Grey": "#9E9E9E"}
+COLORS = {"Green": "#2E7D32", "Yellow": "#D97706", "Red": "#C62828", "Grey": "#9E9E9E"}
+ACCENT = "#2563EB"          # blue accent for non-status marks
+INK = "#1E293B"             # navy text
+SURFACE = "#F8FAF8"         # warm white background

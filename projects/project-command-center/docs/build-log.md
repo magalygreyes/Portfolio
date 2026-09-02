@@ -9,7 +9,7 @@ Workflow per phase: explore, plan, code, commit.
 0. Requirements + data model (docs/requirements.md, docs/data-model.md) - DONE 2026-09-02
 1. Seed data generator (make_seed_data.py) + 7 CSVs with ~8% deliberate defects - DONE 2026-09-02
 2. Validation layer (validator.py) + metrics module (metrics.py) + config.py thresholds - DONE 2026-09-02
-3. App shell: sidebar filters, Overview page with KPI tiles and project table
+3. App shell: sidebar filters, Overview page with KPI tiles and project table - DONE 2026-09-02
 4. Budget page + Prioritization page with weight sliders
 5. Capacity page with burnout flags + Project Detail drill-down
 6. Data Quality panel, CSV downloads, README, deploy to Streamlit Community Cloud
@@ -38,3 +38,11 @@ Rows out: projects 47, status_updates 836, budget_lines 280, milestones 179, ris
 `metrics.portfolio_kpis(...)` gives K1 to K9 with lights.
 Seed-data story: 31 active, Green share 41.9% (Red), on-time 48.4% (Red), budget variance -5% (Green), 3 stale, PM-002 at 119% and PM-007 4 weeks over 90% (both burnout flags).
 Run `py -3.12 validator.py` and `py -3.12 metrics.py` from the project folder to see the summaries.
+
+## Phase 3 result
+`py -3.12 -m streamlit run app.py` opens the dashboard at http://localhost:8501.
+app.py: single file, page picked from sidebar radio. Sidebar filters (portfolio, department, PM, health, phase, active only) apply to every page. Priority weight sliders live in a sidebar expander and feed metrics.priority_score live.
+Overview page: 8 KPI tiles with traffic-light left border, health-by-department stacked bar (Plotly, status colors, count labels), "what changed this week" list (prior health -> current health with the update narrative), stale warning, sortable project table with progress bars for priority and % done, CSV download.
+Data Quality page built early (summary table + findings by severity + download).
+Theme: .streamlit/config.toml, blue accent #2563EB, navy text #1E293B, Space Grotesk headings, Inter body. Yellow status is #D97706 (darker amber passes contrast against white; #F9A825 did not).
+Budget, Prioritization, Capacity, Project Detail pages are placeholders until Phases 4 and 5.
