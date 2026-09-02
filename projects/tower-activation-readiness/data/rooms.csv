@@ -1,0 +1,121 @@
+room_id,floor,unit,room_type,square_feet,target_activation_date
+T-301,3,Emergency Department,Patient Room,386,2026-11-16
+T-302,3,Emergency Department,Nurse Station,297,2026-11-16
+T-303,3,Emergency Department,Procedure Room,200,2026-11-09
+T-304,3,Emergency Department,Medication Room,340,2026-11-09
+T-305,3,Emergency Department,Support / Storage,229,2026-11-16
+T-306,3,Emergency Department,Patient Room,349,2026-11-16
+T-307,3,Emergency Department,Medication Room,254,2026-11-16
+T-308,3,Emergency Department,Medication Room,239,2026-11-16
+T-309,3,Emergency Department,Procedure Room,251,2026-11-02
+T-310,3,Emergency Department,Nurse Station,393,2026-11-09
+T-311,3,Emergency Department,Patient Room,274,2026-11-09
+T-312,3,Emergency Department,Patient Room,351,2026-11-09
+T-313,3,Emergency Department,Nurse Station,419,2026-11-16
+T-314,3,Emergency Department,Support / Storage,342,2026-11-16
+T-315,3,Emergency Department,Support / Storage,366,2026-11-16
+T-316,3,Emergency Department,Patient Room,298,2026-11-02
+T-317,3,Emergency Department,Patient Room,416,2026-11-16
+T-318,3,Emergency Department,Nurse Station,263,2026-11-16
+T-319,3,Emergency Department,Patient Room,390,2026-11-16
+T-320,3,Emergency Department,Medication Room,260,2026-11-02
+T-321,3,Emergency Department,Patient Room,196,2026-11-16
+T-322,3,Emergency Department,Support / Storage,404,2026-11-09
+T-401,4,Surgery / OR,Patient Room,347,2026-11-02
+T-402,4,Surgery / OR,Procedure Room,406,2026-11-02
+T-403,4,Surgery / OR,Patient Room,247,2026-11-16
+T-404,4,Surgery / OR,Patient Room,370,2026-11-09
+T-405,4,Surgery / OR,Nurse Station,329,2026-11-02
+T-406,4,Surgery / OR,Support / Storage,282,2026-11-09
+T-407,4,Surgery / OR,Patient Room,215,2026-11-02
+T-408,4,Surgery / OR,Patient Room,373,2026-11-16
+T-409,4,Surgery / OR,Medication Room,208,2026-11-16
+T-410,4,Surgery / OR,Nurse Station,220,2026-11-02
+T-411,4,Surgery / OR,Support / Storage,196,2026-11-02
+T-412,4,Surgery / OR,Procedure Room,332,2026-11-02
+T-413,4,Surgery / OR,Support / Storage,244,2026-11-16
+T-414,4,Surgery / OR,Nurse Station,364,2026-11-16
+T-415,4,Surgery / OR,Nurse Station,406,2026-11-09
+T-416,4,Surgery / OR,Medication Room,344,2026-11-09
+T-501,5,ICU,Patient Room,255,2026-11-02
+T-502,5,ICU,Patient Room,296,2026-11-16
+T-503,5,ICU,Nurse Station,404,2026-11-09
+T-504,5,ICU,Support / Storage,375,2026-11-16
+T-505,5,ICU,Support / Storage,413,2026-11-16
+T-506,5,ICU,Medication Room,340,2026-11-09
+T-507,5,ICU,Medication Room,343,2026-11-16
+T-508,5,ICU,Patient Room,275,2026-11-16
+T-509,5,ICU,Support / Storage,379,2026-11-16
+T-510,5,ICU,Support / Storage,262,2026-11-02
+T-511,5,ICU,Patient Room,208,2026-11-09
+T-512,5,ICU,Medication Room,386,2026-11-09
+T-513,5,ICU,Patient Room,194,2026-11-16
+T-514,5,ICU,Support / Storage,200,2026-11-16
+T-515,5,ICU,Nurse Station,304,2026-11-16
+T-516,5,ICU,Medication Room,316,2026-11-16
+T-517,5,ICU,Patient Room,348,2026-11-02
+T-518,5,ICU,Support / Storage,222,2026-11-09
+T-519,5,ICU,Support / Storage,403,2026-11-02
+T-520,5,ICU,Patient Room,417,2026-11-16
+T-601,6,Med-Surg,Nurse Station,259,2026-11-02
+T-602,6,Med-Surg,Nurse Station,346,2026-11-09
+T-603,6,Med-Surg,Procedure Room,410,2026-11-02
+T-604,6,Med-Surg,Patient Room,243,2026-11-16
+T-605,6,Med-Surg,Patient Room,266,2026-11-16
+T-606,6,Med-Surg,Support / Storage,321,2026-11-16
+T-607,6,Med-Surg,Support / Storage,236,2026-11-16
+T-608,6,Med-Surg,Patient Room,361,2026-11-16
+T-609,6,Med-Surg,Patient Room,197,2026-11-16
+T-610,6,Med-Surg,Medication Room,264,2026-11-16
+T-611,6,Med-Surg,Support / Storage,240,2026-11-09
+T-612,6,Med-Surg,Nurse Station,304,2026-11-16
+T-613,6,Med-Surg,Support / Storage,213,2026-11-02
+T-614,6,Med-Surg,Patient Room,380,2026-11-02
+T-615,6,Med-Surg,Medication Room,284,2026-11-16
+T-616,6,Med-Surg,Patient Room,204,2026-11-02
+T-617,6,Med-Surg,Patient Room,288,2026-11-02
+T-618,6,Med-Surg,Procedure Room,401,2026-11-16
+T-619,6,Med-Surg,Nurse Station,347,2026-11-16
+T-620,6,Med-Surg,Patient Room,283,2026-11-09
+T-621,6,Med-Surg,Medication Room,400,2026-11-16
+T-622,6,Med-Surg,Patient Room,229,2026-11-16
+T-623,6,Med-Surg,Support / Storage,294,2026-11-16
+T-624,6,Med-Surg,Procedure Room,226,2026-11-09
+T-701,7,Labor & Delivery,Procedure Room,243,2026-11-16
+T-702,7,Labor & Delivery,Procedure Room,386,2026-11-16
+T-703,7,Labor & Delivery,Patient Room,346,2026-11-16
+T-704,7,Labor & Delivery,Patient Room,417,2026-11-16
+T-705,7,Labor & Delivery,Patient Room,284,2026-11-02
+T-706,7,Labor & Delivery,Procedure Room,234,2026-11-02
+T-707,7,Labor & Delivery,Patient Room,222,2026-11-02
+T-708,7,Labor & Delivery,Patient Room,279,2026-11-09
+T-709,7,Labor & Delivery,Medication Room,380,2026-11-02
+T-710,7,Labor & Delivery,Patient Room,288,2026-11-02
+T-711,7,Labor & Delivery,Patient Room,228,2026-11-09
+T-712,7,Labor & Delivery,Patient Room,194,2026-11-16
+T-713,7,Labor & Delivery,Nurse Station,260,2026-11-16
+T-714,7,Labor & Delivery,Patient Room,329,2026-11-02
+T-715,7,Labor & Delivery,Support / Storage,415,2026-11-16
+T-716,7,Labor & Delivery,Patient Room,310,2026-11-16
+T-717,7,Labor & Delivery,Medication Room,227,2026-11-16
+T-718,7,Labor & Delivery,Support / Storage,197,2026-11-16
+T-801,8,Oncology,Procedure Room,210,2026-11-16
+T-802,8,Oncology,Support / Storage,332,2026-11-16
+T-803,8,Oncology,Support / Storage,200,2026-11-02
+T-804,8,Oncology,Nurse Station,329,2026-11-09
+T-805,8,Oncology,Patient Room,232,2026-11-09
+T-806,8,Oncology,Patient Room,247,2026-11-02
+T-807,8,Oncology,Patient Room,351,2026-11-09
+T-808,8,Oncology,Procedure Room,260,2026-11-16
+T-809,8,Oncology,Patient Room,297,2026-11-16
+T-810,8,Oncology,Patient Room,317,2026-11-16
+T-811,8,Oncology,Support / Storage,247,2026-11-16
+T-812,8,Oncology,Patient Room,405,2026-11-16
+T-813,8,Oncology,Patient Room,274,2026-11-09
+T-814,8,Oncology,Patient Room,292,2026-11-09
+T-815,8,Oncology,Support / Storage,386,2026-11-16
+T-816,8,Oncology,Nurse Station,389,2026-11-09
+T-817,8,Oncology,Nurse Station,206,2026-11-16
+T-818,8,Oncology,Patient Room,209,2026-11-16
+T-819,8,Oncology,Nurse Station,321,2026-11-16
+T-820,8,Oncology,Patient Room,252,2026-11-16

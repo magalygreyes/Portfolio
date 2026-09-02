@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Build Spec — Magaly Gonzalez Reyes Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1E293B; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
+    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1E293B; z-index: 9999; }
+    #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
+    #__bundler_placeholder { color: #999; font-size: 14px; }
+  </style>
+  <noscript>
+    <style>#__bundler_loading { display: none; }</style>
+    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
+      This page requires JavaScript to display.
+    </div>
+  </noscript>
+</head>
+<body>
+  <div id="__bundler_thumbnail">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#1E293B"></rect><rect x="380" y="250" width="440" height="300" rx="24" fill="#F8FAFC"></rect><rect x="430" y="310" width="240" height="26" rx="6" fill="#1E293B"></rect><rect x="430" y="360" width="340" height="14" rx="5" fill="#CBD5E1"></rect><rect x="430" y="390" width="300" height="14" rx="5" fill="#CBD5E1"></rect><rect x="430" y="450" width="150" height="42" rx="8" fill="#2563EB"></rect></svg>
+</div>
+  <div id="__bundler_loading">Unpacking...</div>
+
+  <script>
+    
+document.addEventListener('DOMContentLoaded', async function() {
+  const loading = document.getElementById('__bundler_loading');
+  function setStatus(msg) { if (loading) loading.textContent = msg; }
+
+  const FONT_MIME = /^(font[/]|application[/](x-)?font-|application[/]vnd\.ms-fontobject)/i;
+  const MIME_TOKEN = /^[\w.+-]+[/][\w.+-]+$/;
+  function toBase64(bytes) {
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return btoa(bin);
+  }
+
+  // Error sink persists across replaceWith since it's on window, not the DOM.
+  window.addEventListener('error', function(e) {
+    // Failed resource loads (CSP-blocked links, scripts, images) fire plain
+    // events at the element — warn only; real JS errors carry message/error.
+    if (!e.message && !e.error && e.target && e.target !== window) {
+      console.warn('[bundle] resource failed to load:',
+        e.target.tagName, String(e.target.src || e.target.href || ''));
+      return;
+    }
+    var p = document.body || document.documentElement;
+    var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
+    d.id = '__bundler_err';
+    d.style.cssText = 'position:fixed;bottom:12px;left:12px;right:12px;font:12px/1.4 ui-monospace,monospace;background:#2a1215;color:#ff8a80;padding:10px 14px;border-radius:8px;border:1px solid #5c2b2e;z-index:99999;white-space:pre-wrap;max-height:40vh;overflow:auto';
+    d.textContent = (d.textContent ? d.textContent + String.fromCharCode(10) : '') +
+      '[bundle] ' + (e.message || e.type) +
+      (e.filename ? ' (' + e.filename.slice(0, 60) + ':' + e.lineno + ')' : '');
+  }, true);
+
+  try {
+    const manifestEl = document.querySelector('script[type="__bundler/manifest"]');
+    const templateEl = document.querySelector('script[type="__bundler/template"]');
+    if (!manifestEl || !templateEl) {
+      setStatus('Error: missing bundle data');
+      console.error('[bundler] Missing script tags — manifestEl:', !!manifestEl, 'templateEl:', !!templateEl);
+      return;
+    }
+
+    const manifest = JSON.parse(manifestEl.textContent);
+    let template = JSON.parse(templateEl.textContent);
+
+    // Nested page bundles (iframe targets). Each ships ONCE, in the ROOT
+    // document's manifest; frame srcs carry an about:blank#<uuid> marker
+    // instead of a substitutable uuid. Every document mints the blobs for
+    // its OWN frames — from local text at the root, or text obtained from
+    // its DIRECT parent over the relay protocol below — so each frame
+    // navigation stays same-origin with its initiator and a deduped page
+    // loads at any depth on any host, including a file:// download's
+    // opaque origins (where a blob minted by one document cannot be
+    // navigated to by another).
+    const pageOrderEl = document.querySelector('script[type="__bundler/page_order"]');
+    const pageOrder = pageOrderEl ? JSON.parse(pageOrderEl.textContent) : [];
+    const pageSet = new Set(pageOrder);
+    const pageTexts = {};
+
+    // ── Nested-page text protocol (parent-chain relay) ──
+    // Page bundles ship once, in the ROOT document's manifest. Every
+    // document mints the blobs for its OWN frames, obtaining page text
+    // through a strict parent-chain relay: a document only ever SENDS to
+    // its direct parent (which, for every document the publisher's own
+    // runtime minted, is another publisher document) and only ACCEPTS
+    // text from that direct parent; requests from below are honored only
+    // for the document's own child frames, and the ROOT never sends
+    // upward at all. That last rule is load-bearing: the artifact host's
+    // frame-ancestors allows claude.ai (and friends) to frame an
+    // artifact, so window.top can be a FOREIGN document — a top-addressed
+    // protocol would hand page uuids to that ancestor and accept forged
+    // "page text" from it, minting attacker HTML as an artifact-origin
+    // blob document. The chain never touches the ancestor: requests stop
+    // at the root, replies are origin-addressed per hop (never '*' when
+    // an origin exists), and both directions are origin-gated (on https
+    // a foreign sender's origin can never equal this document's; in
+    // opaque contexts — file:// — everything serializes as 'null', where
+    // an embedded EXTERNAL frame still fails the gate by carrying its
+    // own real origin, and a sandboxed child of such a frame is excluded
+    // by the own-child-frames check plus uuid unguessability). Shape is
+    // deny-by-default: one request form, one reply form, no error
+    // replies.
+    // window.origin is the SERIALIZED SECURITY origin ('null' in opaque
+    // contexts such as a sandboxed preview iframe) — location.origin is
+    // computed from the URL and stays 'https://…' even when the document
+    // is sandboxed, which would misgate every opaque chain.
+    const OWN_TARGET = /^https?:[/][/]/.test(window.origin || '')
+      ? window.origin
+      : '*';
+    function trustedOrigin(e) {
+      if (e.origin === window.origin) return true; // https chains; opaque==opaque
+      // file:// trees: Chrome serializes the file document's origin as
+      // 'file://' while the blob: documents it mints serialize as 'null',
+      // so the two legitimate shapes can never string-match — accept the
+      // pair in both directions. https origins never serialize as either,
+      // and sender identity (own child frame / direct parent) is checked
+      // separately.
+      return (
+        (e.origin === 'null' &&
+          (window.origin === 'file://' ||
+            window.location.protocol === 'file:')) ||
+        (/^file:/.test(e.origin) && window.origin === 'null')
+      );
+    }
+    // Non-empty only in the root document (nested bundles ship an empty
+    // island), so it doubles as the root marker: the root answers from
+    // local text and treats a miss as authoritative — never relaying to
+    // its (possibly foreign) parent.
+    const isPageRoot = pageOrder.length > 0;
+    const blobUrls = {};
+    const resourceBlobs = {};
+    const UUID_SHAPE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+    const pendingFrames = {}; // uuid -> [{el, frag}] awaiting text for own frames
+    const pendingRelays = {}; // uuid -> [childWindow] awaiting text to pass down
+    function mountPage(el, frag, text) {
+      const pageBlob = new Blob([text], { type: 'text/html' });
+      const u = URL.createObjectURL(pageBlob);
+      resourceBlobs[u] = pageBlob;
+      el.src = u + frag;
+    }
+    function deliverPage(uuid, text) {
+      const frames = pendingFrames[uuid];
+      delete pendingFrames[uuid];
+      if (frames) for (const f of frames) mountPage(f.el, f.frag, text);
+      const relays = pendingRelays[uuid];
+      delete pendingRelays[uuid];
+      if (relays) {
+        for (const cw of relays) {
+          try { cw.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+        }
+      }
+    }
+    function ownFrameWindows() {
+      const out = [];
+      for (const f of Array.from(document.querySelectorAll('iframe'))) {
+        try { if (f.contentWindow) out.push(f.contentWindow); } catch (err) { /* detached */ }
+      }
+      return out;
+    }
+    window.addEventListener('message', function (e) {
+      const d = e.data;
+      if (!d || typeof d !== 'object' || !e.source) return;
+      // Origin gate first; the structural checks below (own-child-frames
+      // for requests, direct-parent + solicited-uuid for replies, the
+      // root's never-relay rule) are what hold in fully opaque chains
+      // where origin strings can't discriminate — a sandboxed root's
+      // FOREIGN wrapper still fails all three even though both serialize
+      // as real-vs-'null' rather than matching.
+      if (!trustedOrigin(e)) return;
+      if (typeof d.__bundler_need === 'string' && UUID_SHAPE.test(d.__bundler_need)) {
+        // Requests are honored only for this document's own child frames.
+        if (ownFrameWindows().indexOf(e.source) < 0) return;
+        const uuid = d.__bundler_need;
+        const text = pageTexts[uuid];
+        if (typeof text === 'string') {
+          try { e.source.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+          return;
+        }
+        if (isPageRoot || window.parent === window) return; // authoritative miss
+        const waiting = pendingRelays[uuid];
+        if (waiting) {
+          if (waiting.indexOf(e.source) < 0) waiting.push(e.source);
+          return;
+        }
+        // Never-answered uuids would otherwise accumulate forever under a
+        // request spray; past the cap (far above any real page count) new
+        // relays are dropped rather than remembered.
+        if (Object.keys(pendingRelays).length >= 128) return;
+        pendingRelays[uuid] = [e.source];
+        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
+      } else if (
+        typeof d.__bundler_page === 'string' &&
+        UUID_SHAPE.test(d.__bundler_page) &&
+        typeof d.__bundler_text === 'string'
+      ) {
+        // The shape test is load-bearing beyond tidiness: the solicited
+        // check below uses the in operator, which matches prototype keys
+        // ('__proto__', 'constructor') — an unshaped key would reach
+        // deliverPage and throw, painting the error banner.
+        // Text is accepted only from the direct parent — the document
+        // that minted this one.
+        if (e.source !== window.parent || window.parent === window) return;
+        if (!(d.__bundler_page in pendingFrames) && !(d.__bundler_page in pendingRelays)) return;
+        deliverPage(d.__bundler_page, d.__bundler_text);
+      }
+    });
+
+    const uuids = Object.keys(manifest);
+    setStatus('Unpacking ' + uuids.length + ' assets...');
+
+    await Promise.all(uuids.map(async (uuid) => {
+      const entry = manifest[uuid];
+      try {
+        const binaryStr = atob(entry.data);
+        const bytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+
+        let finalBytes = bytes;
+        if (entry.compressed) {
+          if (typeof DecompressionStream !== 'undefined') {
+            const ds = new DecompressionStream('gzip');
+            const writer = ds.writable.getWriter();
+            const reader = ds.readable.getReader();
+            writer.write(bytes);
+            writer.close();
+            const chunks = [];
+            let totalLen = 0;
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              chunks.push(value);
+              totalLen += value.length;
+            }
+            finalBytes = new Uint8Array(totalLen);
+            let offset = 0;
+            for (const chunk of chunks) { finalBytes.set(chunk, offset); offset += chunk.length; }
+          } else {
+            console.warn('DecompressionStream not available, asset ' + uuid + ' may not render');
+          }
+        }
+
+        if (pageSet.has(uuid)) {
+          pageTexts[uuid] = new TextDecoder().decode(finalBytes);
+          return;
+        }
+        if (FONT_MIME.test(entry.mime) && MIME_TOKEN.test(entry.mime)) {
+          // Strict artifact hosts allow font-src data: but not blob:.
+          blobUrls[uuid] = 'data:' + entry.mime + ';base64,' +
+            (entry.compressed ? toBase64(finalBytes) : entry.data);
+        } else {
+          const blob = new Blob([finalBytes], { type: entry.mime });
+          blobUrls[uuid] = URL.createObjectURL(blob);
+          resourceBlobs[blobUrls[uuid]] = blob;
+        }
+      } catch (err) {
+        console.error('Failed to decode asset ' + uuid + ':', err);
+        const blob = new Blob([], { type: entry.mime });
+        blobUrls[uuid] = URL.createObjectURL(blob);
+        resourceBlobs[blobUrls[uuid]] = blob;
+      }
+    }));
+
+    const extResEl = document.querySelector('script[type="__bundler/ext_resources"]');
+    const extResources = extResEl ? JSON.parse(extResEl.textContent) : [];
+    const resourceMap = {};
+    for (const entry of extResources) {
+      if (blobUrls[entry.uuid]) resourceMap[entry.id] = blobUrls[entry.uuid];
+    }
+
+    // Artifact-host CSP (connect-src 'self') refuses fetch() of blob: URLs —
+    // consumers read these Blobs directly. Survives the swap like the error sink.
+    window.__resourceBlobs = resourceBlobs;
+
+    setStatus('Rendering...');
+    // Page uuids have no blob here — they ride inside about:blank#<uuid>
+    // frame markers the pass below resolves after the swap.
+    for (const uuid of uuids) {
+      if (pageSet.has(uuid)) continue;
+      template = template.split(uuid).join(blobUrls[uuid]);
+    }
+
+    // Strip integrity + crossorigin — blob URLs from a file:// document inherit
+    // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
+    // The manifest bytes are ours; SRI protects against CDN compromise, not this.
+    template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
+
+    const resourceScript = '<script>window.__resources = ' +
+      JSON.stringify(resourceMap).replace(/<\//g, '<\\/') +
+      ';</' + 'script>';
+    // Inject after <head> so the DOCTYPE stays first; prepending the script
+    // would push the parser into quirks mode. DOMParser always emits a <head>
+    // (synthesizing one if the source HTML omitted it) but may carry
+    // attributes through, so match the full opening tag. slice() rather than
+    // replace() keeps us clear of $-pattern substitution in resourceScript.
+    const headOpen = template.match(/<head[^>]*>/i);
+    if (headOpen) {
+      const i = headOpen.index + headOpen[0].length;
+      template = template.slice(0, i) + resourceScript + template.slice(i);
+    }
+
+    // Parse the template and swap the root element. Scripts inserted via
+    // DOMParser/replaceWith are inert per spec — re-create each with
+    // createElement so they execute, awaiting onload for src scripts to
+    // preserve ordering (React before ReactDOM before Babel before text/babel).
+    const doc = new DOMParser().parseFromString(template, 'text/html');
+    document.documentElement.replaceWith(doc.documentElement);
+
+    // Resolve page-frame markers: mint this document's own blob for each
+    // framed page — from local text when this is the root, otherwise by
+    // asking the direct parent over the relay protocol above. An
+    // unanswered request leaves the frame on about:blank, the same
+    // degraded state as a refused embed.
+    {
+      const MARKER = /^about:blank#([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(#.*)?$/;
+      const needed = [];
+      for (const el of Array.from(document.querySelectorAll('iframe'))) {
+        const m = MARKER.exec(el.getAttribute('src') || '');
+        if (!m) continue;
+        const text = pageTexts[m[1]];
+        if (typeof text === 'string') {
+          mountPage(el, m[2] || '', text);
+        } else if (window.parent !== window && !isPageRoot) {
+          const had = pendingFrames[m[1]];
+          (pendingFrames[m[1]] = had || []).push({ el: el, frag: m[2] || '' });
+          if (!had) needed.push(m[1]);
+        }
+      }
+      for (const uuid of needed) {
+        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
+      }
+    }
+
+    const dead = Array.from(document.scripts);
+    for (const old of dead) {
+      const s = document.createElement('script');
+      for (const a of old.attributes) s.setAttribute(a.name, a.value);
+      s.textContent = old.textContent;
+      // text/babel scripts with a src: read and inline. transformScriptTags
+      // does XHR against the src, but blob:null/ from a file:// origin is
+      // silently dropped. Inlining makes it a plain inline babel script,
+      // which transformScriptTags handles unconditionally.
+      if ((s.type === 'text/babel' || s.type === 'text/jsx') && s.src) {
+        const pre = resourceBlobs[s.src.split('#')[0]];
+        s.textContent = pre ? await pre.text() : await (await fetch(s.src)).text();
+        s.removeAttribute('src');
+      }
+      const p = s.src ? new Promise(function(r) { s.onload = s.onerror = r; }) : null;
+      old.replaceWith(s);
+      if (p) await p;
+    }
+    // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
+    // which fired before we swapped the document. Trigger manually if present.
+    if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
+      window.Babel.transformScriptTags();
+    }
+  } catch (err) {
+    setStatus('Error unpacking: ' + err.message);
+    console.error('Bundle unpack error:', err);
+  }
+});
+
+  </script>
+
+  <script type="__bundler/manifest">
+{}
+  </script>
+
+  <script type="__bundler/ext_resources">
+[]
+  </script>
+
+  <script type="__bundler/page_order">
+[]
+  </script>
+
+  <script type="__bundler/template">
+"<!DOCTYPE html>\n<html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Build Spec — Magaly Gonzalez Reyes Portfolio<\u002Ftitle>\n\n<style>\n  :root{--ink:#1E293B;--bg:#F8FAFC;--border:#E2E8F0;--accent:#2563EB;--muted:#64748B;--body:#334155;}\n  *{box-sizing:border-box}\n  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif;}\n  main{max-width:900px;margin:0 auto;padding:64px 32px 120px;}\n  h1{font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 24px;}\n  h2{font-size:26px;letter-spacing:-0.02em;margin:56px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--border);}\n  h3{font-size:18px;letter-spacing:-0.01em;margin:32px 0 10px;}\n  h4{font-size:15px;margin:22px 0 8px;color:var(--body);}\n  p{color:var(--body);margin:0 0 14px;text-wrap:pretty;}\n  ul,ol{color:var(--body);margin:0 0 16px;padding-left:22px;}\n  li{margin-bottom:7px;}\n  .sub{display:inline-block;margin-top:5px;color:var(--muted);font-size:14.5px;}\n  strong{color:var(--ink);}\n  hr{border:0;border-top:1px solid var(--border);margin:44px 0;}\n  code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#EEF2F7;color:#1E3A8A;padding:2px 6px;border-radius:4px;}\n  table{width:100%;border-collapse:collapse;margin:0 0 22px;font-size:14.5px;}\n  th,td{text-align:left;padding:10px 12px;border:1px solid var(--border);vertical-align:top;color:var(--body);}\n  th{background:#EEF2F7;color:var(--ink);font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}\n  td code{font-size:12.5px;}\n  a{color:var(--accent);}\n<\u002Fstyle><\u002Fhead>\n<body><main>\n<h1>Build Spec — Magaly Gonzalez Reyes, Portfolio Site<\u002Fh1>\n<p>Hand this to a coding agent as-is. It contains everything needed to build the site: tokens, layout, content, and behavior. No design decisions are left open.<\u002Fp>\n<p><strong>Goal:<\u002Fstrong> single-page responsive portfolio for a Business Analyst, targeting enterprise/corporate recruiters (legal, healthcare, financial services) plus freelance automation clients. Static site — no backend required.<\u002Fp>\n<hr>\n<h2>1. Stack<\u002Fh2>\n<ul><li>Static HTML + CSS, or Next.js / Astro / Vite if the agent prefers a framework. No CMS.<\u002Fli><li>No JS framework required. Total interactive JS is ~30 lines (see §7).<\u002Fli><li>Deploy target: Netlify (drag-and-drop or Git). Single route: <code>/<\u002Fcode>.<\u002Fli><li>Fonts via Google Fonts: <strong>Archivo<\u002Fstrong> (400, 500, 600, 700) and <strong>IBM Plex Sans<\u002Fstrong> (400, 500) and <strong>IBM Plex Mono<\u002Fstrong> (400, 500).<\u002Fli><\u002Ful>\n<hr>\n<h2>2. Design tokens<\u002Fh2>\n<h3>Color<\u002Fh3>\n<table><thead><tr><th>Token<\u002Fth><th>Hex<\u002Fth><th>Use<\u002Fth><\u002Ftr><\u002Fthead><tbody><tr><td><code>--ink<\u002Fcode><\u002Ftd><td><code>#1E293B<\u002Fcode><\u002Ftd><td>Body text, dark section backgrounds, primary buttons<\u002Ftd><\u002Ftr><tr><td><code>--ink-strong<\u002Fcode><\u002Ftd><td><code>#0F172A<\u002Fcode><\u002Ftd><td>Primary button hover<\u002Ftd><\u002Ftr><tr><td><code>--bg<\u002Fcode><\u002Ftd><td><code>#F8FAFC<\u002Fcode><\u002Ftd><td>Page background, text on dark<\u002Ftd><\u002Ftr><tr><td><code>--surface<\u002Fcode><\u002Ftd><td><code>#FFFFFF<\u002Fcode><\u002Ftd><td>Cards<\u002Ftd><\u002Ftr><tr><td><code>--surface-alt<\u002Fcode><\u002Ftd><td><code>#EEF2F7<\u002Fcode><\u002Ftd><td>Image placeholder fill<\u002Ftd><\u002Ftr><tr><td><code>--border<\u002Fcode><\u002Ftd><td><code>#E2E8F0<\u002Fcode><\u002Ftd><td>All 1px borders and grid dividers<\u002Ftd><\u002Ftr><tr><td><code>--border-strong<\u002Fcode><\u002Ftd><td><code>#CBD5E1<\u002Fcode><\u002Ftd><td>Secondary button border<\u002Ftd><\u002Ftr><tr><td><code>--accent<\u002Fcode><\u002Ftd><td><code>#2563EB<\u002Fcode><\u002Ftd><td>Cobalt: links, eyebrow labels, active nav, contact block, résumé CTA<\u002Ftd><\u002Ftr><tr><td><code>--accent-hover<\u002Fcode><\u002Ftd><td><code>#1D4ED8<\u002Fcode><\u002Ftd><td><\u002Ftd><\u002Ftr><tr><td><code>--accent-light<\u002Fcode><\u002Ftd><td><code>#60A5FA<\u002Fcode><\u002Ftd><td>Accents on dark backgrounds<\u002Ftd><\u002Ftr><tr><td><code>--accent-pale<\u002Fcode><\u002Ftd><td><code>#BFDBFE<\u002Fcode> / <code>#DBEAFE<\u002Fcode><\u002Ftd><td>Eyebrow + body text inside the cobalt contact block<\u002Ftd><\u002Ftr><tr><td><code>--muted<\u002Fcode><\u002Ftd><td><code>#64748B<\u002Fcode><\u002Ftd><td>Meta text, mono labels<\u002Ftd><\u002Ftr><tr><td><code>--body<\u002Fcode><\u002Ftd><td><code>#475569<\u002Fcode><\u002Ftd><td>Paragraph text<\u002Ftd><\u002Ftr><tr><td><code>--body-strong<\u002Fcode><\u002Ftd><td><code>#334155<\u002Fcode><\u002Ftd><td>Lead paragraphs<\u002Ftd><\u002Ftr><tr><td><code>--success<\u002Fcode><\u002Ftd><td><code>#059669<\u002Fcode><\u002Ftd><td>\"Open to work\" dot<\u002Ftd><\u002Ftr><tr><td><code>--success-bg<\u002Fcode><\u002Ftd><td><code>#ECFDF5<\u002Fcode><\u002Ftd><td>\"Open to work\" pill background<\u002Ftd><\u002Ftr><tr><td><code>--success-border<\u002Fcode><\u002Ftd><td><code>#A7F3D0<\u002Fcode><\u002Ftd><td><\u002Ftd><\u002Ftr><tr><td><code>--success-text<\u002Fcode><\u002Ftd><td><code>#047857<\u002Fcode><\u002Ftd><td><\u002Ftd><\u002Ftr><tr><td><code>--metric<\u002Fcode><\u002Ftd><td><code>#6EE7B7<\u002Fcode><\u002Ftd><td>Outcome numbers inside dark case-study panels<\u002Ftd><\u002Ftr><\u002Ftbody><\u002Ftable>\n<p>Color rationale (keep it): slate + ice reads as enterprise-credible; cobalt is the single action color; green appears <strong>only<\u002Fstrong> on availability and outcome metrics so a recruiter's eye lands on results. Do not add a fourth hue.<\u002Fp>\n<h3>Type<\u002Fh3>\n<table><thead><tr><th>Role<\u002Fth><th>Font<\u002Fth><th>Size<\u002Fth><th>Weight<\u002Fth><th>Tracking<\u002Fth><th>Line height<\u002Fth><\u002Ftr><\u002Fthead><tbody><tr><td>H1<\u002Ftd><td>Archivo<\u002Ftd><td><code>clamp(40px, 5vw, 72px)<\u002Fcode><\u002Ftd><td>700<\u002Ftd><td><code>-0.035em<\u002Fcode><\u002Ftd><td>1.02<\u002Ftd><\u002Ftr><tr><td>H2 (section)<\u002Ftd><td>Archivo<\u002Ftd><td><code>clamp(32px, 3.6vw, 50px)<\u002Fcode><\u002Ftd><td>700<\u002Ftd><td><code>-0.03em<\u002Fcode><\u002Ftd><td>1.05<\u002Ftd><\u002Ftr><tr><td>H2 (contact)<\u002Ftd><td>Archivo<\u002Ftd><td><code>clamp(34px, 5vw, 68px)<\u002Fcode><\u002Ftd><td>700<\u002Ftd><td><code>-0.035em<\u002Fcode><\u002Ftd><td>1.0<\u002Ftd><\u002Ftr><tr><td>H3 (card/job title)<\u002Ftd><td>Archivo<\u002Ftd><td>21–25px<\u002Ftd><td>600<\u002Ftd><td><code>-0.02em<\u002Fcode><\u002Ftd><td>—<\u002Ftd><\u002Ftr><tr><td>Case-study header<\u002Ftd><td>Archivo<\u002Ftd><td><code>clamp(20px, 2.2vw, 28px)<\u002Fcode><\u002Ftd><td>600<\u002Ftd><td><code>-0.02em<\u002Fcode><\u002Ftd><td>—<\u002Ftd><\u002Ftr><tr><td>Lead paragraph<\u002Ftd><td>IBM Plex Sans<\u002Ftd><td>19px<\u002Ftd><td>400<\u002Ftd><td>—<\u002Ftd><td>1.65<\u002Ftd><\u002Ftr><tr><td>Body<\u002Ftd><td>IBM Plex Sans<\u002Ftd><td>15–16.5px<\u002Ftd><td>400<\u002Ftd><td>—<\u002Ftd><td>1.6–1.7<\u002Ftd><\u002Ftr><tr><td>Card body<\u002Ftd><td>IBM Plex Sans<\u002Ftd><td>14.5px<\u002Ftd><td>400<\u002Ftd><td>—<\u002Ftd><td>1.6<\u002Ftd><\u002Ftr><tr><td>Metric number<\u002Ftd><td>Archivo<\u002Ftd><td>28–30px<\u002Ftd><td>700<\u002Ftd><td><code>-0.03em<\u002Fcode><\u002Ftd><td>—<\u002Ftd><\u002Ftr><tr><td>Eyebrow / label / nav / button<\u002Ftd><td>IBM Plex Mono<\u002Ftd><td>10.5–12.5px<\u002Ftd><td>400<\u002Ftd><td><code>0.05em–0.12em<\u002Fcode>, uppercase<\u002Ftd><td>—<\u002Ftd><\u002Ftr><\u002Ftbody><\u002Ftable>\n<p>Paragraphs use <code>text-wrap: pretty<\u002Fcode>. Max measure: <code>52ch<\u002Fcode> (lead), <code>58–62ch<\u002Fcode> (body).<\u002Fp>\n<h3>Spacing &amp; shape<\u002Fh3>\n<ul><li>Page max width <code>1400px<\u002Fcode>, horizontal padding <code>40px<\u002Fcode> (desktop), <code>20px<\u002Fcode> (mobile).<\u002Fli><li>Section vertical rhythm: <code>96px<\u002Fcode> top/bottom; hero <code>88px 40px 72px<\u002Fcode>.<\u002Fli><li>Radii: <code>6px<\u002Fcode> buttons/labels, <code>8px<\u002Fcode> metric tiles &amp; stat cells, <code>10px<\u002Fcode> cards &amp; case-study containers, <code>14px<\u002Fcode> contact block.<\u002Fli><li>Borders always <code>1px solid var(--border)<\u002Fcode>. No drop shadows except card hover.<\u002Fli><li>Card hover: <code>border-color: var(--accent)<\u002Fcode>, <code>box-shadow: 0 10px 28px rgba(30,41,59,0.1)<\u002Fcode>, <code>transform: translateY(-3px)<\u002Fcode>, <code>transition: .2s ease<\u002Fcode>.<\u002Fli><li>Striped image placeholders: <code>background-color: var(--surface-alt)<\u002Fcode> + <code>background-image: repeating-linear-gradient(135deg, rgba(37,99,235,0.1) 0 9px, transparent 9px 18px)<\u002Fcode>, with a mono caption chip bottom-left.<\u002Fli><\u002Ful>\n<hr>\n<h2>3. Page structure<\u002Fh2>\n<p>Order top to bottom. Section ids are the nav anchor targets.<\u002Fp>\n<ol><li><strong>Sticky header<\u002Fstrong><\u002Fli><li><code>#home<\u002Fcode> — hero<\u002Fli><li>Dark credential ticker strip<\u002Fli><li><code>#about<\u002Fcode><\u002Fli><li><code>#projects<\u002Fcode><\u002Fli><li><code>#case-studies<\u002Fcode> (dark band)<\u002Fli><li><code>#work<\u002Fcode> — experience + certifications + education<\u002Fli><li><code>#contact<\u002Fcode> + footer<\u002Fli><\u002Fol>\n<h3>Sticky header<\u002Fh3>\n<p><code>position: sticky; top: 0; z-index: 50<\u002Fcode>, background <code>rgba(248,250,252,0.9)<\u002Fcode> + <code>backdrop-filter: blur(12px)<\u002Fcode>, bottom border <code>--border<\u002Fcode>, padding <code>14px 40px<\u002Fcode>, three-part flex row:<\u002Fp>\n<ul><li>Left: \"Magaly Gonzalez Reyes\" (Archivo 700, 18px) + \"BUSINESS ANALYST\" (mono 11px, <code>--muted<\u002Fcode>), baseline-aligned, links to <code>#home<\u002Fcode>.<\u002Fli><li>Center: nav links — Home, About, Projects, Case studies, Experience, Contact. Mono 11.5px uppercase, <code>8px 13px<\u002Fcode> padding, <code>6px<\u002Fcode> radius. Active link: white text on <code>--accent<\u002Fcode>. Inactive: <code>--body<\u002Fcode>, transparent.<\u002Fli><li>Right: <strong>Download résumé<\u002Fstrong> button — cobalt fill, white mono text, <code>11px 18px<\u002Fcode>, <code>6px<\u002Fcode> radius, hover <code>--accent-hover<\u002Fcode>.<\u002Fli><\u002Ful>\n<h3><code>#home<\u002Fcode> — hero<\u002Fh3>\n<p>Two-column grid <code>1.4fr 1fr<\u002Fcode>, gap <code>56px<\u002Fcode>, <code>align-items: start<\u002Fcode>.<\u002Fp>\n<p>Left column (stacked, gap <code>28px<\u002Fcode>): 1. Availability pill: green dot + \"OPEN TO FULL-TIME, CONTRACT &amp; FREELANCE\", green-tinted background/border, <code>6px<\u002Fcode> radius, self-start. 2. H1 (see §4 for copy), max <code>20ch<\u002Fcode>, period at the end colored <code>--accent<\u002Fcode>. 3. Lead paragraph, max <code>58ch<\u002Fcode>. 4. Button row: \"SEE CASE STUDIES\" (slate fill) + \"GET IN TOUCH\" (outline, hover border/text cobalt). 5. Stat strip — 4 equal cells in a <code>1px<\u002Fcode> gap grid with <code>--border<\u002Fcode> as the gap color, <code>8px<\u002Fcode> radius, overflow hidden. Cells: <code>10+<\u002Fcode> / Years in BA work · <code>$80K<\u002Fcode> (cobalt) / Annual savings delivered · <code>70%<\u002Fcode> / Faster reporting turnaround · <code>CSM<\u002Fcode> / Certified ScrumMaster.<\u002Fp>\n<p>Right column (gap <code>14px<\u002Fcode>): 1. Headshot slot, <code>aspect-ratio: 4/5<\u002Fcode>, <code>10px<\u002Fcode> radius, striped placeholder until the real photo is dropped in. 2. \"At a glance\" card — white, <code>--border<\u002Fcode>, <code>8px<\u002Fcode> radius, <code>20px<\u002Fcode> padding. Mono eyebrow, then label/value rows (<code>justify-content: space-between<\u002Fcode>, 14.5px): Based in → Rodeo, CA · remote; Industries → Legal, healthcare, IT; Delivery → Agile &amp; Waterfall; Languages → English, Spanish; then a divided row: Links → LinkedIn · GitHub.<\u002Fp>\n<h3>Ticker strip<\u002Fh3>\n<p>Full-bleed <code>--ink<\u002Fcode> band, <code>14px 40px<\u002Fcode>, mono 12px uppercase <code>0.1em<\u002Fcode>, color <code>#E2E8F0<\u002Fcode>. Items separated by <code>◆<\u002Fcode> diamonds in <code>--accent-light<\u002Fcode>. <strong>Must wrap<\u002Fstrong> (<code>flex-wrap: wrap; gap: 12px 30px<\u002Fcode>) — never <code>overflow: hidden<\u002Fcode> with <code>nowrap<\u002Fcode>, or content gets clipped on narrow screens. Items: Orrick, Herrington &amp; Sutcliffe ◆ Kaiser Permanente ◆ Requirements &amp; process mapping ◆ Power Platform automation.<\u002Fp>\n<h3><code>#about<\u002Fcode><\u002Fh3>\n<p>Two-column grid <code>0.75fr 1.25fr<\u002Fcode>, gap <code>56px<\u002Fcode>. Left: mono eyebrow <code>01 / ABOUT<\u002Fcode> in cobalt + H2 \"How I work\". Right: two paragraphs, then a 3-cell capability grid (same <code>1px<\u002Fcode>-gap technique, white cells, <code>22px<\u002Fcode> padding): Business analysis / Data &amp; reporting / Systems &amp; tools.<\u002Fp>\n<h3><code>#projects<\u002Fcode><\u002Fh3>\n<p>Header row: left eyebrow <code>02 / PROJECTS<\u002Fcode> + H2 \"Selected work\"; right, baseline-aligned, mono \"2018 — 2026\". Below: 2×2 card grid, <code>20px<\u002Fcode> gap. Each card is an <code>&lt;a href=\"#case-studies\"&gt;<\u002Fcode> containing: 16:10 striped image slot with caption chip → mono meta line (<code>Company · Role<\u002Fcode>) → H3 title → one-line outcome sentence.<\u002Fp>\n<h3><code>#case-studies<\u002Fcode><\u002Fh3>\n<p>Full-bleed <code>--ink<\u002Fcode> background, <code>--bg<\u002Fcode> text, <code>96px 40px<\u002Fcode>. Eyebrow <code>03 / CASE STUDIES<\u002Fcode> in <code>--accent-light<\u002Fcode>, H2 \"The work in detail\" (max <code>22ch<\u002Fcode>). Two accordion items, <code>12px<\u002Fcode> apart. Each: container with <code>1px solid rgba(226,232,240,0.18)<\u002Fcode>, <code>10px<\u002Fcode> radius, <code>background: rgba(248,250,252,0.03)<\u002Fcode>.<\u002Fp>\n<ul><li><strong>Header<\u002Fstrong> = full-width <code>&lt;button&gt;<\u002Fcode>, <code>26px 28px<\u002Fcode>, transparent, <code>cursor: pointer<\u002Fcode>, hover <code>rgba(248,250,252,0.05)<\u002Fcode>. Left: mono letter (<code>A<\u002Fcode>/<code>B<\u002Fcode>) in <code>--accent-light<\u002Fcode> + title. Right: mono <code>READ<\u002Fcode> / <code>CLOSE<\u002Fcode> in <code>--accent-light<\u002Fcode>.<\u002Fli><li><strong>Panel<\u002Fstrong> = two-column grid <code>1fr 1fr<\u002Fcode>, gap <code>40px<\u002Fcode>, padding <code>0 28px 30px<\u002Fcode>. Left: Context / My role / Approach blocks (mono uppercase label in <code>#94A3B8<\u002Fcode>, then 15.5px body in <code>#E2E8F0<\u002Fcode>) followed by two metric tiles (<code>flex: 1; min-width: 150px<\u002Fcode>, <code>rgba(248,250,252,0.06)<\u002Fcode> fill, <code>8px<\u002Fcode> radius, Archivo 28px number in <code>--metric<\u002Fcode> + mono caption). Right: a 4:3 and a 16:9 striped image slot.<\u002Fli><li>Item A open by default; item B closed.<\u002Fli><\u002Ful>\n<h3><code>#work<\u002Fcode><\u002Fh3>\n<p>Two-column grid <code>0.75fr 1.25fr<\u002Fcode>, gap <code>56px<\u002Fcode>. Left: eyebrow <code>04 / EXPERIENCE<\u002Fcode>, H2 \"Where I've worked\", cobalt <strong>Download full résumé<\u002Fstrong> button, then a divided block listing Certifications and Education (mono uppercase labels, 14.5px items). Right: five timeline rows. Each row is a <code>120px 1fr<\u002Fcode> grid, <code>24px<\u002Fcode> gap, <code>26px<\u002Fcode> vertical padding, <code>border-top: 1px solid var(--border)<\u002Fcode> (last row also <code>border-bottom<\u002Fcode>). Left cell: mono date range in <code>--muted<\u002Fcode>. Right cell: H3 <code>Title · Company<\u002Fcode>, mono location line, then a 15px description capped at <code>62ch<\u002Fcode>.<\u002Fp>\n<h3><code>#contact<\u002Fcode> + footer<\u002Fh3>\n<p>Cobalt block, <code>14px<\u002Fcode> radius, padding <code>clamp(36px,5vw,72px)<\u002Fcode>, <code>--bg<\u002Fcode> text, stacked gap <code>30px<\u002Fcode>:<\u002Fp>\n<ul><li>Eyebrow <code>05 / CONTACT<\u002Fcode> in <code>--accent-pale<\u002Fcode>.<\u002Fli><li>H2 \"Let's talk about the role.\" (max <code>18ch<\u002Fcode>).<\u002Fli><li>Paragraph in <code>#DBEAFE<\u002Fcode>, max <code>52ch<\u002Fcode>.<\u002Fli><li>Button row (wraps): email (white fill, <code>#1E3A8A<\u002Fcode> text) · phone (outline) · DOWNLOAD RÉSUMÉ (outline) · LINKEDIN (outline) · GITHUB (outline). Outline = <code>1px solid rgba(248,250,252,0.5)<\u002Fcode>, hover fill <code>rgba(248,250,252,0.12)<\u002Fcode>.<\u002Fli><\u002Ful>\n<p>Footer below the block: mono 11px <code>--muted<\u002Fcode>, space-between — \"© 2026 Magaly Gonzalez Reyes\" / \"Rodeo, CA · Available remote\".<\u002Fp>\n<hr>\n<h2>4. Content — use verbatim<\u002Fh2>\n<h3>Hero<\u002Fh3>\n<ul><li>H1: <strong>I turn messy business processes into systems leadership can act on.<\u002Fstrong><\u002Fli><li>Lead: Business Analyst with 10+ years eliciting requirements, mapping current- and future-state processes, and translating business needs into technical specifications across healthcare, legal, and enterprise IT. I build the dashboards and automated reporting leadership relies on, and I have delivered $30,000 to $80,000 in annual savings through workflow standardization and automation.<\u002Fli><\u002Ful>\n<h3>About — \"How I work\"<\u002Fh3>\n<ul><li>P1: I start where the friction is. Workshops and stakeholder interviews first, then current- and future-state process maps, gap analysis, and requirements documented clearly enough that engineering, business, and leadership all work from the same source of truth through build, UAT, and adoption.<\u002Fli><li>P2: The part I care most about is what happens after launch. Standardized documentation, governance that holds, dashboards leadership actually opens, and training that gets people using the thing. Increasingly that also means building the automation myself — Power Platform, SharePoint, and AI agents that take recurring reporting off people's plates.<\u002Fli><li>Capability cells:<br><span class=\"sub\"><strong>Business analysis<\u002Fstrong> — Requirements elicitation, BRDs, user stories and acceptance criteria, traceability, UAT planning<\u002Fspan><br><span class=\"sub\"><strong>Data &amp; reporting<\u002Fstrong> — Dashboard design, KPI and milestone tracking, executive summaries, SQL, advanced Excel<\u002Fspan><br><span class=\"sub\"><strong>Systems &amp; tools<\u002Fstrong> — Microsoft 365, SharePoint, Power Automate, Power Apps, Jira, Azure DevOps, ServiceNow, Visio<\u002Fspan><\u002Fli><\u002Ful>\n<h3>Projects (4 cards)<\u002Fh3>\n<ol><li><code>Orrick · IT Business Analyst II<\u002Fcode> — <strong>Internal AI agent for workflow documentation<\u002Fstrong> — Automated recurring reporting and workflow docs, cutting turnaround roughly 70% — from 6–8 hours to about 2.<\u002Fli><li><code>Kaiser Permanente · Business Analyst<\u002Fcode> — <strong>Standardizing manual operational workflows<\u002Fstrong> — Approval logic, status notifications, and task routing automated across departments: $30K–$80K saved annually.<\u002Fli><li><code>Kaiser Permanente · Senior Operations Specialist<\u002Fcode> — <strong>Appointment fulfillment across five facilities<\u002Fstrong> — Demand and utilization analysis surfaced the process gaps behind a 78% increase in appointment fulfillment.<\u002Fli><li><code>Independent · End-to-end<\u002Fcode> — <strong>Multi-agent automation for a small ops team<\u002Fstrong> — Replaced manual data entry, scheduling, and reporting handoffs: 50+ manual hours per week down to under 20.<\u002Fli><\u002Fol>\n<h3>Case study A — Cutting documentation turnaround 70% with an internal AI agent<\u002Fh3>\n<ul><li><strong>Context:<\u002Fstrong> Orrick, Herrington &amp; Sutcliffe · IT Business Analyst II · workflow documentation and recurring status reporting consumed 6 to 8 hours per cycle, pulled from people who should have been solving problems instead.<\u002Fli><li><strong>My role:<\u002Fstrong> Requirements, solution design, build, and rollout. I documented the current-state process, defined what \"good enough to ship\" meant for each deliverable, then designed and deployed the agent myself.<\u002Fli><li><strong>Approach:<\u002Fstrong> Mapped the repeatable structure hiding inside each document type, established the governance standards the output had to meet, wired the agent into the existing SharePoint and Power Platform stack, and trained business users on the review step that stayed human.<\u002Fli><li><strong>Metrics:<\u002Fstrong> <code>~70%<\u002Fcode> Faster turnaround · <code>8 → 2 hrs<\u002Fcode> Per reporting cycle<\u002Fli><li><strong>Images:<\u002Fstrong> before/after — manual doc vs. agent output (4:3); process map or Power Automate flow (16:9)<\u002Fli><\u002Ful>\n<h3>Case study B — $30K–$80K in annual savings from workflow standardization<\u002Fh3>\n<ul><li><strong>Context:<\u002Fstrong> Kaiser Permanente · Business Analyst · operational workflows ran on manual approvals, ad-hoc email notifications, and task routing that depended on who happened to be watching.<\u002Fli><li><strong>My role:<\u002Fstrong> Current- and future-state mapping, gap analysis, and requirements across clinical, operational, and IT stakeholders with competing priorities — then the build in Microsoft Forms, Teams, and SharePoint.<\u002Fli><li><strong>Approach:<\u002Fstrong> Documented inefficiencies, risks, and dependencies to build the case for one standardized solution rather than department-by-department fixes. Automated approval logic, status notifications, and task routing, then shipped self-service dashboards so teams stopped requesting reports.<\u002Fli><li><strong>Metrics:<\u002Fstrong> <code>$30–80K<\u002Fcode> Saved annually · <code>−50%<\u002Fcode> Operational errors<\u002Fli><li><strong>Images:<\u002Fstrong> future-state process map (4:3); self-service dashboard screenshot (16:9)<\u002Fli><\u002Ful>\n<h3>Experience timeline<\u002Fh3>\n<table><thead><tr><th>Dates<\u002Fth><th>Title · Company<\u002Fth><th>Location<\u002Fth><th>Description<\u002Fth><\u002Ftr><\u002Fthead><tbody><tr><td>2022 — 2026<\u002Ftd><td>IT Business Analyst II · Orrick, Herrington &amp; Sutcliffe LLP<\u002Ftd><td>San Francisco, CA — remote<\u002Ftd><td>Translated business requirements into technical specifications and user stories for globally distributed teams, ran requirements workshops, coordinated launch through UAT, and built Power Platform and SharePoint dashboards giving leadership real-time visibility.<\u002Ftd><\u002Ftr><tr><td>2020 — 2022<\u002Ftd><td>Business Analyst · Kaiser Permanente<\u002Ftd><td>Oakland, CA<\u002Ftd><td>Mapped current- and future-state processes, performed gap analysis, and automated manual operational workflows for $30K–$80K in annual savings across departments.<\u002Ftd><\u002Ftr><tr><td>2018 — 2020<\u002Ftd><td>Senior Operations Specialist · Kaiser Permanente<\u002Ftd><td>Oakland, CA<\u002Ftd><td>Analyzed demand and utilization across five East Bay facilities, driving a 78% increase in appointment fulfillment and a 50% reduction in operational errors. Designed a SharePoint schedule-change portal saving $30,000+ annually.<\u002Ftd><\u002Ftr><tr><td>2016 — 2018<\u002Ftd><td>Operations Coordinator · Kaiser Permanente<\u002Ftd><td>Oakland, CA<\u002Ftd><td>Standardized departmental processes, delivered cross-functional training, and facilitated feedback loops between frontline staff and executive teams.<\u002Ftd><\u002Ftr><tr><td>2014 — 2016<\u002Ftd><td>Earlier roles · Kaiser Permanente<\u002Ftd><td>—<\u002Ftd><td>Access Operations Coordinator, Senior Staff Assistant, Member Outreach Coordinator and Spanish Interpreter.<\u002Ftd><\u002Ftr><\u002Ftbody><\u002Ftable>\n<h3>Certifications<\u002Fh3>\n<ul><li>Certified ScrumMaster (CSM), Scrum Alliance<\u002Fli><li>Claude Certified Architect (CCA) Foundations, Anthropic<\u002Fli><li>Agile Product Owner · Agile Testing · Agile Foundations<\u002Fli><\u002Ful>\n<h3>Education<\u002Fh3>\n<ul><li>AS, Computer &amp; Information Sciences — Diablo Valley College<\u002Fli><li>BA, Business Administration &amp; Management — Kendall College<\u002Fli><li>BBA, Hospitality &amp; Business Administration — Les Roches, Switzerland<\u002Fli><\u002Ful>\n<h3>Contact<\u002Fh3>\n<ul><li>H2: <strong>Let's talk about the role.<\u002Fstrong><\u002Fli><li>Paragraph: Open to Business Analyst and Senior BA roles, contract engagements, and freelance automation work. I answer everything within a day.<\u002Fli><li>Email: <code>magaly.g.reyes@gmail.com<\u002Fcode> (<code>mailto:<\u002Fcode>)<\u002Fli><li>Phone: <code>201.597.1489<\u002Fcode> (<code>tel:2015971489<\u002Fcode>)<\u002Fli><li>LinkedIn: <strong>TO FILL IN<\u002Fstrong> — résumé currently reads <code>linkedin.com/in/YOUR-HANDLE<\u002Fcode><\u002Fli><li>GitHub: <strong>TO FILL IN<\u002Fstrong><\u002Fli><li>Résumé: link to a PDF at <code>/resume/Magaly-Gonzalez-Reyes-Business-Analyst.pdf<\u002Fcode> with the <code>download<\u002Fcode> attribute. Source file today is <code>.docx<\u002Fcode> — convert to PDF; recruiters open PDFs.<\u002Fli><\u002Ful>\n<hr>\n<h2>5. Assets still needed<\u002Fh2>\n<table><thead><tr><th>Slot<\u002Fth><th>Ratio<\u002Fth><th>What goes there<\u002Fth><\u002Ftr><\u002Fthead><tbody><tr><td>Hero headshot<\u002Ftd><td>4:5<\u002Ftd><td>Professional photo<\u002Ftd><\u002Ftr><tr><td>Project card × 4<\u002Ftd><td>16:10<\u002Ftd><td>Dashboard, flow diagram, utilization report, agent architecture map<\u002Ftd><\u002Ftr><tr><td>Case study A<\u002Ftd><td>4:3 + 16:9<\u002Ftd><td>Before/after doc comparison; Power Automate flow<\u002Ftd><\u002Ftr><tr><td>Case study B<\u002Ftd><td>4:3 + 16:9<\u002Ftd><td>Future-state process map; self-service dashboard<\u002Ftd><\u002Ftr><tr><td>Résumé<\u002Ftd><td>—<\u002Ftd><td>PDF export<\u002Ftd><\u002Ftr><\u002Ftbody><\u002Ftable>\n<p>Until real images exist, keep the striped placeholders with their mono captions — do not substitute stock photography or generated illustration. <strong>Scrub client-identifying data from any screenshot<\u002Fstrong> (names, matter numbers, patient data) before publishing.<\u002Fp>\n<hr>\n<h2>6. Responsive rules<\u002Fh2>\n<ul><li><strong>≥1100px:<\u002Fstrong> as specified above.<\u002Fli><li><strong>760–1099px:<\u002Fstrong> all two-column grids collapse to one column; hero image/at-a-glance moves below the text; project grid → 1 column; case-study panels → 1 column (metrics stay side by side); stat strip → 2×2.<\u002Fli><li><strong>&lt;760px:<\u002Fstrong> horizontal padding <code>20px<\u002Fcode>; H1 clamps to <code>40px<\u002Fcode>; center nav becomes a horizontally scrollable mono row (or a hamburger — designer's call, but the résumé button must stay visible in the header at all sizes); timeline rows stack date above title; contact buttons stack full-width.<\u002Fli><li>Minimum tap target <code>44px<\u002Fcode> on all buttons and nav items at mobile sizes.<\u002Fli><\u002Ful>\n<h2>7. Behavior<\u002Fh2>\n<ol><li><strong>Scroll-spy nav.<\u002Fstrong> <code>IntersectionObserver<\u002Fcode> over the six section ids with <code>rootMargin: \"-45% 0px -50% 0px\"<\u002Fcode>; the intersecting section's nav link gets the cobalt active style. Nothing else changes on scroll — no scroll animations, no parallax.<\u002Fli><li><strong>Smooth anchor scrolling.<\u002Fstrong> <code>html { scroll-behavior: smooth }<\u002Fcode>. Header is sticky, so add <code>scroll-margin-top: 80px<\u002Fcode> to each section so headings aren't hidden under it.<\u002Fli><li><strong>Case-study accordion.<\u002Fstrong> Independent open/closed state per item (both can be open). Toggling swaps the panel between <code>display: grid<\u002Fcode> and <code>display: none<\u002Fcode> and flips the header label <code>READ<\u002Fcode> ⇄ <code>CLOSE<\u002Fcode>. A opens by default. Use a real <code>&lt;button&gt;<\u002Fcode> with <code>aria-expanded<\u002Fcode> and <code>aria-controls<\u002Fcode>; the panel gets an <code>id<\u002Fcode> and <code>role=\"region\"<\u002Fcode>.<\u002Fli><li><strong>Project cards<\u002Fstrong> link to <code>#case-studies<\u002Fcode>. If per-project detail pages get built later, repoint them.<\u002Fli><li><strong>No animation<\u002Fstrong> beyond the card hover transform and button color transitions.<\u002Fli><\u002Fol>\n<h2>8. Accessibility &amp; SEO<\u002Fh2>\n<ul><li>Contrast: verify <code>--muted<\u002Fcode> <code>#64748B<\u002Fcode> on <code>#F8FAFC<\u002Fcode> (passes AA for the 11px+ mono use) and white on <code>--accent<\u002Fcode>. Do not lighten either.<\u002Fli><li>Every image slot needs real <code>alt<\u002Fcode> text describing the artifact, not \"screenshot\".<\u002Fli><li>Visible focus ring on all links and buttons: <code>2px solid var(--accent)<\u002Fcode>, <code>2px<\u002Fcode> offset (use <code>#F8FAFC<\u002Fcode> on the dark and cobalt sections).<\u002Fli><li>One <code>&lt;h1&gt;<\u002Fcode>; sections use <code>&lt;h2&gt;<\u002Fcode>; card and job titles <code>&lt;h3&gt;<\u002Fcode>. Wrap each in <code>&lt;section aria-labelledby&gt;<\u002Fcode>.<\u002Fli><li><code>&lt;title&gt;<\u002Fcode>: Magaly Gonzalez Reyes — Business Analyst | Requirements, Process Mapping &amp; Automation<\u002Fli><li>Meta description: Business Analyst with 10+ years in healthcare, legal, and enterprise IT. Requirements, process mapping, dashboards, and workflow automation delivering $30K–$80K in annual savings.<\u002Fli><li>Add Open Graph tags + a 1200×630 share image, <code>Person<\u002Fcode> JSON-LD, and a favicon from the initials <code>MG<\u002Fcode> in cobalt on ice.<\u002Fli><li><code>prefers-reduced-motion<\u002Fcode>: disable the hover transform.<\u002Fli><\u002Ful>\n<\u002Fmain><\u002Fbody><\u002Fhtml>"
+  </script>
+</body>
+</html>

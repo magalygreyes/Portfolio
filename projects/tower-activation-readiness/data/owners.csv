@@ -1,0 +1,19 @@
+owner_id,owner_name,department,email
+OWN-001,Ana Lopez,Facilities,ana.lopez@example-health.org
+OWN-002,Grace Okafor,Facilities,grace.okafor@example-health.org
+OWN-003,Elena Lopez,Biomedical Engineering,elena.lopez@example-health.org
+OWN-004,Jordan Haddad,Biomedical Engineering,jordan.haddad@example-health.org
+OWN-005,Victor Alvarez,IT / Low-Voltage,victor.alvarez@example-health.org
+OWN-006,Ana Chen,IT / Low-Voltage,ana.chen@example-health.org
+OWN-007,Diego Romero,Nursing,diego.romero@example-health.org
+OWN-008,Ana Romero,Nursing,ana.romero@example-health.org
+OWN-009,Victor Okafor,Environmental Services,victor.okafor@example-health.org
+OWN-010,Ruth Fischer,Environmental Services,ruth.fischer@example-health.org
+OWN-011,Ana Novak,Pharmacy,ana.novak@example-health.org
+OWN-012,Samir Lopez,Pharmacy,samir.lopez@example-health.org
+OWN-013,Victor Brooks,Pharmacy,victor.brooks@example-health.org
+OWN-014,Elena Okafor,Security,elena.okafor@example-health.org
+OWN-015,Leah Chen,Security,leah.chen@example-health.org
+OWN-016,Priya Silva,Security,priya.silva@example-health.org
+OWN-017,Omar Ibrahim,Supply Chain,omar.ibrahim@example-health.org
+OWN-018,Omar Fischer,Supply Chain,omar.fischer@example-health.org
