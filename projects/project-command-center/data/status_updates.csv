@@ -1,0 +1,903 @@
+update_id,project_id,update_date,health,pct_complete,summary
+SU-0001,PRJ-002,2026-03-13,Green,12,Go-live checklist 80% complete.
+SU-0002,PRJ-002,2026-03-20,Green,17,Go-live checklist 80% complete.
+SU-0003,PRJ-002,2026-03-27,Green,22,Go-live checklist 80% complete.
+SU-0004,PRJ-002,2026-04-03,Green,26,"Resource conflict with quarter close, two tasks slipped."
+SU-0005,PRJ-002,2026-04-10,Green,28,Vendor contract delayed; testing start moved.
+SU-0006,PRJ-002,2026-04-17,Green,31,Vendor contract delayed; testing start moved.
+SU-0007,PRJ-002,2026-04-24,Green,33,Sponsor approved scope change.
+SU-0008,PRJ-002,2026-05-01,Green,37,"Resource conflict with quarter close, two tasks slipped."
+SU-0009,PRJ-002,2026-05-08,Green,42,"Resource conflict with quarter close, two tasks slipped."
+SU-0010,PRJ-002,2026-05-15,Green,44,"Resource conflict with quarter close, two tasks slipped."
+SU-0011,PRJ-002,2026-05-22,Green,46,"Resource conflict with quarter close, two tasks slipped."
+SU-0012,PRJ-002,2026-05-29,Red,48,"Resource conflict with quarter close, two tasks slipped."
+SU-0013,PRJ-002,2026-06-05,Green,53,"Resource conflict with quarter close, two tasks slipped."
+SU-0014,PRJ-002,2026-06-12,Green,55,Budget re-forecast submitted to finance.
+SU-0015,PRJ-002,2026-06-19, green,60,"Resource conflict with quarter close, two tasks slipped."
+SU-0016,PRJ-002,2026-06-26,Green,64,Go-live checklist 80% complete.
+SU-0017,PRJ-002,2026-07-03,Green,65,"Resource conflict with quarter close, two tasks slipped."
+SU-0018,PRJ-002,2026-07-10,Green,69,Vendor contract delayed; testing start moved.
+SU-0019,PRJ-002,2026-07-17,Green,73,Budget re-forecast submitted to finance.
+SU-0020,PRJ-002,08/28/2026,Red,74,"UAT defects higher than expected, triage in progress."
+SU-0021,PRJ-002,2026-07-31,Red,79,"Resource conflict with quarter close, two tasks slipped."
+SU-0022,PRJ-002,2026-08-07,Green,80,"Integration issue found, fix in progress."
+SU-0023,PRJ-002,2026-08-14,Green,85,Sponsor approved scope change.
+SU-0024,PRJ-002,2026-08-21,Green,89,Budget re-forecast submitted to finance.
+SU-0025,PRJ-002,2026-08-28,Green,92,"Integration issue found, fix in progress."
+SU-0026,PRJ-002,2026-09-04,Green,97,On track. No blockers this week.
+SU-0027,PRJ-004,2026-03-13,Green,20,Sponsor approved scope change.
+SU-0028,PRJ-004,2026-03-20,Green,23,Vendor contract delayed; testing start moved.
+SU-0029,PRJ-004,2026-03-27,Green,25,Vendor contract delayed; testing start moved.
+SU-0030,PRJ-004,2026-04-03,Green,29,Budget re-forecast submitted to finance.
+SU-0031,PRJ-004,2026-04-10,Green,33,"Resource conflict with quarter close, two tasks slipped."
+SU-0032,PRJ-004,2026-04-17,Yellow,36,Budget re-forecast submitted to finance.
+SU-0033,PRJ-004,2026-04-24,Green,39,Sponsor approved scope change.
+SU-0034,PRJ-004,2026-05-01,Green,44,Sponsor approved scope change.
+SU-0035,PRJ-004,2026-05-08,Green,47,"UAT defects higher than expected, triage in progress."
+SU-0036,PRJ-004,2026-05-15,Green,50,"Resource conflict with quarter close, two tasks slipped."
+SU-0037,PRJ-004,2026-05-22,Green,54,"Resource conflict with quarter close, two tasks slipped."
+SU-0038,PRJ-004,2026-05-29, green,57,Budget re-forecast submitted to finance.
+SU-0039,PRJ-004,2026-06-05,Green,62,On track. No blockers this week.
+SU-0040,PRJ-004,2026-06-12,Green,65,"Resource conflict with quarter close, two tasks slipped."
+SU-0041,PRJ-004,2026-06-19,Green,70,On track. No blockers this week.
+SU-0042,PRJ-004,2026-06-26,Green,73,On track. No blockers this week.
+SU-0043,PRJ-004,2026-07-03,Green,75,Budget re-forecast submitted to finance.
+SU-0044,PRJ-004,2026-07-10,Green,79,"Resource conflict with quarter close, two tasks slipped."
+SU-0045,PRJ-004,2026-07-17,Green,84,"Integration issue found, fix in progress."
+SU-0046,PRJ-004,2026-07-24,Green,88,Vendor contract delayed; testing start moved.
+SU-0047,PRJ-777,2026-07-31,Green,92,Go-live checklist 80% complete.
+SU-0048,PRJ-004,2026-08-07,Green,93,"UAT defects higher than expected, triage in progress."
+SU-0049,PRJ-004,2026-08-14,Green,97,"Resource conflict with quarter close, two tasks slipped."
+SU-0050,PRJ-004,2026-08-21,Green,100,On track. No blockers this week.
+SU-0051,PRJ-004,2026-08-28,Green,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0052,PRJ-004,2026-09-04,Amber,100,On track. No blockers this week.
+SU-0053,PRJ-005,2026-03-13,Green,18,Sponsor approved scope change.
+SU-0054,PRJ-005,2026-03-20,Green,23,Budget re-forecast submitted to finance.
+SU-0055,PRJ-005,2026-03-27,Green,24,Sponsor approved scope change.
+SU-0056,PRJ-005,2026-04-03,Green,26,"Resource conflict with quarter close, two tasks slipped."
+SU-0057,PRJ-005,2026-04-10,Green,30,Vendor contract delayed; testing start moved.
+SU-0058,PRJ-005,2026-04-17,Red,35,Sponsor approved scope change.
+SU-0059,PRJ-005,2026-04-24,Red,38,On track. No blockers this week.
+SU-0060,PRJ-005,2026-05-01,Red,39,Sponsor approved scope change.
+SU-0061,PRJ-005,2026-05-08,Red,40,Budget re-forecast submitted to finance.
+SU-0062,PRJ-005,2026-05-15,Red,42,Budget re-forecast submitted to finance.
+SU-0063,PRJ-005,2026-05-22,Red,45,"Resource conflict with quarter close, two tasks slipped."
+SU-0064,PRJ-005,2026-05-29,Red,49,Budget re-forecast submitted to finance.
+SU-0065,PRJ-005,08/28/2026,Red,54,"UAT defects higher than expected, triage in progress."
+SU-0066,PRJ-005,2026-06-12,Red,140,"UAT defects higher than expected, triage in progress."
+SU-0067,PRJ-005,2026-06-19,Red,62,"Integration issue found, fix in progress."
+SU-0068,PRJ-005,2026-06-26,Red,67,"Resource conflict with quarter close, two tasks slipped."
+SU-0069,PRJ-005,2026-07-03,Red,70,"Resource conflict with quarter close, two tasks slipped."
+SU-0070,PRJ-005,2026-07-10,Red,75,Budget re-forecast submitted to finance.
+SU-0071,PRJ-005,2026-07-17,Red,79,Budget re-forecast submitted to finance.
+SU-0072,PRJ-005,2026-07-24,Red,84,"Integration issue found, fix in progress."
+SU-0073,PRJ-005,2026-07-31,Red,87,Sponsor approved scope change.
+SU-0074,PRJ-005,TBD,Red,89,"Integration issue found, fix in progress."
+SU-0075,PRJ-005,2026-08-14,Red,93,On track. No blockers this week.
+SU-0076,PRJ-005,2026-08-21,Red,97,"Integration issue found, fix in progress."
+SU-0077,PRJ-005,2026-08-28,Red,99,Budget re-forecast submitted to finance.
+SU-0078,PRJ-005,2026-09-04,Red,100,Go-live checklist 80% complete.
+SU-0079,PRJ-006,2026-03-13,Green,100,Vendor contract delayed; testing start moved.
+SU-0080,PRJ-006,2026-03-20,Green,100,On track. No blockers this week.
+SU-0081,PRJ-006,2026-03-27,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0082,PRJ-006,2026-04-03,Yellow,100,"Integration issue found, fix in progress."
+SU-0083,PRJ-006,2026-04-10,Yellow,100,"Integration issue found, fix in progress."
+SU-0084,PRJ-006,2026-04-17,Yellow,100,On track. No blockers this week.
+SU-0085,PRJ-006,2026-04-24,Yellow,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0086,PRJ-006,2026-05-01,Yellow,100,"Integration issue found, fix in progress."
+SU-0087,PRJ-006,2026-05-08,Yellow,100,Budget re-forecast submitted to finance.
+SU-0088,PRJ-006,2026-05-15,Yellow,100,On track. No blockers this week.
+SU-0089,PRJ-006,2026-05-22,Green,100,Go-live checklist 80% complete.
+SU-0090,PRJ-006,2026-05-29,Green,100,Sponsor approved scope change.
+SU-0091,PRJ-007,2026-03-13,Green,18,"UAT defects higher than expected, triage in progress."
+SU-0092,PRJ-007,2026-03-20,Green,23,"Integration issue found, fix in progress."
+SU-0093,PRJ-007,2026-03-27,Green,25,Budget re-forecast submitted to finance.
+SU-0094,PRJ-007,2026-04-03,Green,27,Sponsor approved scope change.
+SU-0095,PRJ-007,2026-04-10,Green,30,Budget re-forecast submitted to finance.
+SU-0096,PRJ-007,2026-04-17,Green,31,Budget re-forecast submitted to finance.
+SU-0097,PRJ-007,2026-04-24,Green,36,"UAT defects higher than expected, triage in progress."
+SU-0098,PRJ-007,2026-05-01,Yellow,41,"Resource conflict with quarter close, two tasks slipped."
+SU-0099,PRJ-007,2026-05-08,Yellow,45,"Resource conflict with quarter close, two tasks slipped."
+SU-0100,PRJ-007,2026-05-15,Amber,48,Sponsor approved scope change.
+SU-0101,PRJ-007,2026-05-22,Yellow,52,Vendor contract delayed; testing start moved.
+SU-0102,PRJ-007,2026-05-29,Yellow,57,Go-live checklist 80% complete.
+SU-0103,PRJ-007,2026-06-05,Yellow,60,On track. No blockers this week.
+SU-0104,PRJ-007,2026-06-12,Yellow,64,"Resource conflict with quarter close, two tasks slipped."
+SU-0105,PRJ-007,2026-06-19,Red,65,Budget re-forecast submitted to finance.
+SU-0106,PRJ-007,2026-06-26,Red,68,Sponsor approved scope change.
+SU-0107,PRJ-007,2026-07-03,Red,71,Sponsor approved scope change.
+SU-0108,PRJ-007,2026-07-10,Red,76,"Resource conflict with quarter close, two tasks slipped."
+SU-0109,PRJ-007,2026-07-17, green,78,Vendor contract delayed; testing start moved.
+SU-0110,PRJ-007,2026-07-24,Red,79,"Resource conflict with quarter close, two tasks slipped."
+SU-0111,PRJ-007,2026-07-31,Red,80,Go-live checklist 80% complete.
+SU-0112,PRJ-007,2026-08-07,Red,81,"Resource conflict with quarter close, two tasks slipped."
+SU-0113,PRJ-007,2026-08-14,Red,85,"UAT defects higher than expected, triage in progress."
+SU-0114,PRJ-007,2026-08-21,Red,90,Go-live checklist 80% complete.
+SU-0115,PRJ-007,2026-08-28,Red,93,"UAT defects higher than expected, triage in progress."
+SU-0116,PRJ-007,2026-09-04,Red,97,"Resource conflict with quarter close, two tasks slipped."
+SU-0117,PRJ-008,08/28/2026,Green,14,Vendor contract delayed; testing start moved.
+SU-0118,PRJ-008,2026-03-20,Green,16,"Integration issue found, fix in progress."
+SU-0119,PRJ-008,2026-03-27,Green,21,Go-live checklist 80% complete.
+SU-0120,PRJ-008,2026-04-03,Yellow,22,"Resource conflict with quarter close, two tasks slipped."
+SU-0121,PRJ-008,2026-04-10,Yellow,26,Go-live checklist 80% complete.
+SU-0122,PRJ-008,2026-04-17,Yellow,29,"Integration issue found, fix in progress."
+SU-0123,PRJ-008,2026-04-24,Yellow,32,Vendor contract delayed; testing start moved.
+SU-0124,PRJ-008,2026-05-01,Amber,36,On track. No blockers this week.
+SU-0125,PRJ-008,2026-05-08,Yellow,41,Go-live checklist 80% complete.
+SU-0126,PRJ-008,2026-05-15,Yellow,43,Vendor contract delayed; testing start moved.
+SU-0127,PRJ-008,2026-05-22,Yellow,47,"Resource conflict with quarter close, two tasks slipped."
+SU-0128,PRJ-008,2026-05-29,Yellow,48,"UAT defects higher than expected, triage in progress."
+SU-0129,PRJ-008,2026-06-05,Green,51,Budget re-forecast submitted to finance.
+SU-0130,PRJ-008,2026-06-12,Green,56,"UAT defects higher than expected, triage in progress."
+SU-0131,PRJ-008,2026-06-19,Green,59,"Integration issue found, fix in progress."
+SU-0132,PRJ-008,2026-06-26,Green,61,"Integration issue found, fix in progress."
+SU-0133,PRJ-008,2026-07-03,Green,65,"Integration issue found, fix in progress."
+SU-0134,PRJ-008,2026-07-10,Amber,68,On track. No blockers this week.
+SU-0135,PRJ-008,2026-07-17,Green,70,Budget re-forecast submitted to finance.
+SU-0136,PRJ-008,2026-07-24,Green,72,Go-live checklist 80% complete.
+SU-0137,PRJ-008,2026-07-31,Red,75,Go-live checklist 80% complete.
+SU-0138,PRJ-008,2026-08-07,Yellow,77,Vendor contract delayed; testing start moved.
+SU-0139,PRJ-008,2026-08-14,Yellow,81,Vendor contract delayed; testing start moved.
+SU-0140,PRJ-008,2026-08-21,Yellow,86,On track. No blockers this week.
+SU-0141,PRJ-008,08/28/2026,Yellow,88,"UAT defects higher than expected, triage in progress."
+SU-0142,PRJ-008,2026-09-04,Yellow,90,Vendor contract delayed; testing start moved.
+SU-0143,PRJ-009,2026-03-13,Green,19,Sponsor approved scope change.
+SU-0144,PRJ-009,2026-03-20,Green,21,On track. No blockers this week.
+SU-0145,PRJ-777,2026-03-27,Green,23,"UAT defects higher than expected, triage in progress."
+SU-0146,PRJ-009,2026-04-03,Green,25,Vendor contract delayed; testing start moved.
+SU-0147,PRJ-009,2026-04-10,Green,26,"UAT defects higher than expected, triage in progress."
+SU-0148,PRJ-009,2026-04-17,Green,31,Go-live checklist 80% complete.
+SU-0149,PRJ-009,2026-04-24,Yellow,32,"UAT defects higher than expected, triage in progress."
+SU-0150,PRJ-009,2026-05-01,Yellow,37,Vendor contract delayed; testing start moved.
+SU-0151,PRJ-009,2026-05-08,Yellow,41,Budget re-forecast submitted to finance.
+SU-0152,PRJ-009,2026-05-15,Yellow,46,Vendor contract delayed; testing start moved.
+SU-0153,PRJ-777,2026-05-22,Yellow,48,On track. No blockers this week.
+SU-0154,PRJ-009,2026-05-29,Yellow,53,"Resource conflict with quarter close, two tasks slipped."
+SU-0155,PRJ-009,2026-06-05,Yellow,54,On track. No blockers this week.
+SU-0156,PRJ-009,2026-06-12,Yellow,58,"Integration issue found, fix in progress."
+SU-0157,PRJ-009,2026-06-19,Yellow,62,Budget re-forecast submitted to finance.
+SU-0158,PRJ-009,2026-06-26,Green,65,"UAT defects higher than expected, triage in progress."
+SU-0159,PRJ-009,2026-07-03,Yellow,70,Go-live checklist 80% complete.
+SU-0160,PRJ-009,2026-07-10,Yellow,75,"Resource conflict with quarter close, two tasks slipped."
+SU-0161,PRJ-009,2026-07-17,Yellow,80,"Integration issue found, fix in progress."
+SU-0162,PRJ-009,2026-07-24,Red,81,Sponsor approved scope change.
+SU-0163,PRJ-009,2026-07-31,Red,83,"Integration issue found, fix in progress."
+SU-0164,PRJ-009,2026-08-07,Red,87,"Integration issue found, fix in progress."
+SU-0165,PRJ-009,2026-08-14,Red,88,Go-live checklist 80% complete.
+SU-0166,PRJ-009,2026-08-21,Red,91,Go-live checklist 80% complete.
+SU-0167,PRJ-009,2026-08-28,Red,95,Vendor contract delayed; testing start moved.
+SU-0168,PRJ-009,2026-09-04,Green,96,"Integration issue found, fix in progress."
+SU-0169,PRJ-010,2026-03-13,Green,6,"UAT defects higher than expected, triage in progress."
+SU-0170,PRJ-010,2026-03-20,Green,11,Go-live checklist 80% complete.
+SU-0171,PRJ-010,2026-03-27,Green,15,Go-live checklist 80% complete.
+SU-0172,PRJ-010,2026-04-03,Green,19,On track. No blockers this week.
+SU-0173,PRJ-010,2026-04-10,Green,24,"Resource conflict with quarter close, two tasks slipped."
+SU-0174,PRJ-010,2026-04-17,Green,29,Sponsor approved scope change.
+SU-0175,PRJ-010,2026-04-24, green,33,Sponsor approved scope change.
+SU-0176,PRJ-010,2026-05-01,Green,36,Go-live checklist 80% complete.
+SU-0177,PRJ-010,TBD,Yellow,41,Sponsor approved scope change.
+SU-0178,PRJ-010,TBD,Yellow,46,On track. No blockers this week.
+SU-0179,PRJ-010,2026-05-22,Yellow,49,On track. No blockers this week.
+SU-0180,PRJ-010,2026-05-29,Yellow,52,Go-live checklist 80% complete.
+SU-0181,PRJ-010,2026-06-05,Yellow,54,"UAT defects higher than expected, triage in progress."
+SU-0182,PRJ-010,2026-06-12,Yellow,58,Vendor contract delayed; testing start moved.
+SU-0183,PRJ-010,2026-06-19,Yellow,59,Vendor contract delayed; testing start moved.
+SU-0184,PRJ-010,2026-06-26,Yellow,61,"Integration issue found, fix in progress."
+SU-0185,PRJ-010,2026-07-03,Yellow,64,"UAT defects higher than expected, triage in progress."
+SU-0186,PRJ-010,2026-07-10,Yellow,67,Vendor contract delayed; testing start moved.
+SU-0187,PRJ-010,2026-07-17,Yellow,69,"UAT defects higher than expected, triage in progress."
+SU-0188,PRJ-010,2026-07-24,Yellow,70,Vendor contract delayed; testing start moved.
+SU-0189,PRJ-010,2026-07-31,Yellow,74,Budget re-forecast submitted to finance.
+SU-0190,PRJ-010,2026-08-07,Yellow,78,"Resource conflict with quarter close, two tasks slipped."
+SU-0191,PRJ-010,2026-08-14,Yellow,83,Vendor contract delayed; testing start moved.
+SU-0192,PRJ-010,2026-08-21,Yellow,84,"Resource conflict with quarter close, two tasks slipped."
+SU-0193,PRJ-010,2026-08-28,Yellow,89,Budget re-forecast submitted to finance.
+SU-0194,PRJ-010,2026-09-04,Yellow,92,On track. No blockers this week.
+SU-0195,PRJ-011,2026-03-13,Green,100,On track. No blockers this week.
+SU-0196,PRJ-011,2026-03-20,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0197,PRJ-011,2026-03-27,Yellow,100,Go-live checklist 80% complete.
+SU-0198,PRJ-011,2026-04-03,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0199,PRJ-011,2026-04-10,Yellow,100,Sponsor approved scope change.
+SU-0200,PRJ-011,2026-04-17,Yellow,100,Vendor contract delayed; testing start moved.
+SU-0201,PRJ-011,2026-04-24,Yellow,100,"Integration issue found, fix in progress."
+SU-0202,PRJ-011,2026-05-01,Green,100,"Integration issue found, fix in progress."
+SU-0203,PRJ-011,2026-05-08,Green,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0204,PRJ-011,2026-05-15,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0205,PRJ-011,2026-05-22,Green,100,Budget re-forecast submitted to finance.
+SU-0206,PRJ-011,2026-05-29,Green,100,Vendor contract delayed; testing start moved.
+SU-0207,PRJ-012,2026-03-13,Green,100,"Integration issue found, fix in progress."
+SU-0208,PRJ-012,2026-03-20,Amber,100,Vendor contract delayed; testing start moved.
+SU-0209,PRJ-012,2026-03-27,Green,100,Go-live checklist 80% complete.
+SU-0210,PRJ-012,2026-04-03,Green,100,Vendor contract delayed; testing start moved.
+SU-0211,PRJ-012,2026-04-10,Green,100,Sponsor approved scope change.
+SU-0212,PRJ-012,2026-04-17,Green,100,Go-live checklist 80% complete.
+SU-0213,PRJ-012,2026-04-24,Green,100,Sponsor approved scope change.
+SU-0214,PRJ-012,2026-05-01,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0215,PRJ-012,2026-05-08,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0216,PRJ-012,2026-05-15,Yellow,100,Budget re-forecast submitted to finance.
+SU-0217,PRJ-777,2026-05-22,Yellow,100,Budget re-forecast submitted to finance.
+SU-0218,PRJ-012,2026-05-29,Yellow,100,Go-live checklist 80% complete.
+SU-0219,PRJ-014,2026-03-13, green,24,Vendor contract delayed; testing start moved.
+SU-0220,PRJ-014,2026-03-20,Green,27,"Resource conflict with quarter close, two tasks slipped."
+SU-0221,PRJ-014,2026-03-27,Green,30,Vendor contract delayed; testing start moved.
+SU-0222,PRJ-014,2026-04-03,Green,34,On track. No blockers this week.
+SU-0223,PRJ-014,2026-04-10,Yellow,35,Vendor contract delayed; testing start moved.
+SU-0224,PRJ-014,2026-04-17,Yellow,40,"Integration issue found, fix in progress."
+SU-0225,PRJ-014,2026-04-24,Yellow,45,On track. No blockers this week.
+SU-0226,PRJ-777,2026-05-01,Yellow,50,Sponsor approved scope change.
+SU-0227,PRJ-014,2026-05-08,Yellow,54,"UAT defects higher than expected, triage in progress."
+SU-0228,PRJ-014,2026-05-15,Yellow,58,Vendor contract delayed; testing start moved.
+SU-0229,PRJ-014,2026-05-22,Yellow,61,Vendor contract delayed; testing start moved.
+SU-0230,PRJ-014,2026-05-29,Yellow,63,On track. No blockers this week.
+SU-0231,PRJ-014,2026-06-05,Yellow,67,Budget re-forecast submitted to finance.
+SU-0232,PRJ-014,2026-06-12,Yellow,72,"UAT defects higher than expected, triage in progress."
+SU-0233,PRJ-014,2026-06-19,Yellow,75,"Integration issue found, fix in progress."
+SU-0234,PRJ-014,2026-06-26,Yellow,78,On track. No blockers this week.
+SU-0235,PRJ-014,2026-07-03,Yellow,81,Vendor contract delayed; testing start moved.
+SU-0236,PRJ-014,2026-07-10,Yellow,86,"Integration issue found, fix in progress."
+SU-0237,PRJ-014,2026-07-17,Yellow,91,"UAT defects higher than expected, triage in progress."
+SU-0238,PRJ-014,2026-07-24,Yellow,96,"UAT defects higher than expected, triage in progress."
+SU-0239,PRJ-014,2026-07-31,Amber,99,"Integration issue found, fix in progress."
+SU-0240,PRJ-014,2026-08-07,Yellow,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0241,PRJ-015,2026-03-13,Green,20,"UAT defects higher than expected, triage in progress."
+SU-0242,PRJ-015,2026-03-20,Green,25,Vendor contract delayed; testing start moved.
+SU-0243,PRJ-015,2026-03-27,Green,29,Go-live checklist 80% complete.
+SU-0244,PRJ-015,2026-04-03,Yellow,31,Sponsor approved scope change.
+SU-0245,PRJ-015,2026-04-10,Yellow,35,Sponsor approved scope change.
+SU-0246,PRJ-015,2026-04-17,Yellow,37,"UAT defects higher than expected, triage in progress."
+SU-0247,PRJ-015,2026-04-24,Green,42,On track. No blockers this week.
+SU-0248,PRJ-015,2026-05-01,Green,47,"UAT defects higher than expected, triage in progress."
+SU-0249,PRJ-777,2026-05-08,Green,49,"UAT defects higher than expected, triage in progress."
+SU-0250,PRJ-015,2026-05-15,Green,54,"UAT defects higher than expected, triage in progress."
+SU-0251,PRJ-015,2026-05-22,Green,55,"Integration issue found, fix in progress."
+SU-0252,PRJ-015,2026-05-29,Green,57,Budget re-forecast submitted to finance.
+SU-0253,PRJ-015,2026-06-05,Green,61,Sponsor approved scope change.
+SU-0254,PRJ-015,2026-06-12,Green,64,Budget re-forecast submitted to finance.
+SU-0255,PRJ-015,2026-06-19,Green,66,Go-live checklist 80% complete.
+SU-0256,PRJ-015,2026-06-26,Green,71,Budget re-forecast submitted to finance.
+SU-0257,PRJ-015,2026-07-03,Green,74,"Integration issue found, fix in progress."
+SU-0258,PRJ-015,2026-07-10,Green,78,"UAT defects higher than expected, triage in progress."
+SU-0259,PRJ-015,2026-07-17,Green,83,"UAT defects higher than expected, triage in progress."
+SU-0260,PRJ-015,2026-07-24,Green,84,Budget re-forecast submitted to finance.
+SU-0261,PRJ-015,2026-07-31,Green,89,Vendor contract delayed; testing start moved.
+SU-0262,PRJ-015,2026-08-07,Green,94,Vendor contract delayed; testing start moved.
+SU-0263,PRJ-015,2026-08-14,Green,96,"Resource conflict with quarter close, two tasks slipped."
+SU-0264,PRJ-015,2026-08-21,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0265,PRJ-015,2026-08-28,Green,100,Sponsor approved scope change.
+SU-0266,PRJ-015,2026-09-04,Green,100,On track. No blockers this week.
+SU-0267,PRJ-016,2026-03-13,Red,16,Sponsor approved scope change.
+SU-0268,PRJ-016,2026-03-20,Red,17,Go-live checklist 80% complete.
+SU-0269,PRJ-016,2026-03-27,Red,20,Vendor contract delayed; testing start moved.
+SU-0270,PRJ-016,2026-04-03,Red,23,"UAT defects higher than expected, triage in progress."
+SU-0271,PRJ-016,2026-04-10,Red,26,Budget re-forecast submitted to finance.
+SU-0272,PRJ-016,2026-04-17,Red,28,Budget re-forecast submitted to finance.
+SU-0273,PRJ-016,2026-04-24,Red,29,Vendor contract delayed; testing start moved.
+SU-0274,PRJ-016,2026-05-01,Green,31,"Integration issue found, fix in progress."
+SU-0275,PRJ-016,2026-05-08,Yellow,33,"Resource conflict with quarter close, two tasks slipped."
+SU-0276,PRJ-016,2026-05-15,Yellow,35,"Integration issue found, fix in progress."
+SU-0277,PRJ-016,2026-05-22,Yellow,40,Budget re-forecast submitted to finance.
+SU-0278,PRJ-016,2026-05-29,Yellow,45,On track. No blockers this week.
+SU-0279,PRJ-016,2026-06-05,Yellow,50,Sponsor approved scope change.
+SU-0280,PRJ-016,2026-06-12,Yellow,53,"Integration issue found, fix in progress."
+SU-0281,PRJ-016,2026-06-19, green,55,"Integration issue found, fix in progress."
+SU-0282,PRJ-016,2026-06-26,Yellow,56,Go-live checklist 80% complete.
+SU-0283,PRJ-016,2026-07-03,Red,61,On track. No blockers this week.
+SU-0284,PRJ-016,2026-07-10,Red,65,On track. No blockers this week.
+SU-0285,PRJ-016,2026-07-17,Red,68,"Resource conflict with quarter close, two tasks slipped."
+SU-0286,PRJ-016,2026-07-24,Red,71,Vendor contract delayed; testing start moved.
+SU-0287,PRJ-016,2026-07-31,Red,72,Go-live checklist 80% complete.
+SU-0288,PRJ-016,2026-08-07,Red,75,Go-live checklist 80% complete.
+SU-0289,PRJ-016,2026-08-14,Red,77,Budget re-forecast submitted to finance.
+SU-0290,PRJ-016,2026-08-21,Red,81,"UAT defects higher than expected, triage in progress."
+SU-0291,PRJ-016,2026-08-28,Red,82,Budget re-forecast submitted to finance.
+SU-0292,PRJ-016,2026-09-04,Green,83,Sponsor approved scope change.
+SU-0293,PRJ-017,2026-03-13,Green,4,"Integration issue found, fix in progress."
+SU-0294,PRJ-017,2026-03-20,Green,9,Budget re-forecast submitted to finance.
+SU-0295,PRJ-017,2026-03-27,Green,11,"Resource conflict with quarter close, two tasks slipped."
+SU-0296,PRJ-017,2026-04-03,Green,12,Go-live checklist 80% complete.
+SU-0297,PRJ-017,2026-04-10,Green,15,"Integration issue found, fix in progress."
+SU-0298,PRJ-017,2026-04-17,Green,19,"Integration issue found, fix in progress."
+SU-0299,PRJ-017,2026-04-24,Green,21,Budget re-forecast submitted to finance.
+SU-0300,PRJ-017,2026-05-01,Green,24,"Resource conflict with quarter close, two tasks slipped."
+SU-0301,PRJ-017,2026-05-08,Green,28,Vendor contract delayed; testing start moved.
+SU-0302,PRJ-017,2026-05-15,Green,30,"Resource conflict with quarter close, two tasks slipped."
+SU-0303,PRJ-017,2026-05-22,Green,31,Go-live checklist 80% complete.
+SU-0304,PRJ-017,2026-05-29,Green,34,Budget re-forecast submitted to finance.
+SU-0305,PRJ-017,2026-06-05,Green,38,"UAT defects higher than expected, triage in progress."
+SU-0306,PRJ-017,2026-06-12,Green,41,Budget re-forecast submitted to finance.
+SU-0307,PRJ-017,2026-06-19,Yellow,46,"Integration issue found, fix in progress."
+SU-0308,PRJ-017,2026-06-26,Yellow,47,Vendor contract delayed; testing start moved.
+SU-0309,PRJ-017,2026-07-03,Yellow,51,Go-live checklist 80% complete.
+SU-0310,PRJ-017,2026-07-10,Yellow,53,On track. No blockers this week.
+SU-0311,PRJ-017,2026-07-17,Yellow,58,Budget re-forecast submitted to finance.
+SU-0312,PRJ-017,2026-07-24,Green,60,Go-live checklist 80% complete.
+SU-0313,PRJ-017,2026-07-31,Green,65,On track. No blockers this week.
+SU-0314,PRJ-017,2026-08-07,Green,69,Go-live checklist 80% complete.
+SU-0315,PRJ-017,2026-08-14,Green,140,"UAT defects higher than expected, triage in progress."
+SU-0316,PRJ-017,2026-08-21,Green,74,Go-live checklist 80% complete.
+SU-0317,PRJ-017,2026-08-28,Green,76,Vendor contract delayed; testing start moved.
+SU-0318,PRJ-017,2026-09-04,Green,80,"Integration issue found, fix in progress."
+SU-0319,PRJ-018,2026-03-13,Yellow,21,Sponsor approved scope change.
+SU-0320,PRJ-018,2026-03-20,Yellow,24,Budget re-forecast submitted to finance.
+SU-0321,PRJ-018,2026-03-27,Yellow,26,Vendor contract delayed; testing start moved.
+SU-0322,PRJ-018,2026-04-03,Yellow,30,Vendor contract delayed; testing start moved.
+SU-0323,PRJ-018,2026-04-10,Yellow,33,Go-live checklist 80% complete.
+SU-0324,PRJ-018,2026-04-17,Yellow,38,"Resource conflict with quarter close, two tasks slipped."
+SU-0325,PRJ-018,2026-04-24,Yellow,40,"UAT defects higher than expected, triage in progress."
+SU-0326,PRJ-018,2026-05-01,Yellow,45,Sponsor approved scope change.
+SU-0327,PRJ-018,2026-05-08,Yellow,47,"UAT defects higher than expected, triage in progress."
+SU-0328,PRJ-018,2026-05-15,Yellow,51,On track. No blockers this week.
+SU-0329,PRJ-018,2026-05-22,Yellow,56,Go-live checklist 80% complete.
+SU-0330,PRJ-018,2026-05-29,Amber,61,"UAT defects higher than expected, triage in progress."
+SU-0331,PRJ-018,2026-06-05,Yellow,62,Vendor contract delayed; testing start moved.
+SU-0332,PRJ-018,2026-06-12,Yellow,66,"Integration issue found, fix in progress."
+SU-0333,PRJ-777,2026-06-19,Yellow,71,Vendor contract delayed; testing start moved.
+SU-0334,PRJ-018,2026-06-26,Yellow,74,Vendor contract delayed; testing start moved.
+SU-0335,PRJ-018,2026-07-03,Yellow,79,Go-live checklist 80% complete.
+SU-0336,PRJ-018,2026-07-10,Yellow,84,"UAT defects higher than expected, triage in progress."
+SU-0337,PRJ-018,2026-07-17,Yellow,86,"Integration issue found, fix in progress."
+SU-0338,PRJ-018,2026-07-24,Yellow,87,Vendor contract delayed; testing start moved.
+SU-0339,PRJ-018,2026-07-31,Yellow,90,"UAT defects higher than expected, triage in progress."
+SU-0340,PRJ-018,2026-08-07,Yellow,92,Go-live checklist 80% complete.
+SU-0341,PRJ-018,2026-08-14,Yellow,97,"Resource conflict with quarter close, two tasks slipped."
+SU-0342,PRJ-018,2026-08-21,Yellow,100,Sponsor approved scope change.
+SU-0343,PRJ-018,2026-08-28,Yellow,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0344,PRJ-018,2026-09-04, green,100,Vendor contract delayed; testing start moved.
+SU-0345,PRJ-019,2026-03-13,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0346,PRJ-019,2026-03-20,Green,140,Go-live checklist 80% complete.
+SU-0347,PRJ-019,2026-03-27,Green,100,On track. No blockers this week.
+SU-0348,PRJ-019,2026-04-03,Green,100,Vendor contract delayed; testing start moved.
+SU-0349,PRJ-019,2026-04-10,Red,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0350,PRJ-019,2026-04-17,Red,100,"Integration issue found, fix in progress."
+SU-0351,PRJ-019,2026-04-24,Red,100,Budget re-forecast submitted to finance.
+SU-0352,PRJ-019,2026-05-01,Red,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0353,PRJ-019,2026-05-08,Red,100,Budget re-forecast submitted to finance.
+SU-0354,PRJ-019,2026-05-15,Red,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0355,PRJ-019,2026-05-22,Red,100,"UAT defects higher than expected, triage in progress."
+SU-0356,PRJ-019,2026-05-29,Red,100,Budget re-forecast submitted to finance.
+SU-0357,PRJ-020,2026-03-13,Green,8,Go-live checklist 80% complete.
+SU-0358,PRJ-020,2026-03-20,Green,11,Go-live checklist 80% complete.
+SU-0359,PRJ-020,2026-03-27,Green,13,Go-live checklist 80% complete.
+SU-0360,PRJ-020,2026-04-03,Green,14,Go-live checklist 80% complete.
+SU-0361,PRJ-020,2026-04-10,Green,15,"Resource conflict with quarter close, two tasks slipped."
+SU-0362,PRJ-020,2026-04-17,Green,17,Vendor contract delayed; testing start moved.
+SU-0363,PRJ-020,2026-04-24,Yellow,22,"Integration issue found, fix in progress."
+SU-0364,PRJ-020,2026-05-01,Yellow,24,Go-live checklist 80% complete.
+SU-0365,PRJ-020,2026-05-08,Yellow,27,Sponsor approved scope change.
+SU-0366,PRJ-020,2026-05-15,Yellow,31,Budget re-forecast submitted to finance.
+SU-0367,PRJ-020,2026-05-22,Yellow,34,Budget re-forecast submitted to finance.
+SU-0368,PRJ-020,2026-05-29,Yellow,39,Budget re-forecast submitted to finance.
+SU-0369,PRJ-020,2026-06-05,Yellow,41,Go-live checklist 80% complete.
+SU-0370,PRJ-020,2026-06-12,Yellow,45,Budget re-forecast submitted to finance.
+SU-0371,PRJ-020,2026-06-19,Yellow,46,Vendor contract delayed; testing start moved.
+SU-0372,PRJ-020,2026-06-26,Yellow,49,Go-live checklist 80% complete.
+SU-0373,PRJ-020,2026-07-03,Yellow,52,On track. No blockers this week.
+SU-0374,PRJ-020,2026-07-10,Yellow,57,Sponsor approved scope change.
+SU-0375,PRJ-020,2026-07-17,Yellow,60,Vendor contract delayed; testing start moved.
+SU-0376,PRJ-020,2026-07-24,Yellow,64,"Resource conflict with quarter close, two tasks slipped."
+SU-0377,PRJ-020,2026-07-31,Yellow,69,Vendor contract delayed; testing start moved.
+SU-0378,PRJ-020,2026-08-07,Yellow,70,"Integration issue found, fix in progress."
+SU-0379,PRJ-021,2026-03-13,Green,14,Go-live checklist 80% complete.
+SU-0380,PRJ-021,2026-03-20,Green,16,"Integration issue found, fix in progress."
+SU-0381,PRJ-021,2026-03-27,Green,17,On track. No blockers this week.
+SU-0382,PRJ-021,2026-04-03,Green,20,Budget re-forecast submitted to finance.
+SU-0383,PRJ-021,2026-04-10,Green,22,"UAT defects higher than expected, triage in progress."
+SU-0384,PRJ-021,2026-04-17,Green,27,Go-live checklist 80% complete.
+SU-0385,PRJ-021,2026-04-24,Green,32,"Resource conflict with quarter close, two tasks slipped."
+SU-0386,PRJ-021,2026-05-01,Green,37,Budget re-forecast submitted to finance.
+SU-0387,PRJ-021,2026-05-08,Green,40,Budget re-forecast submitted to finance.
+SU-0388,PRJ-021,2026-05-15,Green,43,Go-live checklist 80% complete.
+SU-0389,PRJ-021,2026-05-22,Green,47,"Resource conflict with quarter close, two tasks slipped."
+SU-0390,PRJ-021,2026-05-29,Green,48,Budget re-forecast submitted to finance.
+SU-0391,PRJ-021,2026-06-05,Green,53,Sponsor approved scope change.
+SU-0392,PRJ-021,2026-06-12,Green,58,Budget re-forecast submitted to finance.
+SU-0393,PRJ-021,2026-06-19,Green,63,"Integration issue found, fix in progress."
+SU-0394,PRJ-021,2026-06-26,Green,65,On track. No blockers this week.
+SU-0395,PRJ-021,2026-07-03,Green,66,Sponsor approved scope change.
+SU-0396,PRJ-021,2026-07-10,Yellow,70,"UAT defects higher than expected, triage in progress."
+SU-0397,PRJ-021,2026-07-17,Yellow,72,"Integration issue found, fix in progress."
+SU-0398,PRJ-021,2026-07-24,Yellow,77,Budget re-forecast submitted to finance.
+SU-0399,PRJ-021,2026-07-31,Yellow,78,"UAT defects higher than expected, triage in progress."
+SU-0400,PRJ-021,2026-08-07,Yellow,83,Go-live checklist 80% complete.
+SU-0401,PRJ-021,2026-08-14,Yellow,87,"Integration issue found, fix in progress."
+SU-0402,PRJ-021,2026-08-21,Yellow,89,Budget re-forecast submitted to finance.
+SU-0403,PRJ-021,2026-08-28,Yellow,92,Go-live checklist 80% complete.
+SU-0404,PRJ-021,2026-09-04,Yellow,95,Budget re-forecast submitted to finance.
+SU-0405,PRJ-022,2026-03-13,Green,9,"Resource conflict with quarter close, two tasks slipped."
+SU-0406,PRJ-022,2026-03-20,Green,12,"Resource conflict with quarter close, two tasks slipped."
+SU-0407,PRJ-022,2026-03-27,Green,16,Go-live checklist 80% complete.
+SU-0408,PRJ-022,2026-04-03,Green,21,"Resource conflict with quarter close, two tasks slipped."
+SU-0409,PRJ-022,2026-04-10,Green,26,"Integration issue found, fix in progress."
+SU-0410,PRJ-022,2026-04-17,Green,30,Go-live checklist 80% complete.
+SU-0411,PRJ-022,2026-04-24,Green,32,"Resource conflict with quarter close, two tasks slipped."
+SU-0412,PRJ-022,2026-05-01, green,33,Go-live checklist 80% complete.
+SU-0413,PRJ-022,2026-05-08,Red,36,Budget re-forecast submitted to finance.
+SU-0414,PRJ-022,2026-05-15,Red,41,"Resource conflict with quarter close, two tasks slipped."
+SU-0415,PRJ-022,2026-05-22,Red,44,"UAT defects higher than expected, triage in progress."
+SU-0416,PRJ-022,2026-05-29,Red,49,Sponsor approved scope change.
+SU-0417,PRJ-023,2026-03-13,Red,9,Sponsor approved scope change.
+SU-0418,PRJ-023,2026-03-20,Yellow,12,Budget re-forecast submitted to finance.
+SU-0419,PRJ-023,2026-03-27,Green,13,"UAT defects higher than expected, triage in progress."
+SU-0420,PRJ-023,2026-04-03,Green,17,Budget re-forecast submitted to finance.
+SU-0421,PRJ-023,2026-04-10,Green,20,Go-live checklist 80% complete.
+SU-0422,PRJ-023,2026-04-17,Green,21,Vendor contract delayed; testing start moved.
+SU-0423,PRJ-023,2026-04-24,Green,23,On track. No blockers this week.
+SU-0424,PRJ-023,2026-05-01,Green,25,"Integration issue found, fix in progress."
+SU-0425,PRJ-023,2026-05-08,Green,27,On track. No blockers this week.
+SU-0426,PRJ-023,2026-05-15,Green,31,Budget re-forecast submitted to finance.
+SU-0427,PRJ-023,2026-05-22,Green,34,On track. No blockers this week.
+SU-0428,PRJ-023,2026-05-29,Red,39,Vendor contract delayed; testing start moved.
+SU-0429,PRJ-023,2026-06-05,Red,42,"Resource conflict with quarter close, two tasks slipped."
+SU-0430,PRJ-023,2026-06-12,Red,47,Budget re-forecast submitted to finance.
+SU-0431,PRJ-023,2026-06-19,Red,49,Budget re-forecast submitted to finance.
+SU-0432,PRJ-023,2026-06-26,Red,50,Go-live checklist 80% complete.
+SU-0433,PRJ-023,2026-07-03,Red,54,"Resource conflict with quarter close, two tasks slipped."
+SU-0434,PRJ-023,2026-07-10,Red,55,Go-live checklist 80% complete.
+SU-0435,PRJ-023,2026-07-17,Red,60,Sponsor approved scope change.
+SU-0436,PRJ-023,2026-07-24,Red,64,"Integration issue found, fix in progress."
+SU-0437,PRJ-023,2026-07-31,Red,140,"Integration issue found, fix in progress."
+SU-0438,PRJ-023,2026-08-07,Red,67,"UAT defects higher than expected, triage in progress."
+SU-0439,PRJ-023,2026-08-14,Red,69,On track. No blockers this week.
+SU-0440,PRJ-023,2026-08-21,Red,71,Budget re-forecast submitted to finance.
+SU-0441,PRJ-023,2026-08-28,Red,74,"Resource conflict with quarter close, two tasks slipped."
+SU-0442,PRJ-023,2026-09-04,Red,79,On track. No blockers this week.
+SU-0443,PRJ-026,2026-03-13,Green,100,On track. No blockers this week.
+SU-0444,PRJ-026,2026-03-20,Green,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0445,PRJ-026,2026-03-27,Green,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0446,PRJ-026,2026-04-03,Green,100,Go-live checklist 80% complete.
+SU-0447,PRJ-026,2026-04-10,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0448,PRJ-026,2026-04-17,Green,100,Go-live checklist 80% complete.
+SU-0449,PRJ-026,2026-04-24,Green,100,Budget re-forecast submitted to finance.
+SU-0450,PRJ-026,2026-05-01,Green,100,Sponsor approved scope change.
+SU-0451,PRJ-026,2026-05-08,Green,100,Vendor contract delayed; testing start moved.
+SU-0452,PRJ-026,2026-05-15,Green,100,Go-live checklist 80% complete.
+SU-0453,PRJ-026,2026-05-22,Red,100,On track. No blockers this week.
+SU-0454,PRJ-026,2026-05-29,Red,100,Sponsor approved scope change.
+SU-0455,PRJ-027,2026-03-13,Green,20,Go-live checklist 80% complete.
+SU-0456,PRJ-027,2026-03-20,Green,24,Vendor contract delayed; testing start moved.
+SU-0457,PRJ-027,2026-03-27,Green,29,Budget re-forecast submitted to finance.
+SU-0458,PRJ-027,2026-04-03,Red,33,On track. No blockers this week.
+SU-0459,PRJ-027,2026-04-10,Red,38,"Integration issue found, fix in progress."
+SU-0460,PRJ-027,2026-04-17,Red,39,Budget re-forecast submitted to finance.
+SU-0461,PRJ-027,2026-04-24,Red,42,On track. No blockers this week.
+SU-0462,PRJ-027,2026-05-01,Red,43,Sponsor approved scope change.
+SU-0463,PRJ-027,2026-05-08,Red,44,"Integration issue found, fix in progress."
+SU-0464,PRJ-027,2026-05-15,Red,45,On track. No blockers this week.
+SU-0465,PRJ-027,2026-05-22,Red,46,Budget re-forecast submitted to finance.
+SU-0466,PRJ-027,2026-05-29,Yellow,48,"UAT defects higher than expected, triage in progress."
+SU-0467,PRJ-027,2026-06-05,Yellow,52,Go-live checklist 80% complete.
+SU-0468,PRJ-027,2026-06-12, green,56,Budget re-forecast submitted to finance.
+SU-0469,PRJ-027,2026-06-19,Yellow,60,"Integration issue found, fix in progress."
+SU-0470,PRJ-027,2026-06-26,Amber,65,"UAT defects higher than expected, triage in progress."
+SU-0471,PRJ-027,2026-07-03,Red,68,Vendor contract delayed; testing start moved.
+SU-0472,PRJ-027,2026-07-10,Red,73,"Integration issue found, fix in progress."
+SU-0473,PRJ-027,2026-07-17,Red,75,On track. No blockers this week.
+SU-0474,PRJ-027,2026-07-24,Red,78,Budget re-forecast submitted to finance.
+SU-0475,PRJ-027,2026-07-31,Red,83,"Integration issue found, fix in progress."
+SU-0476,PRJ-027,2026-08-07,Red,85,Sponsor approved scope change.
+SU-0477,PRJ-027,2026-08-14,Red,87,"Resource conflict with quarter close, two tasks slipped."
+SU-0478,PRJ-027,2026-08-21,Red,88,On track. No blockers this week.
+SU-0479,PRJ-027,2026-08-28,Red,92,On track. No blockers this week.
+SU-0480,PRJ-027,2026-09-04,Red,93,Vendor contract delayed; testing start moved.
+SU-0481,PRJ-028,2026-03-13,Red,100,Sponsor approved scope change.
+SU-0482,PRJ-028,2026-03-20,Red,100,Budget re-forecast submitted to finance.
+SU-0483,PRJ-028,2026-03-27,Red,140,On track. No blockers this week.
+SU-0484,PRJ-028,2026-04-03,Red,100,Sponsor approved scope change.
+SU-0485,PRJ-028,2026-04-10,Red,100,Go-live checklist 80% complete.
+SU-0486,PRJ-028,2026-04-17,Red,100,Sponsor approved scope change.
+SU-0487,PRJ-028,2026-04-24,Red,100,Sponsor approved scope change.
+SU-0488,PRJ-028,2026-05-01,Red,100,On track. No blockers this week.
+SU-0489,PRJ-028,2026-05-08,Red,100,"UAT defects higher than expected, triage in progress."
+SU-0490,PRJ-028,2026-05-15,Red,100,Budget re-forecast submitted to finance.
+SU-0491,PRJ-028,2026-05-22,Yellow,100,Go-live checklist 80% complete.
+SU-0492,PRJ-028,2026-05-29,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0493,PRJ-031,2026-03-13,Green,14,Budget re-forecast submitted to finance.
+SU-0494,PRJ-031,2026-03-20,Green,16,"Resource conflict with quarter close, two tasks slipped."
+SU-0495,PRJ-031,2026-03-27,Green,18,Budget re-forecast submitted to finance.
+SU-0496,PRJ-031,2026-04-03,Green,23,"Integration issue found, fix in progress."
+SU-0497,PRJ-031,2026-04-10,Green,28,"UAT defects higher than expected, triage in progress."
+SU-0498,PRJ-031,2026-04-17,Green,31,Sponsor approved scope change.
+SU-0499,PRJ-031,2026-04-24,Green,32,Budget re-forecast submitted to finance.
+SU-0500,PRJ-031,2026-05-01,Green,33,Sponsor approved scope change.
+SU-0501,PRJ-777,2026-05-08,Yellow,38,On track. No blockers this week.
+SU-0502,PRJ-031,2026-05-15,Yellow,40,Sponsor approved scope change.
+SU-0503,PRJ-031,2026-05-22,Yellow,43,"Resource conflict with quarter close, two tasks slipped."
+SU-0504,PRJ-031,2026-05-29,Yellow,44,Sponsor approved scope change.
+SU-0505,PRJ-031,2026-06-05,Yellow,45,Budget re-forecast submitted to finance.
+SU-0506,PRJ-031,2026-06-12,Yellow,50,Sponsor approved scope change.
+SU-0507,PRJ-031,2026-06-19,Yellow,52,Go-live checklist 80% complete.
+SU-0508,PRJ-031,2026-06-26,Yellow,56,Budget re-forecast submitted to finance.
+SU-0509,PRJ-031,2026-07-03,Yellow,59,"Resource conflict with quarter close, two tasks slipped."
+SU-0510,PRJ-031,08/28/2026,Yellow,64,Budget re-forecast submitted to finance.
+SU-0511,PRJ-031,2026-07-17,Yellow,68,Go-live checklist 80% complete.
+SU-0512,PRJ-031,2026-07-24,Yellow,71,Go-live checklist 80% complete.
+SU-0513,PRJ-031,2026-07-31,Yellow,76,Sponsor approved scope change.
+SU-0514,PRJ-031,2026-08-07,Yellow,77,"Resource conflict with quarter close, two tasks slipped."
+SU-0515,PRJ-031,2026-08-14,Yellow,82,"Integration issue found, fix in progress."
+SU-0516,PRJ-031,2026-08-21,Yellow,84,Go-live checklist 80% complete.
+SU-0517,PRJ-031,2026-08-28,Yellow,89,Sponsor approved scope change.
+SU-0518,PRJ-031,2026-09-04,Yellow,92,"Resource conflict with quarter close, two tasks slipped."
+SU-0519,PRJ-032,2026-03-13,Green,19,Budget re-forecast submitted to finance.
+SU-0520,PRJ-032,2026-03-20,Green,22,"UAT defects higher than expected, triage in progress."
+SU-0521,PRJ-032,2026-03-27,Green,27,Budget re-forecast submitted to finance.
+SU-0522,PRJ-032,2026-04-03,Green,32,On track. No blockers this week.
+SU-0523,PRJ-032,2026-04-10,Green,33,On track. No blockers this week.
+SU-0524,PRJ-032,2026-04-17,Green,37,"UAT defects higher than expected, triage in progress."
+SU-0525,PRJ-032,2026-04-24,Green,39,Vendor contract delayed; testing start moved.
+SU-0526,PRJ-032,2026-05-01,Green,40,Sponsor approved scope change.
+SU-0527,PRJ-032,2026-05-08,Green,43,On track. No blockers this week.
+SU-0528,PRJ-032,2026-05-15,Green,48,Budget re-forecast submitted to finance.
+SU-0529,PRJ-032,2026-05-22,Green,49,On track. No blockers this week.
+SU-0530,PRJ-032,2026-05-29,Green,53,On track. No blockers this week.
+SU-0531,PRJ-032,2026-06-05,Red,56,"Resource conflict with quarter close, two tasks slipped."
+SU-0532,PRJ-032,2026-06-12,Red,60,"UAT defects higher than expected, triage in progress."
+SU-0533,PRJ-032,2026-06-19,Green,65,"UAT defects higher than expected, triage in progress."
+SU-0534,PRJ-032,2026-06-26,Green,70,"Resource conflict with quarter close, two tasks slipped."
+SU-0535,PRJ-032,2026-07-03,Green,73,"Integration issue found, fix in progress."
+SU-0536,PRJ-032,2026-07-10, green,77,Sponsor approved scope change.
+SU-0537,PRJ-032,2026-07-17,Yellow,79,"Resource conflict with quarter close, two tasks slipped."
+SU-0538,PRJ-032,2026-07-24,Yellow,80,On track. No blockers this week.
+SU-0539,PRJ-032,2026-07-31,Yellow,84,Budget re-forecast submitted to finance.
+SU-0540,PRJ-032,2026-08-07,Green,86,Vendor contract delayed; testing start moved.
+SU-0541,PRJ-032,2026-08-14,Green,90,Go-live checklist 80% complete.
+SU-0542,PRJ-032,2026-08-21,Green,91,On track. No blockers this week.
+SU-0543,PRJ-032,2026-08-28,Green,96,Budget re-forecast submitted to finance.
+SU-0544,PRJ-032,2026-09-04,Green,97,"Resource conflict with quarter close, two tasks slipped."
+SU-0545,PRJ-033,2026-03-13,Green,18,"UAT defects higher than expected, triage in progress."
+SU-0546,PRJ-033,2026-03-20,Green,21,On track. No blockers this week.
+SU-0547,PRJ-033,2026-03-27,Green,26,"UAT defects higher than expected, triage in progress."
+SU-0548,PRJ-033,2026-04-03,Green,30,Vendor contract delayed; testing start moved.
+SU-0549,PRJ-033,2026-04-10,Green,35,Sponsor approved scope change.
+SU-0550,PRJ-033,08/28/2026,Green,39,Go-live checklist 80% complete.
+SU-0551,PRJ-033,2026-04-24,Green,41,Vendor contract delayed; testing start moved.
+SU-0552,PRJ-033,2026-05-01,Green,44,On track. No blockers this week.
+SU-0553,PRJ-033,2026-05-08,Green,45,Go-live checklist 80% complete.
+SU-0554,PRJ-033,2026-05-15,Green,50,"Integration issue found, fix in progress."
+SU-0555,PRJ-033,2026-05-22,Green,53,On track. No blockers this week.
+SU-0556,PRJ-033,2026-05-29,Green,57,Budget re-forecast submitted to finance.
+SU-0557,PRJ-033,2026-06-05,Green,62,"Integration issue found, fix in progress."
+SU-0558,PRJ-033,2026-06-12,Green,67,"Integration issue found, fix in progress."
+SU-0559,PRJ-033,2026-06-19, green,70,Sponsor approved scope change.
+SU-0560,PRJ-033,2026-06-26,Red,71,"Resource conflict with quarter close, two tasks slipped."
+SU-0561,PRJ-033,2026-07-03,Red,73,"Integration issue found, fix in progress."
+SU-0562,PRJ-033,2026-07-10,Red,74,Vendor contract delayed; testing start moved.
+SU-0563,PRJ-033,2026-07-17,Yellow,78,Go-live checklist 80% complete.
+SU-0564,PRJ-033,2026-07-24,Yellow,79,"UAT defects higher than expected, triage in progress."
+SU-0565,PRJ-033,2026-07-31,Yellow,83,"Integration issue found, fix in progress."
+SU-0566,PRJ-033,2026-08-07,Green,86,Vendor contract delayed; testing start moved.
+SU-0567,PRJ-033,2026-08-14,Green,89,"Integration issue found, fix in progress."
+SU-0568,PRJ-033,2026-08-21,Yellow,93,Vendor contract delayed; testing start moved.
+SU-0569,PRJ-033,2026-08-28,Yellow,98,Sponsor approved scope change.
+SU-0570,PRJ-033,2026-09-04,Yellow,100,"Integration issue found, fix in progress."
+SU-0571,PRJ-034,2026-03-13,Green,8,"Resource conflict with quarter close, two tasks slipped."
+SU-0572,PRJ-034,2026-03-20,Green,9,"UAT defects higher than expected, triage in progress."
+SU-0573,PRJ-034,2026-03-27,Green,13,"Resource conflict with quarter close, two tasks slipped."
+SU-0574,PRJ-034,2026-04-03,Green,14,Go-live checklist 80% complete.
+SU-0575,PRJ-034,2026-04-10,Green,16,Budget re-forecast submitted to finance.
+SU-0576,PRJ-034,2026-04-17,Green,18,Budget re-forecast submitted to finance.
+SU-0577,PRJ-034,2026-04-24,Yellow,19,"Integration issue found, fix in progress."
+SU-0578,PRJ-034,2026-05-01,Yellow,24,"Integration issue found, fix in progress."
+SU-0579,PRJ-034,2026-05-08,Yellow,27,Budget re-forecast submitted to finance.
+SU-0580,PRJ-034,2026-05-15,Yellow,32,"UAT defects higher than expected, triage in progress."
+SU-0581,PRJ-034,2026-05-22,Yellow,37,Sponsor approved scope change.
+SU-0582,PRJ-034,2026-05-29,Yellow,39,"Integration issue found, fix in progress."
+SU-0583,PRJ-034,2026-06-05,Yellow,42,Budget re-forecast submitted to finance.
+SU-0584,PRJ-034,2026-06-12,Yellow,44,Go-live checklist 80% complete.
+SU-0585,PRJ-034,2026-06-19,Yellow,48,Go-live checklist 80% complete.
+SU-0586,PRJ-034,2026-06-26,Red,50,"UAT defects higher than expected, triage in progress."
+SU-0587,PRJ-034,2026-07-03,Red,55,On track. No blockers this week.
+SU-0588,PRJ-034,2026-07-10,Red,59,Sponsor approved scope change.
+SU-0589,PRJ-034,2026-07-17,Red,62,Vendor contract delayed; testing start moved.
+SU-0590,PRJ-034,2026-07-24,Amber,66,Budget re-forecast submitted to finance.
+SU-0591,PRJ-034,2026-07-31,Red,69,Sponsor approved scope change.
+SU-0592,PRJ-034,2026-08-07,Red,71,"Integration issue found, fix in progress."
+SU-0593,PRJ-034,2026-08-14,Red,72,Budget re-forecast submitted to finance.
+SU-0594,PRJ-034,2026-08-21,Amber,76,"Integration issue found, fix in progress."
+SU-0595,PRJ-034,2026-08-28,Red,80,On track. No blockers this week.
+SU-0596,PRJ-034,2026-09-04,Red,83,Vendor contract delayed; testing start moved.
+SU-0597,PRJ-035,2026-03-13,Green,6,"UAT defects higher than expected, triage in progress."
+SU-0598,PRJ-035,2026-03-20,Green,7,"Integration issue found, fix in progress."
+SU-0599,PRJ-035,2026-03-27,Green,10,"Integration issue found, fix in progress."
+SU-0600,PRJ-035,2026-04-03,Green,13,Sponsor approved scope change.
+SU-0601,PRJ-035,2026-04-10,Green,18,Sponsor approved scope change.
+SU-0602,PRJ-035,2026-04-17,Green,22,Budget re-forecast submitted to finance.
+SU-0603,PRJ-035,2026-04-24,Green,27,"UAT defects higher than expected, triage in progress."
+SU-0604,PRJ-035,2026-05-01,Green,28,Budget re-forecast submitted to finance.
+SU-0605,PRJ-035,2026-05-08,Yellow,29,Vendor contract delayed; testing start moved.
+SU-0606,PRJ-035,2026-05-15, green,31,Go-live checklist 80% complete.
+SU-0607,PRJ-035,2026-05-22,Yellow,35,Sponsor approved scope change.
+SU-0608,PRJ-035,2026-05-29,Amber,38,Budget re-forecast submitted to finance.
+SU-0609,PRJ-035,2026-06-05,Red,42,Go-live checklist 80% complete.
+SU-0610,PRJ-035,08/28/2026,Green,43,On track. No blockers this week.
+SU-0611,PRJ-035,2026-06-19,Green,44,"UAT defects higher than expected, triage in progress."
+SU-0612,PRJ-035,2026-06-26,Green,46,"UAT defects higher than expected, triage in progress."
+SU-0613,PRJ-035,2026-07-03,Green,49,"Integration issue found, fix in progress."
+SU-0614,PRJ-035,2026-07-10,Green,51,"Integration issue found, fix in progress."
+SU-0615,PRJ-035,2026-07-17,Green,53,"Integration issue found, fix in progress."
+SU-0616,PRJ-035,2026-07-24,Green,58,Sponsor approved scope change.
+SU-0617,PRJ-035,2026-07-31,Green,62,"Integration issue found, fix in progress."
+SU-0618,PRJ-035,2026-08-07,Green,64,"Resource conflict with quarter close, two tasks slipped."
+SU-0619,PRJ-035,2026-08-14,Green,65,Vendor contract delayed; testing start moved.
+SU-0620,PRJ-035,2026-08-21,Green,70,"UAT defects higher than expected, triage in progress."
+SU-0621,PRJ-035,2026-08-28,Green,72,Budget re-forecast submitted to finance.
+SU-0622,PRJ-035,2026-09-04,Red,76,Go-live checklist 80% complete.
+SU-0623,PRJ-036,2026-03-13,Green,23,Vendor contract delayed; testing start moved.
+SU-0624,PRJ-036,2026-03-20,Green,27,"UAT defects higher than expected, triage in progress."
+SU-0625,PRJ-036,2026-03-27,Green,30,Vendor contract delayed; testing start moved.
+SU-0626,PRJ-036,08/28/2026,Green,33,Vendor contract delayed; testing start moved.
+SU-0627,PRJ-036,2026-04-10,Green,34,"UAT defects higher than expected, triage in progress."
+SU-0628,PRJ-036,2026-04-17,Green,36,"Integration issue found, fix in progress."
+SU-0629,PRJ-036,2026-04-24,Green,38,"Integration issue found, fix in progress."
+SU-0630,PRJ-036,2026-05-01,Green,42,"UAT defects higher than expected, triage in progress."
+SU-0631,PRJ-777,2026-05-08,Green,46,"Resource conflict with quarter close, two tasks slipped."
+SU-0632,PRJ-036,2026-05-15,Green,49,Budget re-forecast submitted to finance.
+SU-0633,PRJ-036,2026-05-22,Green,52,On track. No blockers this week.
+SU-0634,PRJ-036,2026-05-29, green,54,"Integration issue found, fix in progress."
+SU-0635,PRJ-036,2026-06-05,Green,59,Budget re-forecast submitted to finance.
+SU-0636,PRJ-036,2026-06-12,Green,63,"Integration issue found, fix in progress."
+SU-0637,PRJ-036,2026-06-19,Green,67,Budget re-forecast submitted to finance.
+SU-0638,PRJ-036,2026-06-26,Green,72,On track. No blockers this week.
+SU-0639,PRJ-036,2026-07-03,Green,74,"Resource conflict with quarter close, two tasks slipped."
+SU-0640,PRJ-036,2026-07-10,Green,79,"Resource conflict with quarter close, two tasks slipped."
+SU-0641,PRJ-036,2026-07-17,Green,83,Budget re-forecast submitted to finance.
+SU-0642,PRJ-036,2026-07-24,Green,84,Vendor contract delayed; testing start moved.
+SU-0643,PRJ-036,2026-07-31,Green,89,Go-live checklist 80% complete.
+SU-0644,PRJ-036,2026-08-07,Green,90,Budget re-forecast submitted to finance.
+SU-0645,PRJ-036,2026-08-14,Green,94,Vendor contract delayed; testing start moved.
+SU-0646,PRJ-036,2026-08-21,Green,96,"Resource conflict with quarter close, two tasks slipped."
+SU-0647,PRJ-036,2026-08-28,Green,97,Budget re-forecast submitted to finance.
+SU-0648,PRJ-036,2026-09-04, green,98,Budget re-forecast submitted to finance.
+SU-0649,PRJ-037,2026-03-13,Green,5,Sponsor approved scope change.
+SU-0650,PRJ-037,2026-03-20,Green,10,Go-live checklist 80% complete.
+SU-0651,PRJ-037,2026-03-27,Green,15,"Integration issue found, fix in progress."
+SU-0652,PRJ-037,2026-04-03,Green,17,Sponsor approved scope change.
+SU-0653,PRJ-037,2026-04-10,Green,18,Go-live checklist 80% complete.
+SU-0654,PRJ-037,2026-04-17,Green,23,"UAT defects higher than expected, triage in progress."
+SU-0655,PRJ-037,2026-04-24,Green,26,"Resource conflict with quarter close, two tasks slipped."
+SU-0656,PRJ-037,2026-05-01,Green,31,Vendor contract delayed; testing start moved.
+SU-0657,PRJ-037,2026-05-08,Green,35,On track. No blockers this week.
+SU-0658,PRJ-037,2026-05-15,Green,37,"UAT defects higher than expected, triage in progress."
+SU-0659,PRJ-037,2026-05-22,Green,40,Sponsor approved scope change.
+SU-0660,PRJ-037,2026-05-29,Green,44,Budget re-forecast submitted to finance.
+SU-0661,PRJ-037,2026-06-05,Green,47,"Integration issue found, fix in progress."
+SU-0662,PRJ-037,2026-06-12,Green,48,Vendor contract delayed; testing start moved.
+SU-0663,PRJ-037,2026-06-19,Green,51,Go-live checklist 80% complete.
+SU-0664,PRJ-037,2026-06-26,Green,55,Go-live checklist 80% complete.
+SU-0665,PRJ-037,2026-07-03, green,56,Budget re-forecast submitted to finance.
+SU-0666,PRJ-037,2026-07-10,Green,59,Vendor contract delayed; testing start moved.
+SU-0667,PRJ-037,2026-07-17,Green,63,Sponsor approved scope change.
+SU-0668,PRJ-037,2026-07-24,Green,65,Budget re-forecast submitted to finance.
+SU-0669,PRJ-037,2026-07-31,Green,68,Go-live checklist 80% complete.
+SU-0670,PRJ-037,2026-08-07, green,70,Budget re-forecast submitted to finance.
+SU-0671,PRJ-038,2026-03-13,Green,11,On track. No blockers this week.
+SU-0672,PRJ-038,2026-03-20,Yellow,12,Vendor contract delayed; testing start moved.
+SU-0673,PRJ-038,2026-03-27,Yellow,14,Budget re-forecast submitted to finance.
+SU-0674,PRJ-038,2026-04-03,Yellow,18,Sponsor approved scope change.
+SU-0675,PRJ-038,2026-04-10,Yellow,20,"Resource conflict with quarter close, two tasks slipped."
+SU-0676,PRJ-038,2026-04-17,Yellow,23,Vendor contract delayed; testing start moved.
+SU-0677,PRJ-038,2026-04-24,Yellow,26,Vendor contract delayed; testing start moved.
+SU-0678,PRJ-038,2026-05-01,Yellow,28,On track. No blockers this week.
+SU-0679,PRJ-038,2026-05-08,Yellow,31,Sponsor approved scope change.
+SU-0680,PRJ-038,2026-05-15,Yellow,32,Vendor contract delayed; testing start moved.
+SU-0681,PRJ-038,2026-05-22,Yellow,33,"UAT defects higher than expected, triage in progress."
+SU-0682,PRJ-038,2026-05-29,Yellow,38,Budget re-forecast submitted to finance.
+SU-0683,PRJ-038,2026-06-05,Red,41,Vendor contract delayed; testing start moved.
+SU-0684,PRJ-038,08/28/2026,Red,45,"UAT defects higher than expected, triage in progress."
+SU-0685,PRJ-038,2026-06-19,Red,47,"Integration issue found, fix in progress."
+SU-0686,PRJ-038,2026-06-26,Green,48,Go-live checklist 80% complete.
+SU-0687,PRJ-038,2026-07-03,Green,51,"UAT defects higher than expected, triage in progress."
+SU-0688,PRJ-038,2026-07-10,Green,53,"UAT defects higher than expected, triage in progress."
+SU-0689,PRJ-038,2026-07-17,Red,54,"UAT defects higher than expected, triage in progress."
+SU-0690,PRJ-038,2026-07-24,Red,56,"UAT defects higher than expected, triage in progress."
+SU-0691,PRJ-038,2026-07-31,Red,61,Budget re-forecast submitted to finance.
+SU-0692,PRJ-038,2026-08-07,Red,62,Vendor contract delayed; testing start moved.
+SU-0693,PRJ-038,2026-08-14,Red,63,"Integration issue found, fix in progress."
+SU-0694,PRJ-038,2026-08-21,Red,67,Go-live checklist 80% complete.
+SU-0695,PRJ-038,08/28/2026,Red,69,"Resource conflict with quarter close, two tasks slipped."
+SU-0696,PRJ-038,2026-09-04,Red,71,"Resource conflict with quarter close, two tasks slipped."
+SU-0697,PRJ-039,2026-03-13,Green,3,Sponsor approved scope change.
+SU-0698,PRJ-039,2026-03-20,Green,8,Sponsor approved scope change.
+SU-0699,PRJ-039,2026-03-27,Green,11,On track. No blockers this week.
+SU-0700,PRJ-039,2026-04-03,Green,13,Budget re-forecast submitted to finance.
+SU-0701,PRJ-039,2026-04-10,Amber,15,Budget re-forecast submitted to finance.
+SU-0702,PRJ-039,2026-04-17,Green,16,On track. No blockers this week.
+SU-0703,PRJ-039,2026-04-24,Green,19,"UAT defects higher than expected, triage in progress."
+SU-0704,PRJ-039,2026-05-01,Green,24,"Integration issue found, fix in progress."
+SU-0705,PRJ-039,2026-05-08,Green,26,Budget re-forecast submitted to finance.
+SU-0706,PRJ-039,2026-05-15,Green,27,On track. No blockers this week.
+SU-0707,PRJ-039,2026-05-22,Green,28,"Resource conflict with quarter close, two tasks slipped."
+SU-0708,PRJ-039,2026-05-29,Green,29,"Integration issue found, fix in progress."
+SU-0709,PRJ-039,2026-06-05,Green,34,"Integration issue found, fix in progress."
+SU-0710,PRJ-039,2026-06-12,Green,38,Vendor contract delayed; testing start moved.
+SU-0711,PRJ-039,2026-06-19,Green,43,"UAT defects higher than expected, triage in progress."
+SU-0712,PRJ-039,2026-06-26,Green,46,Vendor contract delayed; testing start moved.
+SU-0713,PRJ-039,2026-07-03,Green,48,"UAT defects higher than expected, triage in progress."
+SU-0714,PRJ-039,2026-07-10,Green,52,Vendor contract delayed; testing start moved.
+SU-0715,PRJ-039,2026-07-17,Green,56,Sponsor approved scope change.
+SU-0716,PRJ-039,2026-07-24,Green,60,Vendor contract delayed; testing start moved.
+SU-0717,PRJ-039,2026-07-31,Green,65,On track. No blockers this week.
+SU-0718,PRJ-039,2026-08-07,Green,67,Vendor contract delayed; testing start moved.
+SU-0719,PRJ-039,TBD,Green,68,"UAT defects higher than expected, triage in progress."
+SU-0720,PRJ-039,2026-08-21,Green,71,"Resource conflict with quarter close, two tasks slipped."
+SU-0721,PRJ-039,2026-08-28,Green,73,"Resource conflict with quarter close, two tasks slipped."
+SU-0722,PRJ-039,2026-09-04,Green,74,On track. No blockers this week.
+SU-0723,PRJ-040,2026-03-13,Green,100,Vendor contract delayed; testing start moved.
+SU-0724,PRJ-040,2026-03-20,Green,100,Vendor contract delayed; testing start moved.
+SU-0725,PRJ-040,2026-03-27,Green,100,Go-live checklist 80% complete.
+SU-0726,PRJ-040,2026-04-03,Red,100,Go-live checklist 80% complete.
+SU-0727,PRJ-040,2026-04-10,Red,100,Vendor contract delayed; testing start moved.
+SU-0728,PRJ-040,2026-04-17,Red,100,On track. No blockers this week.
+SU-0729,PRJ-040,2026-04-24,Green,100,On track. No blockers this week.
+SU-0730,PRJ-040,2026-05-01,Green,100,"UAT defects higher than expected, triage in progress."
+SU-0731,PRJ-040,2026-05-08,Green,100,"Integration issue found, fix in progress."
+SU-0732,PRJ-040,2026-05-15,Green,100,"Integration issue found, fix in progress."
+SU-0733,PRJ-040,2026-05-22,Green,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0734,PRJ-040,2026-05-29,Green,100,Go-live checklist 80% complete.
+SU-0735,PRJ-041,2026-03-13,Green,4,"UAT defects higher than expected, triage in progress."
+SU-0736,PRJ-041,2026-03-20,Green,9,On track. No blockers this week.
+SU-0737,PRJ-041,2026-03-27,Green,10,Budget re-forecast submitted to finance.
+SU-0738,PRJ-041,2026-04-03,Green,13,Go-live checklist 80% complete.
+SU-0739,PRJ-041,2026-04-10,Yellow,14,Go-live checklist 80% complete.
+SU-0740,PRJ-041,2026-04-17,Yellow,19,"Resource conflict with quarter close, two tasks slipped."
+SU-0741,PRJ-041,2026-04-24,Yellow,21,Budget re-forecast submitted to finance.
+SU-0742,PRJ-041,2026-05-01,Yellow,25,Sponsor approved scope change.
+SU-0743,PRJ-041,2026-05-08,Yellow,30,Sponsor approved scope change.
+SU-0744,PRJ-041,2026-05-15,Yellow,34,On track. No blockers this week.
+SU-0745,PRJ-041,2026-05-22,Yellow,37,On track. No blockers this week.
+SU-0746,PRJ-041,2026-05-29,Yellow,38,"Integration issue found, fix in progress."
+SU-0747,PRJ-041,2026-06-05,Yellow,41,Vendor contract delayed; testing start moved.
+SU-0748,PRJ-041,2026-06-12,Yellow,43,"Integration issue found, fix in progress."
+SU-0749,PRJ-041,2026-06-19,Yellow,44,"UAT defects higher than expected, triage in progress."
+SU-0750,PRJ-041,2026-06-26,Yellow,45,On track. No blockers this week.
+SU-0751,PRJ-041,2026-07-03,Yellow,50,"Integration issue found, fix in progress."
+SU-0752,PRJ-041,2026-07-10,Yellow,53,Budget re-forecast submitted to finance.
+SU-0753,PRJ-041,2026-07-17,Yellow,54,Vendor contract delayed; testing start moved.
+SU-0754,PRJ-041,2026-07-24,Yellow,140,Vendor contract delayed; testing start moved.
+SU-0755,PRJ-041,2026-07-31,Yellow,59,"Integration issue found, fix in progress."
+SU-0756,PRJ-041,2026-08-07,Yellow,140,Sponsor approved scope change.
+SU-0757,PRJ-041,2026-08-14,Yellow,64,"Integration issue found, fix in progress."
+SU-0758,PRJ-041,2026-08-21,Yellow,67,Go-live checklist 80% complete.
+SU-0759,PRJ-041,2026-08-28,Amber,69,Vendor contract delayed; testing start moved.
+SU-0760,PRJ-041,2026-09-04,Yellow,71,Vendor contract delayed; testing start moved.
+SU-0761,PRJ-042,2026-03-13,Yellow,8,Go-live checklist 80% complete.
+SU-0762,PRJ-042,2026-03-20,Yellow,13,Go-live checklist 80% complete.
+SU-0763,PRJ-042,2026-03-27,Yellow,15,Budget re-forecast submitted to finance.
+SU-0764,PRJ-042,2026-04-03,Yellow,18,Vendor contract delayed; testing start moved.
+SU-0765,PRJ-042,2026-04-10,Red,21,On track. No blockers this week.
+SU-0766,PRJ-042,2026-04-17,Red,24,"UAT defects higher than expected, triage in progress."
+SU-0767,PRJ-042,2026-04-24,Green,27,"Integration issue found, fix in progress."
+SU-0768,PRJ-042,2026-05-01,Green,30,"Resource conflict with quarter close, two tasks slipped."
+SU-0769,PRJ-042,2026-05-08,Green,32,On track. No blockers this week.
+SU-0770,PRJ-042,2026-05-15,Green,36,Sponsor approved scope change.
+SU-0771,PRJ-042,2026-05-22,Green,38,Vendor contract delayed; testing start moved.
+SU-0772,PRJ-042,2026-05-29,Green,40,Sponsor approved scope change.
+SU-0773,PRJ-042,2026-06-05,Green,43,Vendor contract delayed; testing start moved.
+SU-0774,PRJ-042,2026-06-12,Green,46,Vendor contract delayed; testing start moved.
+SU-0775,PRJ-042,2026-06-19,Green,48,Budget re-forecast submitted to finance.
+SU-0776,PRJ-042,2026-06-26,Green,140,Go-live checklist 80% complete.
+SU-0777,PRJ-042,2026-07-03,Green,53,On track. No blockers this week.
+SU-0778,PRJ-042,2026-07-10,Green,58,"Integration issue found, fix in progress."
+SU-0779,PRJ-042,2026-07-17,Green,62,Budget re-forecast submitted to finance.
+SU-0780,PRJ-042,2026-07-24,Red,66,"UAT defects higher than expected, triage in progress."
+SU-0781,PRJ-042,2026-07-31,Red,68,"Resource conflict with quarter close, two tasks slipped."
+SU-0782,PRJ-042,2026-08-07,Red,70,On track. No blockers this week.
+SU-0783,PRJ-042,2026-08-14,Amber,75,Sponsor approved scope change.
+SU-0784,PRJ-042,2026-08-21,Red,79,"Integration issue found, fix in progress."
+SU-0785,PRJ-042,2026-08-28,Red,83,On track. No blockers this week.
+SU-0786,PRJ-042,2026-09-04,Yellow,85,"Integration issue found, fix in progress."
+SU-0787,PRJ-043,2026-03-13,Green,11,Sponsor approved scope change.
+SU-0788,PRJ-043,2026-03-20,Green,16,On track. No blockers this week.
+SU-0789,PRJ-043,2026-03-27,Green,19,Budget re-forecast submitted to finance.
+SU-0790,PRJ-043,2026-04-03,Green,23,Go-live checklist 80% complete.
+SU-0791,PRJ-043,2026-04-10,Green,28,Go-live checklist 80% complete.
+SU-0792,PRJ-043,2026-04-17,Green,30,On track. No blockers this week.
+SU-0793,PRJ-043,2026-04-24,Green,32,On track. No blockers this week.
+SU-0794,PRJ-043,2026-05-01,Green,35,On track. No blockers this week.
+SU-0795,PRJ-043,2026-05-08,Green,39,Go-live checklist 80% complete.
+SU-0796,PRJ-043,2026-05-15,Green,41,"UAT defects higher than expected, triage in progress."
+SU-0797,PRJ-043,2026-05-22,Red,43,"Resource conflict with quarter close, two tasks slipped."
+SU-0798,PRJ-043,2026-05-29,Red,44,Sponsor approved scope change.
+SU-0799,PRJ-043,2026-06-05,Red,48,Go-live checklist 80% complete.
+SU-0800,PRJ-043,2026-06-12,Red,50,"UAT defects higher than expected, triage in progress."
+SU-0801,PRJ-043,2026-06-19,Red,53,Go-live checklist 80% complete.
+SU-0802,PRJ-043,2026-06-26,Red,54,Go-live checklist 80% complete.
+SU-0803,PRJ-043,2026-07-03,Red,59,"UAT defects higher than expected, triage in progress."
+SU-0804,PRJ-043,2026-07-10,Red,61,Budget re-forecast submitted to finance.
+SU-0805,PRJ-043,2026-07-17,Red,63,Budget re-forecast submitted to finance.
+SU-0806,PRJ-043,2026-07-24,Green,65,Sponsor approved scope change.
+SU-0807,PRJ-043,2026-07-31,Yellow,66,Go-live checklist 80% complete.
+SU-0808,PRJ-043,2026-08-07,Yellow,68,"UAT defects higher than expected, triage in progress."
+SU-0809,PRJ-043,2026-08-14,Yellow,70,Go-live checklist 80% complete.
+SU-0810,PRJ-043,2026-08-21,Green,75,"UAT defects higher than expected, triage in progress."
+SU-0811,PRJ-043,2026-08-28,Green,80,Go-live checklist 80% complete.
+SU-0812,PRJ-043,2026-09-04,Green,83,"Integration issue found, fix in progress."
+SU-0813,PRJ-777,2026-03-13,Yellow,21,"UAT defects higher than expected, triage in progress."
+SU-0814,PRJ-044,2026-03-20,Yellow,25,Budget re-forecast submitted to finance.
+SU-0815,PRJ-044,2026-03-27,Yellow,27,Go-live checklist 80% complete.
+SU-0816,PRJ-044,2026-04-03,Yellow,32,"UAT defects higher than expected, triage in progress."
+SU-0817,PRJ-044,2026-04-10,Yellow,35,"UAT defects higher than expected, triage in progress."
+SU-0818,PRJ-044,2026-04-17,Yellow,36,"Integration issue found, fix in progress."
+SU-0819,PRJ-044,TBD,Yellow,41,On track. No blockers this week.
+SU-0820,PRJ-044,2026-05-01,Yellow,44,Sponsor approved scope change.
+SU-0821,PRJ-044,2026-05-08,Yellow,45,Budget re-forecast submitted to finance.
+SU-0822,PRJ-044,2026-05-15,Yellow,46,Sponsor approved scope change.
+SU-0823,PRJ-044,2026-05-22,Yellow,49,"UAT defects higher than expected, triage in progress."
+SU-0824,PRJ-044,2026-05-29,Amber,50,Go-live checklist 80% complete.
+SU-0825,PRJ-044,2026-06-05,Yellow,53,Sponsor approved scope change.
+SU-0826,PRJ-044,2026-06-12,Yellow,54,Go-live checklist 80% complete.
+SU-0827,PRJ-044,TBD,Yellow,55,On track. No blockers this week.
+SU-0828,PRJ-044,2026-06-26,Yellow,59,"UAT defects higher than expected, triage in progress."
+SU-0829,PRJ-044,2026-07-03,Yellow,63,"Integration issue found, fix in progress."
+SU-0830,PRJ-044,2026-07-10,Yellow,67,Vendor contract delayed; testing start moved.
+SU-0831,PRJ-044,08/28/2026,Yellow,72,Sponsor approved scope change.
+SU-0832,PRJ-044,2026-07-24,Yellow,73,On track. No blockers this week.
+SU-0833,PRJ-044,2026-07-31,Yellow,76,"Resource conflict with quarter close, two tasks slipped."
+SU-0834,PRJ-044,2026-08-07,Yellow,77,Go-live checklist 80% complete.
+SU-0835,PRJ-044,2026-08-14,Yellow,81,"UAT defects higher than expected, triage in progress."
+SU-0836,PRJ-044,2026-08-21,Yellow,86,Vendor contract delayed; testing start moved.
+SU-0837,PRJ-044,2026-08-28,Yellow,91,Budget re-forecast submitted to finance.
+SU-0838,PRJ-044,2026-09-04, green,95,"UAT defects higher than expected, triage in progress."
+SU-0839,PRJ-046,2026-03-13,Green,100,On track. No blockers this week.
+SU-0840,PRJ-046,2026-03-20,Green,100,"Integration issue found, fix in progress."
+SU-0841,PRJ-046,2026-03-27,Green,140,"Resource conflict with quarter close, two tasks slipped."
+SU-0842,PRJ-046,2026-04-03,Green,100,Sponsor approved scope change.
+SU-0843,PRJ-046,2026-04-10,Yellow,100,Budget re-forecast submitted to finance.
+SU-0844,PRJ-046,2026-04-17,Yellow,100,On track. No blockers this week.
+SU-0845,PRJ-046,2026-04-24,Yellow,100,Budget re-forecast submitted to finance.
+SU-0846,PRJ-046,2026-05-01,Yellow,100,Sponsor approved scope change.
+SU-0847,PRJ-046,2026-05-08,Yellow,100,Vendor contract delayed; testing start moved.
+SU-0848,PRJ-046,2026-05-15,Yellow,100,"Resource conflict with quarter close, two tasks slipped."
+SU-0849,PRJ-046,2026-05-22,Yellow,100,Budget re-forecast submitted to finance.
+SU-0850,PRJ-046,2026-05-29,Yellow,100,Vendor contract delayed; testing start moved.
+SU-0851,PRJ-047,2026-03-13,Green,22,Go-live checklist 80% complete.
+SU-0852,PRJ-047,2026-03-20,Green,25,"UAT defects higher than expected, triage in progress."
+SU-0853,PRJ-047,2026-03-27,Green,28,Budget re-forecast submitted to finance.
+SU-0854,PRJ-047,2026-04-03,Green,30,"Resource conflict with quarter close, two tasks slipped."
+SU-0855,PRJ-047,2026-04-10,Green,32,Vendor contract delayed; testing start moved.
+SU-0856,PRJ-047,2026-04-17,Amber,37,"Integration issue found, fix in progress."
+SU-0857,PRJ-777,2026-04-24,Yellow,42,Sponsor approved scope change.
+SU-0858,PRJ-047,2026-05-01,Yellow,46,"Integration issue found, fix in progress."
+SU-0859,PRJ-047,2026-05-08,Yellow,50,Sponsor approved scope change.
+SU-0860,PRJ-047,2026-05-15,Yellow,51,"Integration issue found, fix in progress."
+SU-0861,PRJ-047,2026-05-22,Yellow,52,"UAT defects higher than expected, triage in progress."
+SU-0862,PRJ-047,2026-05-29,Yellow,56,"UAT defects higher than expected, triage in progress."
+SU-0863,PRJ-047,2026-06-05,Yellow,58,Sponsor approved scope change.
+SU-0864,PRJ-047,2026-06-12,Yellow,60,On track. No blockers this week.
+SU-0865,PRJ-047,2026-06-19,Yellow,64,Sponsor approved scope change.
+SU-0866,PRJ-047,2026-06-26,Yellow,66,"Resource conflict with quarter close, two tasks slipped."
+SU-0867,PRJ-047,2026-07-03,Yellow,67,Vendor contract delayed; testing start moved.
+SU-0868,PRJ-047,2026-07-10,Yellow,71,Go-live checklist 80% complete.
+SU-0869,PRJ-047,2026-07-17,Yellow,76,Budget re-forecast submitted to finance.
+SU-0870,PRJ-047,2026-07-24,Yellow,77,"Integration issue found, fix in progress."
+SU-0871,PRJ-047,2026-07-31,Green,79,Vendor contract delayed; testing start moved.
+SU-0872,PRJ-047,2026-08-07,Green,84,Vendor contract delayed; testing start moved.
+SU-0873,PRJ-047,2026-08-14,Green,89,Go-live checklist 80% complete.
+SU-0874,PRJ-047,2026-08-21,Green,92,"Integration issue found, fix in progress."
+SU-0875,PRJ-047,2026-08-28,Green,97,Budget re-forecast submitted to finance.
+SU-0876,PRJ-047,2026-09-04,Yellow,100,"UAT defects higher than expected, triage in progress."
+SU-0877,PRJ-048,2026-03-13,Green,23,On track. No blockers this week.
+SU-0878,PRJ-048,2026-03-20,Green,26,Sponsor approved scope change.
+SU-0879,PRJ-048,2026-03-27,Yellow,29,Go-live checklist 80% complete.
+SU-0880,PRJ-048,2026-04-03,Yellow,32,"Resource conflict with quarter close, two tasks slipped."
+SU-0881,PRJ-048,2026-04-10,Yellow,33,Sponsor approved scope change.
+SU-0882,PRJ-048,2026-04-17,Yellow,37,Go-live checklist 80% complete.
+SU-0883,PRJ-048,2026-04-24,Yellow,41,Vendor contract delayed; testing start moved.
+SU-0884,PRJ-048,2026-05-01,Yellow,43,"Integration issue found, fix in progress."
+SU-0885,PRJ-048,2026-05-08,Yellow,48,Go-live checklist 80% complete.
+SU-0886,PRJ-048,2026-05-15,Yellow,53,"UAT defects higher than expected, triage in progress."
+SU-0887,PRJ-048,2026-05-22,Red,58,"Integration issue found, fix in progress."
+SU-0888,PRJ-048,2026-05-29,Red,63,On track. No blockers this week.
+SU-0889,PRJ-048,2026-06-05,Red,65,On track. No blockers this week.
+SU-0890,PRJ-048,2026-06-12,Red,69,On track. No blockers this week.
+SU-0891,PRJ-048,2026-06-19,Red,71,"Resource conflict with quarter close, two tasks slipped."
+SU-0892,PRJ-048,2026-06-26, green,75,"Integration issue found, fix in progress."
+SU-0893,PRJ-048,2026-07-03,Red,76,On track. No blockers this week.
+SU-0894,PRJ-048,2026-07-10,Red,80,Budget re-forecast submitted to finance.
+SU-0895,PRJ-048,2026-07-17,Red,84,Go-live checklist 80% complete.
+SU-0896,PRJ-777,2026-07-24,Red,87,Vendor contract delayed; testing start moved.
+SU-0897,PRJ-048,2026-07-31,Red,91,On track. No blockers this week.
+SU-0898,PRJ-048,2026-08-07,Red,96,Sponsor approved scope change.
+SU-0899,PRJ-048,2026-08-14,Red,98,Sponsor approved scope change.
+SU-0900,PRJ-048,2026-08-21,Red,100,On track. No blockers this week.
+SU-0901,PRJ-048,2026-08-28,Red,100,Budget re-forecast submitted to finance.
+SU-0902,PRJ-048,2026-09-04,Red,100,On track. No blockers this week.

@@ -1,0 +1,11 @@
+pm_id,pm_name,department,level,default_weekly_hours
+PM-001,Dana Whitfield,IT Infrastructure,Associate PM,40
+PM-002,Marcus Okafor,Applications,Associate PM,40
+PM-003,Priya Raman,Data & Analytics,Senior PM,40
+PM-004,Elena Castillo,Security,PM,40
+PM-005,Jordan Blake,Business Systems,PM,40
+PM-006,Samir Haddad,IT Infrastructure,PM,40
+PM-007,Renee Lindqvist,Applications,Associate PM,40
+PM-008,Victor Moreno,Data & Analytics,Associate PM,40
+PM-009,Amara Osei,Security,Program Manager,40
+PM-010,Theo Brandt,Business Systems,Associate PM,40

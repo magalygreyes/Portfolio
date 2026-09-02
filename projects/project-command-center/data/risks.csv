@@ -1,0 +1,140 @@
+risk_id,project_id,title,probability,impact,status,owner,mitigation
+RK-0001,PRJ-002,Key vendor resource unavailable,3,5,Mitigating,Samir Haddad,Secure backup contractor
+RK-0002,PRJ-002,Budget approval delayed,1,2,Mitigating,Samir Haddad,Prepare fallback funding request
+RK-0003,PRJ-002,Testing environment instability,4,1,Open,Samir Haddad,Add env smoke tests
+RK-0004,PRJ-004,SME availability during quarter close,0,2,Mitigating,,Schedule around close week
+RK-0005,PRJ-004,Data migration volume higher than estimated,4,1,Closed,Samir Haddad,Phase migration in two waves
+RK-0006,PRJ-005,Third-party license renewal gap,5,5,Open,Samir Haddad,Start renewal 60 days early
+RK-0007,PRJ-005,Change management resistance,5,1,Mitigating,Samir Haddad,Run change champion program
+RK-0008,PRJ-006,Testing environment instability,1,4,Mitigating,Dana Whitfield,Add env smoke tests
+RK-0009,PRJ-006,Integration API not ready,3,5,Closed,Dana Whitfield,Escalate to vendor PM
+RK-0010,PRJ-006,Change management resistance,5,2,Open,Dana Whitfield,Run change champion program
+RK-0011,PRJ-006,Budget approval delayed,3,4,Closed,,Prepare fallback funding request
+RK-0012,PRJ-006,Scope creep from stakeholder requests,5,5,Open,Dana Whitfield,Weekly scope review with sponsor
+RK-0013,PRJ-007,Testing environment instability,5,3,Mitigating,Samir Haddad,Add env smoke tests
+RK-0014,PRJ-007,Data migration volume higher than estimated,2,2,Mitigating,Samir Haddad,Phase migration in two waves
+RK-0015,PRJ-007,Change management resistance,3,1,Closed,Samir Haddad,Run change champion program
+RK-0016,PRJ-007,Scope creep from stakeholder requests,5,5,Closed,Samir Haddad,Weekly scope review with sponsor
+RK-0017,PRJ-008,SME availability during quarter close,4,2,Open,,Schedule around close week
+RK-0018,PRJ-008,Key vendor resource unavailable,3,2,Closed,Samir Haddad,Secure backup contractor
+RK-0019,PRJ-008,Scope creep from stakeholder requests,2,1,Mitigating,Samir Haddad,Weekly scope review with sponsor
+RK-0020,PRJ-008,Testing environment instability,5,1,Open,Samir Haddad,Add env smoke tests
+RK-0021,PRJ-009,Testing environment instability,5,3,Mitigating,,Add env smoke tests
+RK-0022,PRJ-009,SME availability during quarter close,4,4,Open,Samir Haddad,Schedule around close week
+RK-0023,PRJ-009,Data migration volume higher than estimated,0,5,Open,Samir Haddad,Phase migration in two waves
+RK-0024,PRJ-010,Change management resistance,3,5,Mitigating,Dana Whitfield,Run change champion program
+RK-0025,PRJ-010,Third-party license renewal gap,2,3,Open,Dana Whitfield,Start renewal 60 days early
+RK-0026,PRJ-010,Data migration volume higher than estimated,1,2,Closed,Dana Whitfield,Phase migration in two waves
+RK-0027,PRJ-011,SME availability during quarter close,4,3,Mitigating,,Schedule around close week
+RK-0028,PRJ-011,Key vendor resource unavailable,5,3,Open,Marcus Okafor,Secure backup contractor
+RK-0029,PRJ-012,Key vendor resource unavailable,5,1,Closed,Marcus Okafor,Secure backup contractor
+RK-0030,PRJ-012,Integration API not ready,3,4,Closed,Marcus Okafor,Escalate to vendor PM
+RK-0031,PRJ-012,Budget approval delayed,1,3,Mitigating,Marcus Okafor,Prepare fallback funding request
+RK-0032,PRJ-014,Testing environment instability,4,5,Mitigating,,Add env smoke tests
+RK-0033,PRJ-014,Integration API not ready,2,2,Mitigating,Renee Lindqvist,Escalate to vendor PM
+RK-0034,PRJ-015,Data migration volume higher than estimated,1,1,Mitigating,Renee Lindqvist,Phase migration in two waves
+RK-0035,PRJ-015,Testing environment instability,5,5,Open,,Add env smoke tests
+RK-0036,PRJ-015,Third-party license renewal gap,3,4,Closed,Renee Lindqvist,Start renewal 60 days early
+RK-0037,PRJ-015,Security review backlog,4,3,Mitigating,Renee Lindqvist,Pre-book review slot
+RK-0038,PRJ-016,Testing environment instability,1,3,Closed,Marcus Okafor,Add env smoke tests
+RK-0039,PRJ-016,Change management resistance,5,1,Closed,Marcus Okafor,Run change champion program
+RK-0040,PRJ-016,Third-party license renewal gap,5,5,Open,,Start renewal 60 days early
+RK-0041,PRJ-016,Data migration volume higher than estimated,2,4,Closed,Marcus Okafor,Phase migration in two waves
+RK-0042,PRJ-017,Scope creep from stakeholder requests,3,1,Open,,Weekly scope review with sponsor
+RK-0043,PRJ-017,Integration API not ready,3,5,Open,Marcus Okafor,Escalate to vendor PM
+RK-0044,PRJ-017,Key vendor resource unavailable,3,4,Open,Marcus Okafor,Secure backup contractor
+RK-0045,PRJ-017,Data migration volume higher than estimated,4,3,Open,Marcus Okafor,Phase migration in two waves
+RK-0046,PRJ-017,Budget approval delayed,5,1,Mitigating,Marcus Okafor,Prepare fallback funding request
+RK-0047,PRJ-018,Scope creep from stakeholder requests,5,1,Open,Marcus Okafor,Weekly scope review with sponsor
+RK-0048,PRJ-018,Budget approval delayed,5,1,Open,Marcus Okafor,Prepare fallback funding request
+RK-0049,PRJ-019,SME availability during quarter close,2,2,Closed,Marcus Okafor,Schedule around close week
+RK-0050,PRJ-019,Key vendor resource unavailable,5,3,Closed,,Secure backup contractor
+RK-0051,PRJ-019,Third-party license renewal gap,3,1,Mitigating,Marcus Okafor,Start renewal 60 days early
+RK-0052,PRJ-019,Scope creep from stakeholder requests,1,1,Open,Marcus Okafor,Weekly scope review with sponsor
+RK-0053,PRJ-019,Security review backlog,5,5,Closed,Marcus Okafor,Pre-book review slot
+RK-0054,PRJ-020,Data migration volume higher than estimated,2,2,Mitigating,Renee Lindqvist,Phase migration in two waves
+RK-0055,PRJ-020,SME availability during quarter close,1,2,Mitigating,Renee Lindqvist,Schedule around close week
+RK-0056,PRJ-020,Integration API not ready,0,5,Mitigating,Renee Lindqvist,Escalate to vendor PM
+RK-0057,PRJ-020,Scope creep from stakeholder requests,3,1,Open,Renee Lindqvist,Weekly scope review with sponsor
+RK-0058,PRJ-021,Budget approval delayed,2,1,Open,,Prepare fallback funding request
+RK-0059,PRJ-021,Change management resistance,2,3,Mitigating,Priya Raman,Run change champion program
+RK-0060,PRJ-021,Integration API not ready,3,5,Open,Priya Raman,Escalate to vendor PM
+RK-0061,PRJ-021,Testing environment instability,3,4,Open,Priya Raman,Add env smoke tests
+RK-0062,PRJ-021,SME availability during quarter close,2,4,Open,Priya Raman,Schedule around close week
+RK-0063,PRJ-022,Third-party license renewal gap,3,4,Mitigating,Priya Raman,Start renewal 60 days early
+RK-0064,PRJ-022,Change management resistance,0,1,Closed,Priya Raman,Run change champion program
+RK-0065,PRJ-022,Testing environment instability,2,5,Open,Priya Raman,Add env smoke tests
+RK-0066,PRJ-022,Integration API not ready,1,1,Closed,Priya Raman,Escalate to vendor PM
+RK-0067,PRJ-023,Change management resistance,5,2,Closed,Priya Raman,Run change champion program
+RK-0068,PRJ-023,SME availability during quarter close,5,5,Mitigating,Priya Raman,Schedule around close week
+RK-0069,PRJ-026,SME availability during quarter close,4,5,Mitigating,Priya Raman,Schedule around close week
+RK-0070,PRJ-026,Data migration volume higher than estimated,5,1,Mitigating,Priya Raman,Phase migration in two waves
+RK-0071,PRJ-026,Security review backlog,5,2,Closed,,Pre-book review slot
+RK-0072,PRJ-888,Scope creep from stakeholder requests,2,2,Mitigating,Priya Raman,Weekly scope review with sponsor
+RK-0073,PRJ-027,Third-party license renewal gap,2,4,Open,Victor Moreno,Start renewal 60 days early
+RK-0074,PRJ-027,Budget approval delayed,2,1,Mitigating,Victor Moreno,Prepare fallback funding request
+RK-0075,PRJ-027,Key vendor resource unavailable,3,4,Mitigating,Victor Moreno,Secure backup contractor
+RK-0076,PRJ-028,Key vendor resource unavailable,1,5,Mitigating,Victor Moreno,Secure backup contractor
+RK-0077,PRJ-028,Budget approval delayed,3,5,Mitigating,Victor Moreno,Prepare fallback funding request
+RK-0078,PRJ-031,Budget approval delayed,5,4,Open,Elena Castillo,Prepare fallback funding request
+RK-0079,PRJ-031,Scope creep from stakeholder requests,4,4,Closed,,Weekly scope review with sponsor
+RK-0080,PRJ-031,Security review backlog,2,4,Open,,Pre-book review slot
+RK-0081,PRJ-031,Data migration volume higher than estimated,3,2,Open,Elena Castillo,Phase migration in two waves
+RK-0082,PRJ-031,Testing environment instability,5,1,Mitigating,Elena Castillo,Add env smoke tests
+RK-0083,PRJ-032,Scope creep from stakeholder requests,2,5,Open,Elena Castillo,Weekly scope review with sponsor
+RK-0084,PRJ-032,Third-party license renewal gap,1,2,Open,Elena Castillo,Start renewal 60 days early
+RK-0085,PRJ-032,Testing environment instability,2,2,Mitigating,,Add env smoke tests
+RK-0086,PRJ-032,Data migration volume higher than estimated,5,2,Open,Elena Castillo,Phase migration in two waves
+RK-0087,PRJ-033,Testing environment instability,3,1,Open,Elena Castillo,Add env smoke tests
+RK-0088,PRJ-033,SME availability during quarter close,4,4,Open,Elena Castillo,Schedule around close week
+RK-0089,PRJ-033,Key vendor resource unavailable,5,2,Closed,Elena Castillo,Secure backup contractor
+RK-0090,PRJ-034,Change management resistance,2,3,Closed,Elena Castillo,Run change champion program
+RK-0091,PRJ-034,Testing environment instability,1,2,Open,,Add env smoke tests
+RK-0092,PRJ-034,Security review backlog,1,2,Mitigating,Elena Castillo,Pre-book review slot
+RK-0093,PRJ-035,Integration API not ready,5,1,Closed,Amara Osei,Escalate to vendor PM
+RK-0094,PRJ-035,Scope creep from stakeholder requests,1,1,Mitigating,,Weekly scope review with sponsor
+RK-0095,PRJ-035,Change management resistance,5,5,Closed,Amara Osei,Run change champion program
+RK-0096,PRJ-035,Data migration volume higher than estimated,4,5,Open,Amara Osei,Phase migration in two waves
+RK-0097,PRJ-035,Security review backlog,5,4,Open,Amara Osei,Pre-book review slot
+RK-0098,PRJ-036,Budget approval delayed,4,2,Closed,,Prepare fallback funding request
+RK-0099,PRJ-036,Scope creep from stakeholder requests,5,5,Open,Elena Castillo,Weekly scope review with sponsor
+RK-0100,PRJ-036,SME availability during quarter close,1,5,Mitigating,Elena Castillo,Schedule around close week
+RK-0101,PRJ-036,Testing environment instability,4,2,Mitigating,Elena Castillo,Add env smoke tests
+RK-0102,PRJ-036,Integration API not ready,3,1,Open,Elena Castillo,Escalate to vendor PM
+RK-0103,PRJ-037,Security review backlog,3,5,Open,Elena Castillo,Pre-book review slot
+RK-0104,PRJ-037,Testing environment instability,2,4,Mitigating,Elena Castillo,Add env smoke tests
+RK-0105,PRJ-037,SME availability during quarter close,2,3,Mitigating,Elena Castillo,Schedule around close week
+RK-0106,PRJ-037,Change management resistance,3,5,Pending,Elena Castillo,Run change champion program
+RK-0107,PRJ-038,Scope creep from stakeholder requests,2,1,Open,Elena Castillo,Weekly scope review with sponsor
+RK-0108,PRJ-038,Data migration volume higher than estimated,3,5,Mitigating,Elena Castillo,Phase migration in two waves
+RK-0109,PRJ-038,Third-party license renewal gap,1,2,Open,Elena Castillo,Start renewal 60 days early
+RK-0110,PRJ-039,Integration API not ready,5,4,Pending,Elena Castillo,Escalate to vendor PM
+RK-0111,PRJ-039,Third-party license renewal gap,3,1,Mitigating,Elena Castillo,Start renewal 60 days early
+RK-0112,PRJ-040,Change management resistance,1,2,Mitigating,Elena Castillo,Run change champion program
+RK-0113,PRJ-040,Testing environment instability,2,5,Open,,Add env smoke tests
+RK-0114,PRJ-040,Security review backlog,5,5,Mitigating,Elena Castillo,Pre-book review slot
+RK-0115,PRJ-040,Budget approval delayed,2,1,Open,Elena Castillo,Prepare fallback funding request
+RK-0116,PRJ-040,Third-party license renewal gap,2,1,Closed,Elena Castillo,Start renewal 60 days early
+RK-0117,PRJ-041,SME availability during quarter close,1,1,Closed,Theo Brandt,Schedule around close week
+RK-0118,PRJ-041,Change management resistance,5,5,Open,Theo Brandt,Run change champion program
+RK-0119,PRJ-041,Data migration volume higher than estimated,0,2,Mitigating,Theo Brandt,Phase migration in two waves
+RK-0120,PRJ-041,Security review backlog,4,5,Open,Theo Brandt,Pre-book review slot
+RK-0121,PRJ-042,Testing environment instability,5,3,Open,,Add env smoke tests
+RK-0122,PRJ-888,Scope creep from stakeholder requests,5,3,Closed,Jordan Blake,Weekly scope review with sponsor
+RK-0123,PRJ-043,Third-party license renewal gap,2,3,Closed,Jordan Blake,Start renewal 60 days early
+RK-0124,PRJ-043,SME availability during quarter close,4,5,Closed,Jordan Blake,Schedule around close week
+RK-0125,PRJ-043,Change management resistance,3,1,Open,Jordan Blake,Run change champion program
+RK-0126,PRJ-888,Testing environment instability,2,2,Closed,Jordan Blake,Add env smoke tests
+RK-0127,PRJ-044,Testing environment instability,3,2,Open,Jordan Blake,Add env smoke tests
+RK-0128,PRJ-044,Change management resistance,3,1,Mitigating,Jordan Blake,Run change champion program
+RK-0129,PRJ-044,Key vendor resource unavailable,3,3,Open,Jordan Blake,Secure backup contractor
+RK-0130,PRJ-044,Budget approval delayed,2,2,Mitigating,Jordan Blake,Prepare fallback funding request
+RK-0131,PRJ-046,Security review backlog,2,2,Closed,Theo Brandt,Pre-book review slot
+RK-0132,PRJ-046,Data migration volume higher than estimated,1,1,Closed,Theo Brandt,Phase migration in two waves
+RK-0133,PRJ-046,Testing environment instability,4,5,Open,Theo Brandt,Add env smoke tests
+RK-0134,PRJ-047,Third-party license renewal gap,5,3,Pending,Theo Brandt,Start renewal 60 days early
+RK-0135,PRJ-047,Budget approval delayed,5,3,Mitigating,Theo Brandt,Prepare fallback funding request
+RK-0136,PRJ-048,SME availability during quarter close,5,4,Mitigating,Theo Brandt,Schedule around close week
+RK-0137,PRJ-048,Data migration volume higher than estimated,5,3,Open,Theo Brandt,Phase migration in two waves
+RK-0138,PRJ-048,Integration API not ready,2,4,Closed,Theo Brandt,Escalate to vendor PM
+RK-0139,PRJ-048,Key vendor resource unavailable,4,3,Mitigating,,Secure backup contractor

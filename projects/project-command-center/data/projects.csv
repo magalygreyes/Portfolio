@@ -1,0 +1,51 @@
+project_id,project_name,portfolio,department,pm_id,sponsor,phase,baseline_start,baseline_finish,forecast_finish,approved_budget,score_alignment,score_value,score_urgency,score_risk,score_effort
+PRJ-001,Service Desk Migration,Transform,IT Infrastructure,PM-001,VP Customer Success,Backlog,2026-02-16,2026-07-27,2026-08-10,340000,4,5,3,1,2
+PRJ-002,Data Center Exit,Run,IT Infrastructure,PM-006,CISO,Closing,2026-03-16,2026-08-31,2026-08-31,830000,3,1,4,5,1
+PRJ-003,Network Refresh,Transform,IT Infrastructure,PM-006,VP Operations,Cancelled,2026-03-30,2026-08-03,2026-08-17,350000,3,1,2,1,4
+PRJ-004,Endpoint Modernization,Grow,IT Infrastructure,PM-006,CIO,Executing,2026-05-25,2027-03-15,2027-03-15,835000,2,5,2,2,4
+PRJ-005,Backup Platform Replacement,Transform,IT Infrastructure,PM-006,VP Sales,Executing,2026-05-25,2027-02-15,2027-03-01,100000,3,4,3,1,2
+PRJ-006,Cloud Landing Zone,Grow,IT Infrastructure,PM-001,,Complete,2026-05-11,2027-03-15,2027-04-05,240000,3,2,2,5,5
+PRJ-007,VoIP Retirement,Transform,IT Infrastructure,PM-006,CFO,Executing,2026-05-11,2026-11-30,2026-11-23,710000,4,1,1,1,2
+PRJ-008,Wi-Fi Upgrade,Grow,IT Infrastructure,PM-006,Chief Data Officer,Executing,2026-04-06,2026-12-07,2026-12-07,765000,1,1,5,3,3
+PRJ-009,Server Patching Automation,Transform,IT Infrastructure,PM-006,CIO,Planning,2026-04-06,2026-08-31,2026-09-07,860000,3,5,5,2,2
+PRJ-010,DR Site Buildout,Grow,IT Infrastructure,PM-001,CIO,Executing,2026-02-09,2026-09-28,2026-09-21,520000,3,2,1,2,5
+PRJ-011,CRM Consolidation,Grow,Applications,PM-002,CFO,Complete,2026-01-19,2026-10-19,2026-10-26,220000,4,5,2,3,5
+PRJ-012,Billing System Upgrade,Grow,Applications,PM-002,CISO,Complete,2026-04-06,2026-09-07,2026-08-31,620000,5,4,1,2,2
+PRJ-013,HRIS Rollout,Run,Applications,PM-002,VP Operations,Backlog,2026-01-05,2026-08-31,2026-09-14,480000,1,5,2,3,4
+PRJ-014,Intranet Rebuild,Transform,Applications,PM-007,VP Sales,Planning,2026-02-02,2026-11-02,2026-10-26,180000,1,4,3,4,4
+PRJ-015,Document Management Migration,Transform,Applications,PM-007,CIO,Executing,2026-01-12,2026-09-28,2026-10-19,375000,2,2,5,4,2
+PRJ-016,Expense Tool Replacement,Transform,Applications,PM-002,CIO,Executing,2026-03-02,2026-09-28,2026-09-28,120000,5,1,1,2,2
+PRJ-017,Mobile App v2,Transform,Applications,PM-002,Chief Data Officer,Executing,2026-04-20,2026-09-21,2026-10-26,640000,3,4,5,4,2
+PRJ-018,Contract Lifecycle Platform,Run,Applications,PM-002,,Planning,2026-02-16,2026-06-15,2026-06-29,700000,5,2,1,5,1
+PRJ-019,Ticketing Portal Redesign,Transform,Applications,PM-002,VP Sales,Complete,2026-01-19,2026-09-21,2026-09-21,800000,5,1,5,1,4
+PRJ-020,Legacy App Sunset,Run,Applications,PM-007,VP Customer Success,Closing,2026-05-11,2026-12-21,2026-12-21,225000,3,4,3,1,1
+PRJ-021,Warehouse Modernization,Run,Data & Analytics,PM-003,CISO,Executing,2026-05-11,2026-09-21,2026-09-21,145000,2,3,3,2,4
+PRJ-022,Executive KPI Dashboard,Grow,Data & Analytics,PM-003,CIO,On Hold,2026-03-09,2026-11-09,2026-11-02,-230000,3,1,1,5,2
+PRJ-023,Customer 360,Transform,Data & Analytics,PM-003,,Executing,2026-05-18,2026-10-19,2026-11-09,380000,1,1,4,3,1
+PRJ-024,Data Quality Program,Grow,Data & Analytics,PM-003,VP Customer Success,Backlog,2026-02-02,2026-10-12,2026-10-05,775000,1,1,1,2,5
+PRJ-025,Forecasting Model,Grow,Data & Analytics,PM-008,VP Operations,Backlog,2026-03-23,2026-11-16,2026-11-30,515000,2,2,1,3,5
+PRJ-026,Self-Service BI,Transform,Data & Analytics,PM-003,CFO,Complete,2026-04-06,2026-12-07,2026-12-28,585000,1,2,3,4,2
+PRJ-027,Master Data Cleanup,Grow,Data & Analytics,PM-008,VP Sales,Executing,2026-01-26,2026-08-10,2026-09-14,345000,1,2,4,3,3
+PRJ-028,Pipeline Monitoring,Transform,Data & Analytics,PM-008,CISO,Complete,2026-03-02,2026-09-07,2026-09-28,95000,1,3,2,5,3
+PRJ-029,Revenue Analytics,Transform,Data & Analytics,PM-008,CIO,Backlog,2026-05-18,2026-12-07,2026-12-07,550000,5,2,3,1,4
+PRJ-030,Churn Model,Run,Data & Analytics,PM-003,CISO,Backlog,2026-05-04,2027-01-18,2027-02-08,855000,3,1,3,5,3
+PRJ-031,Zero Trust Rollout,Grow,Security,PM-004,CFO,Closing,2026-03-16,2026-09-28,2026-10-19,845000,5,3,4,5,1
+PRJ-032,MFA Everywhere,Run,Security,PM-004,,Executing,2026-02-16,2026-09-07,2026-10-12,275000,1,3,5,5,3
+PRJ-033,SIEM Replacement,Run,Security,PM-004,,Planning,2026-02-23,2026-11-09,2026-11-09,840000,1,4,4,5,2
+PRJ-034,Vendor Risk Program,Run,Security,PM-004,CIO,Closing,2026-03-30,2026-11-02,2026-11-09,600000,2,2,5,4,1
+PRJ-035,Privileged Access Management,Grow,Security,PM-009,,Executing,2026-01-26,2026-08-24,2026-08-24,840000,5,4,5,4,2
+PRJ-036,Phishing Simulation,Run,Security,PM-004,,Closing,2026-04-20,2026-11-16,2026-11-16,860000,2,3,4,1,3
+PRJ-037,Endpoint Detection Upgrade,Grow,Security,PM-004,CFO,Executing,2026-03-16,2026-09-14,2026-09-07,330000,1,4,4,3,5
+PRJ-038,Security Awareness Refresh,Grow,Security,PM-004,VP Customer Success,Executing,2026-01-12,2026-06-15,2026-07-20,670000,1,3,3,4,4
+PRJ-039,Identity Governance,Run,Security,PM-004,,Executing,2026-05-04,2027-02-15,2027-03-01,95000,4,3,4,2,4
+PRJ-040,Log Retention Compliance,Run,Security,PM-004,VP Customer Success,Complete,2026-05-18,2027-01-04,2027-01-04,230000,4,2,1,3,4
+PRJ-041,Order-to-Cash Automation,Run,Business Systems,PM-010,CIO,Executing,2026-04-13,2026-10-12,2026-10-12,660000,1,5,1,3,2
+PRJ-042,Procurement Workflow,Grow,Business Systems,PM-005,VP Sales,Closing,2026-05-25,2026-09-21,2026-10-26,220000,4,1,5,2,4
+PRJ-043,Finance Close Automation,Run,Business Systems,PM-005,Chief Data Officer,Closing,2026-03-23,2026-08-17,2026-08-31,195000,5,1,3,5,4
+PRJ-044,Sales Territory Tool,Transform,Business Systems,PM-005,CIO,Executing,2026-02-16,2026-06-22,2026-07-06,780000,1,3,5,4,3
+PRJ-045,Partner Portal,Run,Business Systems,PM-010,CISO,Backlog,2026-05-25,2026-11-23,2026-11-23,870000,4,2,4,2,5
+PRJ-046,Quote Configurator,Transform,Business Systems,PM-010,Chief Data Officer,Complete,2026-03-02,2026-11-02,2026-12-07,470000,2,1,3,4,2
+PRJ-047,Inventory Sync,Run,Business Systems,PM-010,VP Sales,Closing,2026-05-11,2027-01-11,2027-02-01,510000,3,3,3,5,3
+PRJ-048,Commission Engine,Transform,Business Systems,PM-010,,Executing,2026-04-27,2026-09-28,2026-09-28,885000,4,4,1,1,3
+PRJ-004,Endpoint Modernization (copy),Grow,IT Infrastructure,PM-006,CIO,Executing,2026-05-25,2027-03-15,2027-03-15,835000,2,5,2,2,4
+PRJ-047,Inventory Sync (copy),Run,Business Systems,PM-010,VP Sales,Closing,2026-05-11,2027-01-11,2027-02-01,510000,3,3,3,5,3
