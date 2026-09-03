@@ -1,46 +1,74 @@
-# Magaly Gonzalez Reyes — Portfolio
+# Magaly Gonzalez Reyes | Portfolio
 
-Single-page static portfolio. No build step, no framework.
+My portfolio site and the projects behind it. The site is a single static page, no build step, no framework. Each project lives in its own folder under `projects/` with its own README, docs, and code.
 
-## Files
+Site: https://magalygonzalezreyes.netlify.app
 
-- `index.html`  the whole site (HTML + CSS + ~30 lines of JS)
-- `assets/favicon.svg`  MG monogram, cobalt on ice
-- `assets/og-image.png`  1200×630 share image for LinkedIn / Slack / iMessage previews
-- `resume/`  drop the résumé PDF here (see To do)
-- `netlify.toml`  publish config + security headers
+## Projects
 
-## Run locally
+| Project | What it is | Live |
+|---|---|---|
+| [Project Command Center](projects/project-command-center) | Portfolio-management dashboard that tracks projects like a CRM: KPIs, budget vs. actual, priority scoring with a funding-line slider, and PM capacity with burnout flags. Streamlit + pandas + Plotly, with a validation layer that catches every planted defect in the seed data. | [Open](https://project-command-center-mg.streamlit.app) |
+| [Tower Activation Readiness](projects/tower-activation-readiness) | Cutover readiness dashboard for a building activation: assets by floor and unit, phase funnel, blockers, days-to-cutover flags. Streamlit + pandas, with a CSV validation step up front. | [Open](https://tower-activation-readiness.streamlit.app) |
 
-Double-click `index.html`, or from this folder run `python -m http.server 8000` and open http://localhost:8000.
+Each project folder includes a requirements doc, a data model, and a build log, because the thinking is as much the work as the code.
 
-## Deploy (Netlify)
+## Repo layout
 
-1. Netlify dashboard → Add new site → Deploy manually → drag this whole folder in.
-2. Or connect the GitHub repo: build command empty, publish directory `.`
-3. After the first deploy, set the real site URL in `index.html`: search for `magalygonzalezreyes.netlify.app` and replace all 6 occurrences (canonical, OG, JSON-LD).
+```
+index.html                  the site (HTML + CSS + about 30 lines of JS)
+assets/                     favicon, share image, screenshots
+resume/                     résumé PDF
+netlify.toml                publish config and security headers
+portfolio-build-spec.md     the spec the site was built from
+projects/
+  project-command-center/   Streamlit app, docs, seed data
+  tower-activation-readiness/
+```
 
-## To do before sharing the link
+## Run the site locally
 
-- [ ] **LinkedIn URL.** Search `index.html` for `YOUR-HANDLE` (3 places) and replace with the real handle.
-- [ ] **Résumé PDF.** Export the .docx as PDF and save it as `resume/Magaly-Gonzalez-Reyes-Business-Analyst.pdf`. All three "Download résumé" buttons already point there.
-- [ ] **Headshot.** Replace the hero placeholder with `<img src="assets/headshot.jpg" alt="Magaly Gonzalez Reyes">` inside the `.headshot` div, 4:5 ratio (e.g. 800×1000).
-- [ ] **Project images (4).** 16:10, e.g. 1600×1000. Put an `<img>` inside each card's `.slot` and delete the caption chip.
-- [ ] **Case-study images (4).** A: 4:3 before/after + 16:9 Power Automate flow. B: 4:3 process map + 16:9 dashboard.
-- [ ] Scrub client-identifying data (names, matter numbers, patient data) from every screenshot before publishing.
+Double-click `index.html`, or from this folder:
 
-## Adding an image to a placeholder
+```
+python -m http.server 8000
+```
+
+then open http://localhost:8000.
+
+## Run a project locally
+
+From the project folder, for example `projects/project-command-center`:
+
+```
+py -3.12 -m pip install -r requirements.txt
+py -3.12 -m streamlit run app.py
+```
+
+## Deploy
+
+Site: Netlify, connected to this repo. Build command empty, publish directory `.`.
+
+Dashboards: Streamlit Community Cloud, pointed at this repo with the main file path set to the project's `app.py` (for example `projects/project-command-center/app.py`).
+
+## Adding an image to a placeholder on the site
 
 Before:
+
 ```html
 <div class="slot" role="img" aria-label="..."><span class="cap">Dashboard · 16:10</span></div>
 ```
+
 After:
+
 ```html
-<div class="slot"><img src="assets/kp-dashboard.png" alt="Self-service operations dashboard built in SharePoint" loading="lazy"></div>
+<div class="slot"><img src="assets/kp-dashboard.png" alt="Self-service operations dashboard" loading="lazy"></div>
 ```
-The striped background disappears automatically once the image covers it.
 
-## Spec
+The striped background disappears once the image covers it. Project cards take 16:10 images (about 1600×1000); the headshot is 4:5 (about 800×1000).
 
-Built from `portfolio-build-spec.md` in this folder. Tokens, layout, copy and behavior follow it verbatim.
+## Notes
+
+All project data is fictional. Case studies from client work are described without client-identifying details.
+
+The site's design tokens, layout, copy, and behavior follow `portfolio-build-spec.md`.
