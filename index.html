@@ -6,7 +6,7 @@
 <title>Magaly Gonzalez Reyes — Business Analyst | Process, Systems &amp; Automation</title>
 <meta name="description" content="Business and systems analyst with 10+ years across healthcare, legal, enterprise IT, and small-business consulting. Requirements, process design, dashboards, and workflow automation delivering $30K–$80K in annual savings.">
 <meta name="theme-color" content="#F8FAFC">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://magalygonzalezreyes.netlify.app/">
 
 <!-- Open Graph / Twitter -->
@@ -135,7 +135,7 @@ h1 .dot{color:var(--accent)}
 .stat b{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)}
 .stat b.accent{color:var(--accent)}
 .stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.hero-right{display:flex;flex-direction:column;gap:14px}
+.hero-right{display:flex;flex-direction:column;gap:14px;width:100%;max-width:400px;justify-self:end}
 .headshot{aspect-ratio:4/5;border-radius:10px}
 .glance{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
 .glance .eyebrow{color:var(--muted);font-size:10.5px;margin-bottom:12px;display:block}
@@ -157,6 +157,10 @@ h1 .dot{color:var(--accent)}
 .two-col{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:start}
 .about-copy{display:flex;flex-direction:column;gap:20px}
 .about-copy p{font-size:16.5px;line-height:1.7;color:var(--body);max-width:62ch}
+.steps{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:step;max-width:62ch}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;font-size:15.5px;line-height:1.6;color:var(--body)}
+.steps li::before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--accent);padding-top:5px}
+.steps b{color:var(--ink);font-weight:600}
 .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:12px}
 .cap-cell{background:var(--surface);padding:22px}
 .cap-cell h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
@@ -230,7 +234,7 @@ h1 .dot{color:var(--accent)}
 @media (max-width:1099px){
   .hero-grid,.two-col,.cards,.acc-panel{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
-  .hero-right{max-width:520px}
+  .hero-right{max-width:520px;justify-self:start}
   .caps{grid-template-columns:1fr}
   .site-header .bar{flex-wrap:wrap}
   .nav{order:3;width:100%}
@@ -310,7 +314,7 @@ h1 .dot{color:var(--accent)}
 
     <aside class="hero-right" aria-label="At a glance">
       <div class="slot headshot">
-        <img src="/assets/headshot.jpg" alt="Portrait of Magaly Gonzalez Reyes" width="276" height="345" loading="eager">
+        <img src="assets/headshot.jpg" alt="Portrait of Magaly Gonzalez Reyes" width="276" height="345" loading="eager">
       </div>
       <div class="glance">
         <span class="eyebrow">At a glance</span>
@@ -345,8 +349,15 @@ h1 .dot{color:var(--accent)}
       <h2 id="about-title" class="h2">How I work</h2>
     </div>
     <div class="about-copy">
-      <p>I start where the friction is. Workshops and stakeholder interviews first, then current- and future-state process maps, gap analysis, and requirements documented clearly enough that engineering, business, and leadership all work from the same source of truth through build, UAT, and adoption.</p>
-      <p>The part I care most about is what happens after launch. Standardized documentation, governance that holds, dashboards leadership actually opens, and training that gets people using the thing. Increasingly that also means building the automation myself — Power Platform, SharePoint, and AI agents that take recurring reporting off people's plates.</p>
+      <p>I see the problem, untangle it, and find the solution. Most process problems are a knot of handoffs, workarounds, and missing information. My job is to pull that knot apart, understand what is really slowing people down and who it affects, and turn it into a solution the business can adopt. The work follows a process I have refined across healthcare, legal, and enterprise IT.</p>
+      <ol class="steps">
+        <li><span><b>Discover.</b> Meet with stakeholders and end users, review how the work gets done today, and gather the data behind the pain points.</span></li>
+        <li><span><b>Define.</b> Map the current and future state, run gap analysis, and document requirements, user stories, and acceptance criteria that business, engineering, and leadership can all sign off on.</span></li>
+        <li><span><b>Scope and prioritize.</b> Break the solution into phases, weigh effort against impact, and set a realistic plan with clear owners and milestones.</span></li>
+        <li><span><b>Build and test.</b> Act as the liaison between developers and stakeholders, translate needs into specifications, keep communication open through build and UAT, and adjust as we learn.</span></li>
+        <li><span><b>Launch and sustain.</b> Train users, standardize documentation, set up the dashboards and reporting leadership will actually use, and put governance in place so the improvement holds.</span></li>
+      </ol>
+      <p>Increasingly, I also build the automation myself: Power Platform, SharePoint, and AI agents that take recurring reporting and documentation off people's plates.</p>
       <div class="caps">
         <div class="cap-cell">
           <h3>Business analysis</h3>
@@ -376,6 +387,7 @@ h1 .dot{color:var(--accent)}
       <p class="range">2018 — 2026</p>
     </div>
     <div class="cards">
+      <!-- Row 1: case studies -->
       <a class="card" href="#case-studies">
         <div class="slot" role="img" aria-label="Architecture map of the internal AI documentation agent (image coming soon)"><span class="cap">Agent architecture · 16:10</span></div>
         <p class="meta">Business Analyst · Enterprise IT</p>
@@ -405,7 +417,8 @@ h1 .dot{color:var(--accent)}
         <p>Cutover readiness dashboard for a building activation: assets by floor and unit, phase funnel, blockers, and days-to-cutover flags. Streamlit and pandas with CSV validation up front: 524 rows in, 437 clean, 87 rejected.</p>
         <span class="more">Open the live dashboard →</span>
       </a>
-         </div>
+      <!-- Row 3: add the AI documentation agent card here (two cards per row) -->
+    </div>
   </div>
 </section>
 
@@ -414,7 +427,8 @@ h1 .dot{color:var(--accent)}
   <div class="wrap">
     <p class="eyebrow">03 / Case studies</p>
     <h2 id="cases-title" class="h2">The work in detail</h2>
-        <div class="acc"></div>
+
+    <div class="acc">
       <!-- A -->
       <article class="acc-item">
         <h3 style="margin:0">
