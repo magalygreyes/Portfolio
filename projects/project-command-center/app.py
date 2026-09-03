@@ -224,7 +224,7 @@ def cumulative_budget(project_ids):
     m["cum_planned"] = m["planned"].cumsum()
     # Actual is only cumulative through months that have any actuals
     has_actual = bl.groupby("month")["actual"].apply(lambda s: s.notna().any())
-    in_past = m["month"] <= pd.Timestamp(cfg.AS_OF).replace(day=1)
+    in_past = m.index <= pd.Timestamp(cfg.AS_OF).replace(day=1)
     m["cum_actual"] = m["actual"].cumsum().where(has_actual & in_past)
     return m.reset_index()
 
@@ -389,6 +389,179 @@ def page_prioritization():
     download(t, "priority_ranking.csv")
 
 
+
+# ================================================================ CAPACITY
+def page_capacity():
+    st.title("PM Capacity")
+    st.caption(f"Hours committed to active projects vs hours available, week of {pm_summary['current_week'].max():%B %d}. "
+               f"Burnout flag: over {cfg.BURNOUT_WEEK_PCT}% this week, or over {cfg.BURNOUT_STREAK_PCT}% for "
+               f"{cfg.BURNOUT_STREAK_WEEKS}+ weeks in a row.")
+
+    s = pm_summary.sort_values("utilization_pct", ascending=False)
+    flagged = s[s["burnout_flag"]]
+    under = s[s["utilization_pct"] < 60]
+    c = st.columns(4)
+    kpi_tile(c[0], "Burnout flags", f"{len(flagged)}", "Red" if len(flagged) else "Green",
+             ", ".join(flagged["pm_name"]) if len(flagged) else "nobody over the line")
+    kpi_tile(c[1], "Avg utilization", f"{s['utilization_pct'].mean():.0f}%", kpis["K7_pm_utilization"]["light"], "target 60 to 85%")
+    kpi_tile(c[2], "Hours committed", f"{s['allocated_hours'].sum():.0f} h", "Grey", f"of {s['available_hours'].sum():.0f} h available")
+    kpi_tile(c[3], "Under 60%", f"{len(under)}", "Yellow" if len(under) else "Green",
+             ", ".join(under["pm_name"]) if len(under) else "everyone has a full plate")
+
+    st.markdown("")
+    left, right = st.columns([3, 2])
+    with left:
+        st.subheader("This week, by PM")
+        fig = go.Figure()
+        fig.add_bar(y=s["pm_name"], x=s["available_hours"], orientation="h", name="Available",
+                    marker=dict(color="#E5E7EB"), hovertemplate="%{y}<br>Available: %{x:.0f} h<extra></extra>")
+        fig.add_bar(y=s["pm_name"], x=s["allocated_hours"], orientation="h", name="Allocated", showlegend=False,
+                    marker=dict(color=[cfg.COLORS[l] for l in s["light"]], line=dict(color="white", width=2)),
+                    text=[f"{u:.0f}%" for u in s["utilization_pct"]], textposition="outside",
+                    customdata=s[["utilization_pct", "active_projects"]],
+                    hovertemplate="%{y}<br>Allocated: %{x:.1f} h · %{customdata[0]:.0f}% · %{customdata[1]} projects<extra></extra>")
+        fig.update_layout(barmode="overlay", height=380, **PLOT_LAYOUT)
+        fig.update_yaxes(autorange="reversed")
+        fig.update_xaxes(title="Hours per week", range=[0, max(50, s["allocated_hours"].max() * 1.15)])
+        st.plotly_chart(fig, width="stretch")
+        st.caption("Bar color is the utilization light: green 60 to 85%, yellow 85 to 100% or under 60%, red over 100%.")
+
+    with right:
+        st.subheader("Rebalancing candidates")
+        st.caption("PMs under 60% in the same department as a flagged PM.")
+        rows = []
+        for _, f in flagged.iterrows():
+            same = under[(under["department"] == f["department"]) & (under["pm_id"] != f["pm_id"])]
+            for _, u in same.iterrows():
+                rows.append(f"**{f['pm_name']}** ({f['utilization_pct']:.0f}%) → **{u['pm_name']}** ({u['utilization_pct']:.0f}%), {f['department']}")
+        if rows:
+            for r in rows:
+                st.markdown(r)
+        else:
+            st.info("No same-department PM under 60% for the flagged PMs. Rebalancing would cross departments.")
+
+        st.markdown("")
+        st.subheader("Streaks")
+        for _, r in s[s["weeks_over_90"] > 0].iterrows():
+            st.markdown(f"{pill(r['light'])} **{r['pm_name']}** · {int(r['weeks_over_90'])} week(s) over {cfg.BURNOUT_STREAK_PCT}%",
+                        unsafe_allow_html=True)
+
+    st.subheader("26-week utilization")
+    wk = weekly_cap[weekly_cap["pm_id"].isin(s["pm_id"]) & (weekly_cap["week_start"].dt.weekday == 0)]
+    wk = wk.merge(s[["pm_id", "pm_name"]], on="pm_id")
+    pivot = wk.pivot(index="pm_name", columns="week_start", values="utilization_pct").reindex(s["pm_name"])
+    fig = go.Figure(go.Heatmap(
+        z=pivot.values, x=[d.strftime("%b %d") for d in pivot.columns], y=pivot.index,
+        zmin=0, zmax=130,
+        colorscale=[[0, "#F1F5F9"], [0.46, "#BFDBFE"], [0.65, "#2563EB"], [1.0, "#1E3A8A"]],
+        colorbar=dict(title="%", thickness=12),
+        xgap=2, ygap=2,
+        hovertemplate="%{y}<br>Week of %{x}<br>%{z:.0f}%<extra></extra>",
+    ))
+    fig.update_layout(height=340, **PLOT_LAYOUT)
+    fig.update_xaxes(showgrid=False, tickangle=-45)
+    fig.update_yaxes(autorange="reversed")
+    st.plotly_chart(fig, width="stretch")
+    st.caption("One hue, light to dark. Darker = more of the week committed.")
+
+    st.subheader("Where the hours go")
+    pick = st.selectbox("PM", s["pm_id"], format_func=lambda k: pm_lookup.get(k, k), key="cap_pick")
+    cap = clean["capacity"]
+    cw = pm_summary_all.loc[pm_summary_all["pm_id"] == pick, "current_week"].iloc[0]
+    mine = (cap[(cap["pm_id"] == pick) & (cap["week_start"] == cw)]
+            .merge(proj_all[["project_id", "project_name", "current_health", "phase", "priority_score"]], on="project_id", how="left")
+            .sort_values("allocated_hours", ascending=False))
+    t = mine[["project_id", "project_name", "phase", "current_health", "priority_score", "allocated_hours"]].rename(columns={
+        "project_id": "ID", "project_name": "Project", "phase": "Phase", "current_health": "Health",
+        "priority_score": "Priority", "allocated_hours": "Hours this week"})
+    st.dataframe(t, width="stretch", hide_index=True,
+                 column_config={"Priority": st.column_config.ProgressColumn(format="%.0f", min_value=0, max_value=100)})
+    download(s.drop(columns=["current_week"]), "pm_capacity.csv")
+
+
+# ================================================================ PROJECT DETAIL
+def page_project_detail():
+    st.title("Project Detail")
+    options = proj_all.sort_values("project_name")
+    pick = st.selectbox("Project", options["project_id"],
+                        format_func=lambda k: f"{k} · {options.set_index('project_id').loc[k, 'project_name']}",
+                        key="detail_pick")
+    r = proj_all[proj_all["project_id"] == pick].iloc[0]
+
+    st.markdown(
+        f"## {r['project_name']} &nbsp; {pill(r['current_health'] if pd.notna(r['current_health']) else 'Grey')}",
+        unsafe_allow_html=True)
+    st.caption(f"{r['project_id']} · {r['portfolio']} · {r['department']} · PM {r['pm_name']} · "
+               f"Sponsor {r['sponsor'] if pd.notna(r['sponsor']) else 'not assigned'} · Phase {r['phase']}")
+
+    c = st.columns(5)
+    kpi_tile(c[0], "% complete", f"{int(r['pct_complete']) if pd.notna(r['pct_complete']) else 0}%", "Grey",
+             f"last update {r['last_update_date']:%b %d}" if pd.notna(r["last_update_date"]) else "no updates")
+    kpi_tile(c[1], "Schedule slip", f"{int(r['slip_days']):+d} d", r["light_schedule"],
+             f"baseline {r['baseline_finish']:%b %d} → forecast {r['forecast_finish']:%b %d}")
+    kpi_tile(c[2], "Budget variance", f"{r['budget_variance_pct']:+.1f}%" if pd.notna(r["budget_variance_pct"]) else "n/a",
+             r["light_budget"], f"{money(r['actual_to_date'])} of {money(r['approved_budget'])}")
+    kpi_tile(c[3], "Risk exposure", f"{int(r['risk_exposure'])}", r["light_risk"], f"{int(r['open_risks'])} open risk(s)")
+    kpi_tile(c[4], "Priority", f"{r['priority_score']:.0f}", "Grey",
+             f"A{int(r['score_alignment'])} V{int(r['score_value'])} U{int(r['score_urgency'])} R{int(r['score_risk'])} E{int(r['score_effort'])}")
+
+    if r["health_disagrees"]:
+        st.warning(f"PM reports **{r['current_health']}** but the numbers suggest **{r['suggested_health']}** "
+                   f"(budget {r['light_budget']}, schedule {r['light_schedule']}, risk {r['light_risk']}).")
+
+    left, right = st.columns([3, 2])
+    with left:
+        st.subheader("Status history")
+        su = clean["status_updates"]
+        hist = su[su["project_id"] == pick].sort_values("update_date")
+        if hist.empty:
+            st.info("No status updates.")
+        else:
+            fig = go.Figure()
+            fig.add_scatter(x=hist["update_date"], y=hist["pct_complete"], mode="lines+markers", name="% complete",
+                            line=dict(color="#94A3B8", width=2),
+                            marker=dict(size=10, color=[cfg.COLORS[h] for h in hist["health"]], line=dict(color="white", width=2)),
+                            customdata=hist[["health", "summary"]],
+                            hovertemplate="%{x|%b %d}<br>%{y}% complete · %{customdata[0]}<br>%{customdata[1]}<extra></extra>")
+            fig.update_layout(height=260, **PLOT_LAYOUT)
+            fig.update_yaxes(title="% complete", range=[0, 105], showgrid=True, gridcolor="#E5E7EB")
+            fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig, width="stretch")
+            st.caption("Marker color = reported health that week.")
+            with st.expander("Update narratives"):
+                for _, h in hist.sort_values("update_date", ascending=False).head(10).iterrows():
+                    st.markdown(f"{pill(h['health'])} **{h['update_date']:%b %d}** · {int(h['pct_complete'])}% · {h['summary'] or ''}",
+                                unsafe_allow_html=True)
+
+        st.subheader("Milestones")
+        ms = clean["milestones"]
+        m = ms[ms["project_id"] == pick].sort_values("baseline_date").copy()
+        m["slip_days"] = (m["forecast_date"] - m["baseline_date"]).dt.days
+        t = m[["milestone_name", "baseline_date", "forecast_date", "slip_days", "status"]].rename(columns={
+            "milestone_name": "Milestone", "baseline_date": "Baseline", "forecast_date": "Forecast",
+            "slip_days": "Slip (d)", "status": "Status"})
+        st.dataframe(t, width="stretch", hide_index=True,
+                     column_config={"Baseline": st.column_config.DateColumn(format="MMM D"),
+                                    "Forecast": st.column_config.DateColumn(format="MMM D")})
+
+    with right:
+        st.subheader("Open risks")
+        rk = clean["risks"]
+        rr = rk[(rk["project_id"] == pick) & (rk["status"] != "Closed")].copy()
+        rr["exposure"] = rr["probability"] * rr["impact"]
+        rr = rr.sort_values("exposure", ascending=False)
+        if rr.empty:
+            st.info("No open risks.")
+        for _, x in rr.iterrows():
+            light = "Red" if x["exposure"] >= 15 else "Yellow" if x["exposure"] >= 8 else "Green"
+            st.markdown(f"{pill(light)} **{x['title']}**<br>"
+                        f"<span style='color:#64748B;font-size:12px'>P{int(x['probability'])} × I{int(x['impact'])} = {int(x['exposure'])} · "
+                        f"{x['status']} · {x['owner']}<br>Mitigation: {x['mitigation'] or 'none recorded'}</span>",
+                        unsafe_allow_html=True)
+
+        st.subheader("Budget")
+        st.plotly_chart(budget_chart(cumulative_budget([pick])), width="stretch")
+
 # ================================================================ Placeholders (built in later phases)
 def page_placeholder(name, phase):
     st.title(name)
@@ -414,8 +587,8 @@ elif page == "Budget":
 elif page == "Prioritization":
     page_prioritization()
 elif page == "Capacity":
-    page_placeholder("PM Capacity", 5)
+    page_capacity()
 elif page == "Project Detail":
-    page_placeholder("Project Detail", 5)
+    page_project_detail()
 elif page == "Data Quality":
     page_data_quality()

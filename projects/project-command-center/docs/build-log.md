@@ -11,7 +11,7 @@ Workflow per phase: explore, plan, code, commit.
 2. Validation layer (validator.py) + metrics module (metrics.py) + config.py thresholds - DONE 2026-09-02
 3. App shell: sidebar filters, Overview page with KPI tiles and project table - DONE 2026-09-02
 4. Budget page + Prioritization page with weight sliders - DONE 2026-09-02
-5. Capacity page with burnout flags + Project Detail drill-down
+5. Capacity page with burnout flags + Project Detail drill-down - DONE 2026-09-03
 6. Data Quality panel, CSV downloads, README, deploy to Streamlit Community Cloud
 
 ## Phase 0 result
@@ -52,3 +52,10 @@ Budget page: 4 tiles (planned to date, actual to date, variance, projects foreca
 Prioritization page: formula shown in the caption from the live weights; value vs effort bubble chart (size = budget, color = health, jittered so same-cell bubbles spread); funding-line slider in $K that splits the ranked list into above/below the line and shows committed budget, budget left, PM hours above the line, and PM hours freed; ranked table with the five input scores, cumulative budget, and cumulative PM hours per week.
 Seed-data story: 17 of 31 active projects forecast over budget; with 60% of total budget available, 17 projects fund and 149 PM h/week are committed to them.
 Fix during build: current-week PM hours are keyed to the Monday of AS_OF, not max(week_start), because planted non-Monday defect rows pushed the max past the real week.
+
+## Phase 5 result
+Capacity page: 4 tiles (burnout flags with names, avg utilization, hours committed vs available, PMs under 60%), this-week bar per PM (grey available bar with colored allocated bar on top, utilization label), rebalancing candidates (under-60% PMs in the same department as a flagged PM), streaks list, 26-week utilization heatmap (single blue hue, light to dark), and a per-PM "where the hours go" table.
+Project Detail page: project picker, header with health pill, 5 tiles (% complete, slip, budget variance, risk exposure, priority with the five inputs), a warning when the PM's reported health disagrees with the computed suggested_health, status history line (markers colored by reported health, narratives in an expander), milestone table with slip, open risks ranked by exposure with mitigation, and the project's cumulative budget chart.
+Bug fixed during Phase 4 hand-off: cumulative_budget referenced the month column before reset_index (KeyError 'month' on the Budget page). Now uses the index.
+Heatmap only shows Monday-dated weeks so the planted non-Monday rows do not add stray columns.
+Remaining: Phase 6 (README, deploy).
