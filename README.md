@@ -26,47 +26,6 @@ projects/
   tower-activation-readiness/
 ```
 
-## Run the site locally
-
-Double-click `index.html`, or from this folder:
-
-```
-python -m http.server 8000
-```
-
-then open http://localhost:8000.
-
-## Run a project locally
-
-From the project folder, for example `projects/project-command-center`:
-
-```
-py -3.12 -m pip install -r requirements.txt
-py -3.12 -m streamlit run app.py
-```
-
-## Deploy
-
-Site: Netlify, connected to this repo. Build command empty, publish directory `.`.
-
-Dashboards: Streamlit Community Cloud, pointed at this repo with the main file path set to the project's `app.py` (for example `projects/project-command-center/app.py`).
-
-## Adding an image to a placeholder on the site
-
-Before:
-
-```html
-<div class="slot" role="img" aria-label="..."><span class="cap">Dashboard · 16:10</span></div>
-```
-
-After:
-
-```html
-<div class="slot"><img src="assets/kp-dashboard.png" alt="Self-service operations dashboard" loading="lazy"></div>
-```
-
-The striped background disappears once the image covers it. Project cards take 16:10 images (about 1600×1000); the headshot is 4:5 (about 800×1000).
-
 ## Notes
 
 All project data is fictional. Case studies from client work are described without client-identifying details.
