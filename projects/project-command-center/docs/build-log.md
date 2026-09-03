@@ -10,7 +10,7 @@ Workflow per phase: explore, plan, code, commit.
 1. Seed data generator (make_seed_data.py) + 7 CSVs with ~8% deliberate defects - DONE 2026-09-02
 2. Validation layer (validator.py) + metrics module (metrics.py) + config.py thresholds - DONE 2026-09-02
 3. App shell: sidebar filters, Overview page with KPI tiles and project table - DONE 2026-09-02
-4. Budget page + Prioritization page with weight sliders
+4. Budget page + Prioritization page with weight sliders - DONE 2026-09-02
 5. Capacity page with burnout flags + Project Detail drill-down
 6. Data Quality panel, CSV downloads, README, deploy to Streamlit Community Cloud
 
@@ -46,3 +46,9 @@ Overview page: 8 KPI tiles with traffic-light left border, health-by-department 
 Data Quality page built early (summary table + findings by severity + download).
 Theme: .streamlit/config.toml, blue accent #2563EB, navy text #1E293B, Space Grotesk headings, Inter body. Yellow status is #D97706 (darker amber passes contrast against white; #F9A825 did not).
 Budget, Prioritization, Capacity, Project Detail pages are placeholders until Phases 4 and 5.
+
+## Phase 4 result
+Budget page: 4 tiles (planned to date, actual to date, variance, projects forecast over budget), cumulative planned vs actual line for the filtered portfolio (unified hover), variance table per project (approved, planned, actual, variance %, burn %, burn vs progress, CPI, EAC, over-budget flag), CSV download, and a single-project drill-down with its own cumulative chart.
+Prioritization page: formula shown in the caption from the live weights; value vs effort bubble chart (size = budget, color = health, jittered so same-cell bubbles spread); funding-line slider in $K that splits the ranked list into above/below the line and shows committed budget, budget left, PM hours above the line, and PM hours freed; ranked table with the five input scores, cumulative budget, and cumulative PM hours per week.
+Seed-data story: 17 of 31 active projects forecast over budget; with 60% of total budget available, 17 projects fund and 149 PM h/week are committed to them.
+Fix during build: current-week PM hours are keyed to the Monday of AS_OF, not max(week_start), because planted non-Monday defect rows pushed the max past the real week.

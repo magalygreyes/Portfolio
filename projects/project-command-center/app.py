@@ -215,6 +215,180 @@ def page_overview():
     download(table, "projects_filtered.csv")
 
 
+# ================================================================ BUDGET
+def cumulative_budget(project_ids):
+    """Monthly planned vs actual, cumulative, for a set of projects."""
+    bl = clean["budget_lines"]
+    bl = bl[bl["project_id"].isin(project_ids)]
+    m = bl.groupby("month").agg(planned=("planned", "sum"), actual=("actual", "sum")).sort_index()
+    m["cum_planned"] = m["planned"].cumsum()
+    # Actual is only cumulative through months that have any actuals
+    has_actual = bl.groupby("month")["actual"].apply(lambda s: s.notna().any())
+    in_past = m["month"] <= pd.Timestamp(cfg.AS_OF).replace(day=1)
+    m["cum_actual"] = m["actual"].cumsum().where(has_actual & in_past)
+    return m.reset_index()
+
+
+def budget_chart(m, title=""):
+    fig = go.Figure()
+    fig.add_scatter(x=m["month"], y=m["cum_planned"], name="Planned (cumulative)", mode="lines",
+                    line=dict(color="#94A3B8", width=2, dash="dot"),
+                    hovertemplate="%{x|%b %Y}<br>Planned: $%{y:,.0f}<extra></extra>")
+    fig.add_scatter(x=m["month"], y=m["cum_actual"], name="Actual (cumulative)", mode="lines+markers",
+                    line=dict(color=cfg.ACCENT, width=2), marker=dict(size=8, line=dict(color="white", width=2)),
+                    hovertemplate="%{x|%b %Y}<br>Actual: $%{y:,.0f}<extra></extra>")
+    fig.update_layout(height=320, hovermode="x unified", title=title, **PLOT_LAYOUT)
+    fig.update_yaxes(tickprefix="$", tickformat=",.0f", showgrid=True, gridcolor="#E5E7EB")
+    fig.update_xaxes(showgrid=False, dtick="M1", tickformat="%b")
+    return fig
+
+
+def page_budget():
+    st.title("Budget vs. Actual")
+    st.caption("Planned is the baseline by month. Actual fills in as months close. To-date figures run through the current month.")
+
+    k = kpis
+    d = k["K3_budget_variance"]["detail"]
+    over = proj[proj["is_active"] & proj["over_budget_forecast"]]
+    c = st.columns(4)
+    kpi_tile(c[0], "Planned to date", money(d["planned"]), "Grey", "sum of monthly plan through this month")
+    kpi_tile(c[1], "Actual to date", money(d["actual"]), "Grey", "sum of recorded spend")
+    kpi_tile(c[2], "Variance", f"{k['K3_budget_variance']['value']:+.1f}%", k["K3_budget_variance"]["light"],
+             "(actual - planned) / planned")
+    kpi_tile(c[3], "Forecast over budget", f"{len(over)}", "Red" if len(over) else "Green",
+             f"of {int(proj['is_active'].sum())} active, EAC above approved")
+
+    st.markdown("")
+    st.subheader("Cumulative spend, filtered portfolio")
+    m = cumulative_budget(proj["project_id"])
+    if m.empty:
+        st.info("No budget lines for the current filter.")
+    else:
+        st.plotly_chart(budget_chart(m), width="stretch")
+
+    st.subheader("Variance by project")
+    cols = {
+        "project_id": "ID", "project_name": "Project", "pm_name": "PM", "phase": "Phase",
+        "approved_budget": "Approved", "planned_to_date": "Planned to date", "actual_to_date": "Actual to date",
+        "budget_variance_pct": "Variance %", "light_budget": "Variance light",
+        "pct_complete": "% done", "burn_pct": "Burn %", "burn_vs_progress": "Burn vs progress",
+        "cpi": "CPI", "eac": "EAC", "over_budget_forecast": "Over budget?",
+    }
+    t = proj.sort_values("budget_variance_pct", ascending=False)[list(cols)].rename(columns=cols)
+    st.dataframe(
+        t, width="stretch", hide_index=True, height=420,
+        column_config={
+            "Approved": st.column_config.NumberColumn(format="$%,.0f"),
+            "Planned to date": st.column_config.NumberColumn(format="$%,.0f"),
+            "Actual to date": st.column_config.NumberColumn(format="$%,.0f"),
+            "EAC": st.column_config.NumberColumn(format="$%,.0f"),
+            "Variance %": st.column_config.NumberColumn(format="%+.1f%%"),
+            "Burn %": st.column_config.NumberColumn(format="%.0f%%"),
+            "Burn vs progress": st.column_config.NumberColumn(format="%+.0f pts"),
+            "% done": st.column_config.ProgressColumn(format="%d%%", min_value=0, max_value=100),
+        },
+    )
+    download(t, "budget_variance.csv")
+
+    st.subheader("One project")
+    pick = st.selectbox("Project", proj["project_id"] + " · " + proj["project_name"], key="budget_pick")
+    pid = pick.split(" · ")[0]
+    row = proj[proj["project_id"] == pid].iloc[0]
+    c = st.columns(4)
+    kpi_tile(c[0], "Approved", money(row["approved_budget"]), "Grey")
+    kpi_tile(c[1], "Actual to date", money(row["actual_to_date"]), row["light_budget"], f"{row['budget_variance_pct']:+.1f}% vs plan")
+    kpi_tile(c[2], "EAC", money(row["eac"]), "Red" if row["over_budget_forecast"] else "Green", f"CPI {row['cpi']}")
+    kpi_tile(c[3], "Burn vs progress", f"{row['burn_vs_progress']:+.0f} pts", row["light_burn"],
+             f"{row['burn_pct']:.0f}% spent, {int(row['pct_complete'])}% done")
+    st.plotly_chart(budget_chart(cumulative_budget([pid])), width="stretch")
+
+
+# ================================================================ PRIORITIZATION
+def page_prioritization():
+    st.title("Prioritization")
+    wtxt = " + ".join(f"{v:.0%} {k}" for k, v in weights.items())
+    st.caption(f"Score = {wtxt}, with risk and effort inverted (6 - score), scaled to 0 to 100. "
+               "Change the weights in the sidebar and the ranking updates.")
+
+    act = proj[proj["is_active"]].copy()
+    # Current-week PM hours per project
+    cap = clean["capacity"]
+    as_of = pd.Timestamp(cfg.AS_OF)
+    cur_week = as_of - pd.Timedelta(days=as_of.weekday())
+    hrs = cap[cap["week_start"] == cur_week].groupby("project_id")["allocated_hours"].sum()
+    act["pm_hours_week"] = act["project_id"].map(hrs).fillna(0)
+    act = act.sort_values("priority_score", ascending=False).reset_index(drop=True)
+    act["rank"] = act.index + 1
+    act["cum_budget"] = act["approved_budget"].cumsum()
+    act["cum_pm_hours"] = act["pm_hours_week"].cumsum()
+
+    left, right = st.columns([3, 2])
+    with left:
+        st.subheader("Value vs. effort")
+        st.caption("Bubble size = approved budget. Color = reported health. Top-left is the sweet spot.")
+        fig = go.Figure()
+        for h in cfg.HEALTH:
+            sub = act[act["current_health"] == h]
+            if sub.empty:
+                continue
+            fig.add_scatter(
+                x=sub["score_value"] + (sub["rank"] % 3 - 1) * 0.22,      # jitter so bubbles on the same cell spread out
+                y=sub["score_effort"] + (sub["rank"] % 4 - 1.5) * 0.14,
+                mode="markers+text", name=h,
+                marker=dict(size=sub["approved_budget"] / 25000 + 8, color=cfg.COLORS[h],
+                            line=dict(color="white", width=2), opacity=0.85),
+                text=sub["project_id"].str.replace("PRJ-", ""), textposition="middle center",
+                textfont=dict(color="white", size=10),
+                customdata=sub[["project_name", "priority_score", "approved_budget"]],
+                hovertemplate="<b>%{customdata[0]}</b><br>Priority %{customdata[1]}<br>"
+                              "Budget $%{customdata[2]:,.0f}<br>Value %{x:.0f} · Effort %{y:.0f}<extra></extra>",
+            )
+        fig.update_layout(height=420, **PLOT_LAYOUT)
+        fig.update_xaxes(title="Business value (1 to 5)", range=[0.5, 5.5], dtick=1, showgrid=True, gridcolor="#E5E7EB")
+        fig.update_yaxes(title="Effort (1 to 5)", range=[5.5, 0.5], dtick=1, showgrid=True, gridcolor="#E5E7EB")
+        st.plotly_chart(fig, width="stretch")
+
+    with right:
+        st.subheader("Funding line")
+        total_k = int(act["approved_budget"].sum() // 1000)
+        cap_k = st.slider("Budget available ($K)", 0, total_k, int(total_k * 0.6), step=50, format="$%dK")
+        cap_budget = cap_k * 1000
+        funded = act[act["cum_budget"] <= cap_budget]
+        unfunded = act[act["cum_budget"] > cap_budget]
+        kpi_tile(st, "Projects above the line", f"{len(funded)} of {len(act)}", "Grey",
+                 f"{money(funded['approved_budget'].sum())} committed, {money(cap_budget - funded['approved_budget'].sum())} left")
+        st.markdown("")
+        kpi_tile(st, "PM hours above the line", f"{funded['pm_hours_week'].sum():.0f} h/week", "Grey",
+                 f"{unfunded['pm_hours_week'].sum():.0f} h/week freed if the rest pauses")
+        if not unfunded.empty:
+            st.markdown("")
+            st.markdown("**First projects below the line**")
+            for _, r in unfunded.head(4).iterrows():
+                st.markdown(f"{r['rank']}. {r['project_name']} · {money(r['approved_budget'])} · score {r['priority_score']}")
+
+    st.subheader("Ranked list")
+    act["funded"] = act["cum_budget"] <= cap_budget
+    cols = {
+        "rank": "#", "project_id": "ID", "project_name": "Project", "pm_name": "PM", "portfolio": "Portfolio",
+        "priority_score": "Score", "score_alignment": "Align", "score_value": "Value", "score_urgency": "Urgency",
+        "score_risk": "Risk", "score_effort": "Effort", "current_health": "Health",
+        "approved_budget": "Budget", "cum_budget": "Cum. budget", "pm_hours_week": "PM h/wk", "cum_pm_hours": "Cum. PM h/wk",
+        "funded": "Above line",
+    }
+    t = act[list(cols)].rename(columns=cols)
+    st.dataframe(
+        t, width="stretch", hide_index=True, height=480,
+        column_config={
+            "Score": st.column_config.ProgressColumn(format="%.0f", min_value=0, max_value=100),
+            "Budget": st.column_config.NumberColumn(format="$%,.0f"),
+            "Cum. budget": st.column_config.NumberColumn(format="$%,.0f"),
+            "PM h/wk": st.column_config.NumberColumn(format="%.0f"),
+            "Cum. PM h/wk": st.column_config.NumberColumn(format="%.0f"),
+        },
+    )
+    download(t, "priority_ranking.csv")
+
+
 # ================================================================ Placeholders (built in later phases)
 def page_placeholder(name, phase):
     st.title(name)
@@ -236,9 +410,9 @@ def page_data_quality():
 if page == "Overview":
     page_overview()
 elif page == "Budget":
-    page_placeholder("Budget vs. Actual", 4)
+    page_budget()
 elif page == "Prioritization":
-    page_placeholder("Prioritization", 4)
+    page_prioritization()
 elif page == "Capacity":
     page_placeholder("PM Capacity", 5)
 elif page == "Project Detail":
