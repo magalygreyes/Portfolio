@@ -6,12 +6,14 @@ See docs/requirements.md section 4 and docs/data-model.md section 5.
 """
 
 from datetime import date
+from pathlib import Path
 
 # "Today" for the dashboard. Fixed so the seed data tells the same story every run.
 # Set to None to use the real current date.
 AS_OF = date(2026, 9, 2)
 
-DATA_DIR = "data"
+# Anchored to this file so the app works no matter which folder it is launched from (Streamlit Cloud runs from the repo root)
+DATA_DIR = str(Path(__file__).resolve().parent / "data")
 
 # ---------------------------------------------------------------- Allowed values
 DEPARTMENTS = ["IT Infrastructure", "Applications", "Data & Analytics", "Security", "Business Systems"]
