@@ -8,7 +8,7 @@
 
 ---
 
-## 01 — Executive summary
+## 01 - Executive summary
 
 PMO teams track projects in spreadsheets that answer "what is the status" but not
 "what should we do next."
@@ -27,7 +27,7 @@ at a $45 loaded rate, plus decisions that stop slipping a full review cycle.
 
 ---
 
-## 02 — Business case
+## 02 - Business case
 
 A PMO running 40 to 60 projects spends roughly **338 hours a year** on the mechanics
 of reporting rather than on analysis.
@@ -51,7 +51,7 @@ steering committee starts making decisions on anecdote.
 
 ---
 
-## 03 — Current-state process
+## 03 - Current-state process
 
 Status updates arrive by email or chat in whatever format each project manager has
 settled on. The PMO Analyst re-keys them into a master workbook, chases whoever has
@@ -65,7 +65,7 @@ Capacity is not tracked anywhere. The deck is assembled by hand.
 
 ---
 
-## 04 — Pain points
+## 04 - Pain points
 
 Ten problems were identified in the current-state analysis. The five that drive the
 most requirements:
@@ -82,7 +82,7 @@ most requirements:
 
 ---
 
-## 05 — Requirements
+## 05 - Requirements
 
 30 functional requirements and 6 non-functional requirements, prioritized with
 MoSCoW, each traced to the pain point that justified it.
@@ -105,7 +105,7 @@ Selected examples:
 
 ---
 
-## 06 — Future-state process
+## 06 - Future-state process
 
 Validation runs before anything is calculated. Hard rule violations are rejected
 with a stated reason and shown in a Data Quality panel. Soft rule violations are
@@ -119,7 +119,7 @@ When an unanticipated question comes up, the filters answer it in the meeting.
 
 ---
 
-## 07 — Solution architecture
+## 07 - Solution architecture
 
 ```
 CSV source data (7 files)
@@ -153,7 +153,7 @@ one definition of it.
 
 ---
 
-## 08 — Data model
+## 08 - Data model
 
 Seven related datasets:
 
@@ -171,7 +171,7 @@ Seven related datasets:
 
 ---
 
-## 09 — Testing
+## 09 - Testing
 
 **64 UAT test cases** covering 100 percent of must-have and should-have requirements.
 
@@ -192,7 +192,7 @@ and is triaged accordingly.
 
 ---
 
-## 10 — Dashboard
+## 10- Dashboard
 
 Six pages, all sharing one set of filters.
 
@@ -211,7 +211,7 @@ and the formula is printed on screen. That turns "why is my project ranked low" 
 
 ---
 
-## 11 — Results
+## 11 - Results
 
 | Activity | Current annual hours | Future annual hours | Saved |
 |---|---|---|---|
@@ -237,7 +237,7 @@ Note what is deliberately **not** claimed:
 
 ---
 
-## 12 — Lessons learned
+## 12 - Lessons learned
 
 **Validation earns more trust than any chart.** The Data Quality page was scoped as a
 should-have. In practice it is the page that makes the rest of the dashboard credible,
