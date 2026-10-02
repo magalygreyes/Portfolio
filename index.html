@@ -7,21 +7,21 @@
 <meta name="description" content="Business and systems analyst with 10+ years across healthcare, legal, enterprise IT, and small-business consulting. Requirements, process design, dashboards, and workflow automation delivering $30K–$80K in annual savings.">
 <meta name="theme-color" content="#F8FAFC">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://magalygonzalezreyes.netlify.app/">
+<link rel="canonical" href="https://magalygreyes-portfolio.netlify.app/">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Magaly Gonzalez Reyes — Business Analyst">
 <meta property="og:description" content="Requirements, process design, dashboards, and workflow automation across healthcare, legal, enterprise IT, and small business. $30K–$80K in annual savings delivered.">
-<meta property="og:url" content="https://magalygonzalezreyes.netlify.app/">
-<meta property="og:image" content="https://magalygonzalezreyes.netlify.app/assets/og-image.png">
+<meta property="og:url" content="https://magalygreyes-portfolio.netlify.app/">
+<meta property="og:image" content="https://magalygreyes-portfolio.netlify.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Magaly Gonzalez Reyes, Business Analyst. I connect business needs to the systems, data, and automation that deliver them.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Magaly Gonzalez Reyes — Business Analyst">
 <meta name="twitter:description" content="Requirements, process mapping, dashboards, and workflow automation. $30K–$80K in annual savings delivered.">
-<meta name="twitter:image" content="https://magalygonzalezreyes.netlify.app/assets/og-image.png">
+<meta name="twitter:image" content="https://magalygreyes-portfolio.netlify.app/assets/og-image.png">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
   "jobTitle": "Business Analyst",
   "description": "Business and systems analyst with 10+ years across healthcare, legal, enterprise IT, and small-business consulting. Requirements, process design, dashboards, and workflow automation.",
   "email": "mailto:magaly.g.reyes@gmail.com",
-  "url": "https://magalygonzalezreyes.netlify.app/",
+  "url": "https://magalygreyes-portfolio.netlify.app/",
   "address": { "@type": "PostalAddress", "addressLocality": "Rodeo", "addressRegion": "CA", "addressCountry": "US" },
   "knowsLanguage": ["en", "es"],
   "knowsAbout": ["Business analysis", "Requirements elicitation", "Process mapping", "Power Platform", "SharePoint", "Workflow automation", "Dashboards", "SQL"],
@@ -177,6 +177,21 @@ h1 .dot{color:var(--accent)}
 .card h3{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
 .card p{font-size:14.5px;line-height:1.6;color:var(--body)}
 .card .more{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:4px}
+/* Live project cards: whole card opens the app, GitHub link sits on top */
+.card-live{position:relative}
+.card-live h3 a{color:inherit;text-decoration:none}
+.card-live h3 a::after{content:"";position:absolute;inset:0;border-radius:10px;z-index:1}
+.card-live h3 a:focus-visible{outline:none}
+.card-live:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.25)}
+.card .slot.shot{background-image:none}
+.card .live-badge{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:7px;padding:5px 9px;border-radius:6px;background:var(--success-bg);border:1px solid var(--success-border);color:var(--success-text);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.card .live-badge i{width:7px;height:7px;border-radius:50%;background:var(--success)}
+.card .actions{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:4px}
+.card .actions a{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:6px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-strong);color:var(--ink);background:var(--surface);transition:border-color .2s ease,color .2s ease,background-color .2s ease}
+.card .actions a:hover{border-color:var(--accent);color:var(--accent)}
+.card .actions a.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.card .actions a.primary:hover{background:var(--accent-hover);color:#fff}
+.card .wake{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);position:relative;z-index:2}
 
 /* ---------- Case studies ---------- */
 .cases{background:var(--ink);color:var(--bg)}
@@ -403,20 +418,28 @@ h1 .dot{color:var(--accent)}
         <span class="more">Read case study B →</span>
       </a>
       <!-- Row 2: live dashboards -->
-      <a class="card" href="https://project-command-center-mg.streamlit.app" target="_blank" rel="noopener">
-        <div class="slot" role="img" aria-label="Project Command Center overview page with KPI tiles and project table (image coming soon)"><span class="cap">Overview · 16:10</span></div>
+      <article class="card card-live">
+        <div class="slot shot"><img src="assets/card-project-command-center.jpg" alt="Project Command Center overview page: KPI tiles, health by department, and what changed this week" loading="lazy" width="1200" height="750"><span class="live-badge"><i aria-hidden="true"></i>Live app</span></div>
         <p class="meta">PMO · Program Manager · IT BA · Rev Ops</p>
-        <h3>Project Command Center</h3>
+        <h3><a href="https://project-command-center-mg.streamlit.app" target="_blank" rel="noopener">Project Command Center</a></h3>
         <p>Portfolio-management dashboard that tracks projects like a CRM: KPIs, budget vs actual, priority scoring with a funding-line slider, and PM capacity with burnout flags. Streamlit, pandas, and Plotly, with a validation layer that catches all 189 planted data defects.</p>
-        <span class="more">Open the live dashboard →</span>
-      </a>
-      <a class="card" href="https://tower-activation-readiness.streamlit.app" target="_blank" rel="noopener">
-        <div class="slot" role="img" aria-label="Tower Activation Readiness dashboard with readiness by floor and phase funnel (image coming soon)"><span class="cap">Readiness by floor · 16:10</span></div>
+        <div class="actions">
+          <a class="primary" href="https://project-command-center-mg.streamlit.app" target="_blank" rel="noopener">Try the live app ↗</a>
+          <a href="https://github.com/magalygreyes/Portfolio/tree/main/projects/project-command-center" target="_blank" rel="noopener">Case study &amp; code ↗</a>
+        </div>
+        <p class="wake">Free hosting. If it's asleep, it wakes in about 30 seconds.</p>
+      </article>
+      <article class="card card-live">
+        <div class="slot shot"><img src="assets/card-tower-activation.jpg" alt="Tower Activation Readiness dashboard: readiness KPIs and checklist readiness by floor" loading="lazy" width="1200" height="750"><span class="live-badge"><i aria-hidden="true"></i>Live app</span></div>
         <p class="meta">Systems Analyst · Data Analyst · Facilities IT</p>
-        <h3>Tower Activation Readiness Dashboard</h3>
+        <h3><a href="https://tower-activation-readiness.streamlit.app" target="_blank" rel="noopener">Tower Activation Readiness Dashboard</a></h3>
         <p>Cutover readiness dashboard for a building activation: assets by floor and unit, phase funnel, blockers, and days-to-cutover flags. Streamlit and pandas with CSV validation up front: 524 rows in, 437 clean, 87 rejected.</p>
-        <span class="more">Open the live dashboard →</span>
-      </a>
+        <div class="actions">
+          <a class="primary" href="https://tower-activation-readiness.streamlit.app" target="_blank" rel="noopener">Try the live app ↗</a>
+          <a href="https://github.com/magalygreyes/Portfolio/tree/main/projects/tower-activation-readiness" target="_blank" rel="noopener">Case study &amp; code ↗</a>
+        </div>
+        <p class="wake">Free hosting. If it's asleep, it wakes in about 30 seconds.</p>
+      </article>
       <!-- Row 3: add the AI documentation agent card here (two cards per row) -->
     </div>
   </div>
