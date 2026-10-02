@@ -2,7 +2,7 @@
 
 My portfolio site and the projects behind it. The site is a single static page, no build step, no framework. Each project lives in its own folder under `projects/` with its own README, docs, and code.
 
-Site: https://magalygonzalezreyes.netlify.app
+Site: https://magalygreyes-portfolio.netlify.app
 
 ## Projects
 

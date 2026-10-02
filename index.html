@@ -191,6 +191,10 @@ h1 .dot{color:var(--accent)}
 .card .actions a:hover{border-color:var(--accent);color:var(--accent)}
 .card .actions a.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .card .actions a.primary:hover{background:var(--accent-hover);color:#fff}
+.card.wide{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.card.wide .wide-text{display:flex;flex-direction:column;gap:12px}
+@media (max-width:900px){.card.wide{grid-template-columns:1fr;gap:12px}}
+.acc-media .slot.shot{background-image:none}
 .card .wake{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);position:relative;z-index:2}
 
 /* ---------- Case studies ---------- */
@@ -402,22 +406,7 @@ h1 .dot{color:var(--accent)}
       <p class="range">2018 — 2026</p>
     </div>
     <div class="cards">
-      <!-- Row 1: case studies -->
-      <a class="card" href="#case-studies">
-        <div class="slot" role="img" aria-label="Architecture map of the internal AI documentation agent (image coming soon)"><span class="cap">Agent architecture · 16:10</span></div>
-        <p class="meta">Business Analyst · Enterprise IT</p>
-        <h3>Internal AI agent for workflow documentation</h3>
-        <p>Automated recurring reporting and workflow docs, cutting turnaround roughly 70% — from 6–8 hours to about 2.</p>
-        <span class="more">Read case study A →</span>
-      </a>
-      <a class="card" href="#case-studies">
-        <div class="slot" role="img" aria-label="Power Automate flow diagram for approvals, notifications, and task routing (image coming soon)"><span class="cap">Flow diagram · 16:10</span></div>
-        <p class="meta">Kaiser Permanente · Business Analyst</p>
-        <h3>Standardizing manual operational workflows</h3>
-        <p>Approval logic, status notifications, and task routing automated across departments: $30K–$80K saved annually.</p>
-        <span class="more">Read case study B →</span>
-      </a>
-      <!-- Row 2: live dashboards -->
+      <!-- Row 1: live apps (playable) -->
       <article class="card card-live">
         <div class="slot shot"><img src="assets/card-project-command-center.jpg" alt="Project Command Center overview page: KPI tiles, health by department, and what changed this week" loading="lazy" width="1200" height="750"><span class="live-badge"><i aria-hidden="true"></i>Live app</span></div>
         <p class="meta">PMO · Program Manager · IT BA · Rev Ops</p>
@@ -440,7 +429,31 @@ h1 .dot{color:var(--accent)}
         </div>
         <p class="wake">Free hosting. If it's asleep, it wakes in about 30 seconds.</p>
       </article>
-      <!-- Row 3: add the AI documentation agent card here (two cards per row) -->
+      <!-- Row 2: case studies -->
+      <a class="card" href="#case-a" data-case="a">
+        <div class="slot shot"><img src="assets/cs-a-card.svg" alt="Architecture of the documentation agent: source data, Power Automate trigger, AI draft, BA review, publish to SharePoint" loading="lazy" width="1600" height="1000"></div>
+        <p class="meta">Business Analyst · Enterprise IT</p>
+        <h3>Internal AI agent for workflow documentation</h3>
+        <p>Automated recurring reporting and workflow docs, cutting turnaround roughly 70% — from 6–8 hours to about 2.</p>
+        <span class="more">Read case study A →</span>
+      </a>
+      <a class="card" href="#case-b" data-case="b">
+        <div class="slot shot"><img src="assets/cs-b-card.svg" alt="Standardized request workflow: Microsoft Forms intake, approval logic, status updates, task routing, SharePoint list, self-service dashboard" loading="lazy" width="1600" height="1000"></div>
+        <p class="meta">Kaiser Permanente · Business Analyst</p>
+        <h3>Standardizing manual operational workflows</h3>
+        <p>Approval logic, status notifications, and task routing automated across departments: $30K–$80K saved annually.</p>
+        <span class="more">Read case study B →</span>
+      </a>
+      <!-- Row 3: case study C (full width) -->
+      <a class="card wide" href="#case-c" data-case="c">
+        <div class="slot shot"><img src="assets/cs-c-card.svg" alt="Rollout plan from Workfront to Asana: map, PMO pilot, train, roll out, support with weekly office hours" loading="lazy" width="1600" height="1000"></div>
+        <div class="wide-text">
+          <p class="meta">Business Analyst · Enterprise IT</p>
+          <h3>Migrating project management from Workfront to Asana</h3>
+          <p>Planned and mapped the move, piloted with the PMO first, then trained every team with manuals, short videos, and weekly office hours.</p>
+          <span class="more">Read case study C →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -453,7 +466,7 @@ h1 .dot{color:var(--accent)}
 
     <div class="acc">
       <!-- A -->
-      <article class="acc-item">
+      <article class="acc-item" id="case-a">
         <h3 style="margin:0">
         <button class="acc-btn" id="acc-a-btn" aria-expanded="true" aria-controls="acc-a-panel">
           <span class="lhs"><span class="letter" aria-hidden="true">A</span><span class="ttl" style="font-family:var(--display);font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2">Cutting documentation turnaround 70% with an internal AI agent</span></span>
@@ -471,14 +484,14 @@ h1 .dot{color:var(--accent)}
             </div>
           </div>
           <div class="acc-media">
-            <div class="slot r43" role="img" aria-label="Before and after comparison: manually written workflow document next to the agent-generated version (image coming soon)"><span class="cap">Before / after · 4:3</span></div>
-            <div class="slot r169" role="img" aria-label="Power Automate flow connecting SharePoint to the documentation agent (image coming soon)"><span class="cap">Power Automate flow · 16:9</span></div>
+            <div class="slot r43 shot"><img src="assets/cs-a-before-after.svg" alt="Before and after one reporting cycle: four manual steps taking 6 to 8 hours versus agent draft plus review taking about 2 hours" loading="lazy" width="1200" height="900"></div>
+            <div class="slot r169 shot"><img src="assets/cs-a-flow.svg" alt="Power Automate flow: weekly trigger, get SharePoint items, AI drafts report, create file, start approval, post to Teams when approved" loading="lazy" width="1600" height="900"></div>
           </div>
         </div>
       </article>
 
       <!-- B -->
-      <article class="acc-item">
+      <article class="acc-item" id="case-b">
         <h3 style="margin:0">
         <button class="acc-btn" id="acc-b-btn" aria-expanded="false" aria-controls="acc-b-panel">
           <span class="lhs"><span class="letter" aria-hidden="true">B</span><span class="ttl" style="font-family:var(--display);font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2">$30K–$80K in annual savings from workflow standardization</span></span>
@@ -496,8 +509,33 @@ h1 .dot{color:var(--accent)}
             </div>
           </div>
           <div class="acc-media">
-            <div class="slot r43" role="img" aria-label="Future-state process map for standardized approvals and routing (image coming soon)"><span class="cap">Future-state process map · 4:3</span></div>
-            <div class="slot r169" role="img" aria-label="Self-service operations dashboard built in SharePoint (image coming soon)"><span class="cap">Self-service dashboard · 16:9</span></div>
+            <div class="slot r43 shot"><img src="assets/cs-b-process.svg" alt="Future-state swimlane map: requester submits a form, system logs and applies rules, approver decides when needed, owning team works and closes, requester notified at each step" loading="lazy" width="1200" height="900"></div>
+            <div class="slot r169 shot"><img src="assets/cs-b-dashboard.svg" alt="Illustrative self-service dashboard with open requests, approvals waiting, days to close, and on-time rate" loading="lazy" width="1600" height="900"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- C -->
+      <article class="acc-item" id="case-c">
+        <h3 style="margin:0">
+        <button class="acc-btn" id="acc-c-btn" aria-expanded="false" aria-controls="acc-c-panel">
+          <span class="lhs"><span class="letter" aria-hidden="true">C</span><span class="ttl" style="font-family:var(--display);font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2">Moving project management to Asana, pilot first</span></span>
+          <span class="state" data-state>Read</span>
+        </button>
+        </h3>
+        <div class="acc-panel" id="acc-c-panel" role="region" aria-labelledby="acc-c-btn" hidden>
+          <div class="acc-text">
+            <div class="blk"><span class="lbl">Context</span><p>As a business analyst on an enterprise IT team, I helped move project tracking from Workfront to Asana in early 2026. Teams relied on it every day, so the switch could not stall active work.</p></div>
+            <div class="blk"><span class="lbl">My role</span><p>Planning and mapping the migration, then owning training and adoption. I was the liaison between the PMO, the business teams, and the people running the platform.</p></div>
+            <div class="blk"><span class="lbl">Approach</span><p>Mapped current workflows, fields, and reports to their Asana equivalents. Piloted with the PMO first and used what the pilot surfaced before rolling out to everyone else. Wrote training manuals with visuals, recorded short how-to videos, and held optional Friday office hours every week for three to four months after launch.</p></div>
+            <div class="metrics">
+              <div class="tile"><b>PMO first</b><span>Pilot before rollout</span></div>
+              <div class="tile"><b>3–4 mo</b><span>Weekly office hours</span></div>
+            </div>
+          </div>
+          <div class="acc-media">
+            <div class="slot r43 shot"><img src="assets/cs-c-mapping.svg" alt="Concept-level mapping from Workfront to Asana: portfolios, projects, tasks, custom forms to custom fields, approvals, reports to dashboards" loading="lazy" width="1200" height="900"></div>
+            <div class="slot r169 shot"><img src="assets/cs-c-training.svg" alt="Training and adoption: manuals with visuals, short how-to videos, Friday office hours, and the path from PMO pilot to all teams live" loading="lazy" width="1600" height="900"></div>
           </div>
         </div>
       </article>
@@ -626,6 +664,14 @@ h1 .dot{color:var(--accent)}
   }
 
   // 2. Case-study accordion (independent items)
+  function openCase(id){
+    var item = document.getElementById(id); if (!item) return;
+    var btn = item.querySelector('.acc-btn'); if (!btn) return;
+    if (btn.getAttribute('aria-expanded') !== 'true') btn.click();
+  }
+  document.querySelectorAll('a[data-case]').forEach(function(a){
+    a.addEventListener('click', function(){ openCase('case-' + a.dataset.case); });
+  });
   document.querySelectorAll('.acc-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var open = btn.getAttribute('aria-expanded') === 'true';
@@ -635,6 +681,8 @@ h1 .dot{color:var(--accent)}
       btn.querySelector('[data-state]').textContent = open ? 'Read' : 'Close';
     });
   });
+  // 3. Deep link straight to a case study
+  if (/^#case-[a-z]$/.test(location.hash)) openCase(location.hash.slice(1));
 })();
 </script>
 </body>

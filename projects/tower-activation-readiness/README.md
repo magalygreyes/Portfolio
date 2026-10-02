@@ -1,5 +1,7 @@
 # Tower Activation Readiness Dashboard
 
+[**View the live dashboard →**](https://tower-activation-readiness.streamlit.app) · [Portfolio site](https://magalygreyes-portfolio.netlify.app)
+
 A Streamlit + pandas dashboard that tracks how ready a new hospital tower is to open:
 room-by-room readiness, blockers, overdue work, and aging items across facilities,
 biomed, IT, nursing, pharmacy, security, EVS, and supply chain.
